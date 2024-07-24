@@ -4,25 +4,25 @@ int main()
 {
     int GHandle ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() == -1 ) return -1 ;
 
-    // ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ã®ãƒ­ãƒ¼ãƒ‰
+    // ƒOƒ‰ƒtƒBƒbƒN‚Ìƒ[ƒh
     GHandle = LoadGraph( "testDiv.bmp" ) ;
 
-    // ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ä¸­ã®(32,32)-(64,64)ã®éƒ¨åˆ†ã‚’ç”»é¢åº§æ¨™(100,100)ã«
-    // é€éŽè‰²å‡¦ç†ã‚ã‚Šã€åè»¢å‡¦ç†ãªã—ã§æç”»
+    // ƒOƒ‰ƒtƒBƒbƒN’†‚Ì(32,32)-(64,64)‚Ì•”•ª‚ð‰æ–ÊÀ•W(100,100)‚É
+    // “§‰ßFˆ—‚ ‚èA”½“]ˆ—‚È‚µ‚Å•`‰æ
     DrawRectGraph( 100, 100, 32, 32, 32, 32, GHandle, TRUE, FALSE ) ;
 
-    // èª­ã¿è¾¼ã‚“ã ç”»åƒã®ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ãƒãƒ³ãƒ‰ãƒ«ã‚’å‰Šé™¤
+    // “Ç‚Ýž‚ñ‚¾‰æ‘œ‚ÌƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ðíœ
     DeleteGraph( GHandle ) ;
 
-    // ã‚­ãƒ¼ã®å…¥åŠ›å¾…ã¡
+    // ƒL[‚Ì“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠŽg—p‚ÌI—¹ˆ—
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

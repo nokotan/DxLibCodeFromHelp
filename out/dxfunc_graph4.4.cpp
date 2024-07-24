@@ -4,42 +4,42 @@ int main()
 {
     int MaskHandle ;
 
-    if( DxLib_Init() == -1 )    // ＤＸライブラリ初期化処理
+    if( DxLib_Init() == -1 )    // �c�w���C�u��������������
     {
-         return -1;    // エラーが起きたら直ちに終了
+         return -1;    // �G���[���N�����璼���ɏI��
     }
 
-    // マスク画面を作成します
+    // �}�X�N��ʂ��쐬���܂�
     CreateMaskScreen() ;
 
-    // マスクデータをロードします
+    // �}�X�N�f�[�^�����[�h���܂�
     MaskHandle = LoadMask( "testMask.bmp" ) ;
 
-    // (100,200)-(400,400)の領域にマスクをタイル上に並べて描画します
+    // (100,200)-(400,400)�̗̈�Ƀ}�X�N���^�C����ɕ��ׂĕ`�悵�܂�
     DrawFillMask( 100 , 200 , 400 , 400 , MaskHandle ) ;
 
-    // 画面いっぱいに緑の四角を描画
+    // ��ʂ����ς��ɗ΂̎l�p��`��
     DrawBox( 0 , 0 , 640 , 480 , GetColor( 0 , 255 , 0 ) , TRUE ) ;
 
-    // キー入力待ち
+    // �L�[���͑҂�
     WaitKey() ;
 
-    // マスク画面を白で覆い尽くします
+    // �}�X�N��ʂ𔒂ŕ����s�����܂�
     FillMaskScreen( 1 ) ;
 
-    // もう一度画面いっぱいに緑の四角を描きます
+    // ������x��ʂ����ς��ɗ΂̎l�p��`���܂�
     DrawBox( 0 , 0 , 640 , 480 , GetColor( 0 , 255 , 0 ) , TRUE ) ;
 
-    // キー入力待ち
+    // �L�[���͑҂�
     WaitKey() ;
 
-    // マスクを削除します
+    // �}�X�N���폜���܂�
     DeleteMask( MaskHandle ) ;
 
-    // マスク画面を削除します
+    // �}�X�N��ʂ��폜���܂�
     DeleteMaskScreen() ;
 
-    DxLib_End() ;        // ＤＸライブラリ使用の終了処理
+    DxLib_End() ;        // �c�w���C�u�����g�p�̏I������
 
-    return 0 ;        // ソフトの終了
+    return 0 ;        // �\�t�g�̏I��
 }

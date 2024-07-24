@@ -2,28 +2,28 @@
 
 int main()
 {
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ï¼ºãƒãƒƒãƒ•ã‚¡ã‚’æœ‰åŠ¹ã«ã™ã‚‹
+    // ‚yƒoƒbƒtƒ@‚ð—LŒø‚É‚·‚é
     SetUseZBuffer3D( TRUE ) ;
 
-    // ï¼ºãƒãƒƒãƒ•ã‚¡ã¸ã®æ›¸ãè¾¼ã¿ã‚’æœ‰åŠ¹ã«ã™ã‚‹
+    // ‚yƒoƒbƒtƒ@‚Ö‚Ì‘‚«ž‚Ý‚ð—LŒø‚É‚·‚é
     SetWriteZBuffer3D( TRUE ) ;
 
-    // ï¼“ï¼¤ç©ºé–“ä¸Šã«å††éŒã‚’æç”»ã™ã‚‹
+    // ‚R‚c‹óŠÔã‚É‰~‚ð•`‰æ‚·‚é
     DrawCone3D( VGet( 320.0f, 400.0f, 0.0f ), VGet( 320.0f, 100.0f, 0.0f ), 80.0f, 16, GetColor( 0,0,255 ), GetColor( 255,255,255 ), TRUE ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡ã‚’ã™ã‚‹
+    // ƒL[“ü—Í‘Ò‚¿‚ð‚·‚é
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãŽn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

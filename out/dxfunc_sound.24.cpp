@@ -12,51 +12,51 @@ int main()
 	VECTOR ListenerDir ;
 	float ListenerAngle ;
 
-	// ï¼‘ãƒ¡ãƒ¼ãƒˆãƒ«ã«ç›¸å½“ã™ã‚‹å€¤ã‚’è¨­å®šã™ã‚‹
+	// ‚Pƒ[ƒgƒ‹‚É‘Š“–‚·‚é’l‚ğİ’è‚·‚é
 	Set3DSoundOneMetre( 16.0f ) ;
 
-	// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
 	if( DxLib_Init() < 0 ) return -1;
 
-	// æç”»å…ˆã‚’è£ç”»é¢ã«ã™ã‚‹
+	// •`‰ææ‚ğ— ‰æ–Ê‚É‚·‚é
 	SetDrawScreen( DX_SCREEN_BACK );
 
-	// ãƒªã‚¹ãƒŠãƒ¼ã®ä½ç½®ã‚’åˆæœŸåŒ–
+	// ƒŠƒXƒi[‚ÌˆÊ’u‚ğ‰Šú‰»
 	ListenerPos = VGet( 320.0f, 0.0f, 40.0f ) ;
 
-	// ãƒªã‚¹ãƒŠãƒ¼ã®å‘ãã‚’åˆæœŸåŒ–
+	// ƒŠƒXƒi[‚ÌŒü‚«‚ğ‰Šú‰»
 	ListenerAngle = DX_PI_F / 2.0f ;
 	ListenerDir.x = cos( ListenerAngle ) ;
 	ListenerDir.y = 0.0f ;
 	ListenerDir.z = sin( ListenerAngle ) ;
 
-	// ãƒªã‚¹ãƒŠãƒ¼ã®ä½ç½®ã¨å‘ãã‚’è¨­å®š
+	// ƒŠƒXƒi[‚ÌˆÊ’u‚ÆŒü‚«‚ğİ’è
 	Set3DSoundListenerPosAndFrontPos_UpVecY( ListenerPos, VAdd( ListenerPos, ListenerDir ) ) ;
 
-	// éŸ³ã‚’ï¼“ï¼¤ã‚µã‚¦ãƒ³ãƒ‰ã¨ã—ã¦èª­ã¿è¾¼ã‚€
+	// ‰¹‚ğ‚R‚cƒTƒEƒ“ƒh‚Æ‚µ‚Ä“Ç‚İ‚Ş
 	SetCreate3DSoundFlag( TRUE ) ;
 	SoundHandle = LoadSoundMem( "Test.wav" ) ;
 	SetCreate3DSoundFlag( FALSE ) ;
 
-	// éŸ³ãŒèã“ãˆã‚‹è·é›¢ã‚’è¨­å®šã™ã‚‹
+	// ‰¹‚ª•·‚±‚¦‚é‹——£‚ğİ’è‚·‚é
 	Set3DRadiusSoundMem( 256.0f, SoundHandle ) ;
 
-	// éŸ³ã®å†ç”Ÿä½ç½®ã‚’åˆæœŸåŒ–
+	// ‰¹‚ÌÄ¶ˆÊ’u‚ğ‰Šú‰»
 	EmitterPos = VGet( 320.0f, 0.0f, 240.0f ) ;
 
-	// éŸ³ã®å†ç”Ÿä½ç½®ã‚’è¨­å®š
+	// ‰¹‚ÌÄ¶ˆÊ’u‚ğİ’è
 	Set3DPositionSoundMem( EmitterPos, SoundHandle ) ;
 
-	// éŸ³ã®å†ç”Ÿã‚’é–‹å§‹
+	// ‰¹‚ÌÄ¶‚ğŠJn
 	PlaySoundMem( SoundHandle, DX_PLAYTYPE_LOOP ) ;
 
-	// ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒ—
+	// ƒƒCƒ“ƒ‹[ƒv
 	while( ProcessMessage() == 0 )
 	{
-		// ç”»é¢ã®ã‚¯ãƒªã‚¢
+		// ‰æ–Ê‚ÌƒNƒŠƒA
 		ClearDrawScreen();
 
-		// æ–¹å‘ã‚­ãƒ¼ã§ãƒªã‚¹ãƒŠãƒ¼ã®ä½ç½®ã‚’ç§»å‹•
+		// •ûŒüƒL[‚ÅƒŠƒXƒi[‚ÌˆÊ’u‚ğˆÚ“®
 		if( CheckHitKey( KEY_INPUT_LEFT ) == 1 )
 		{
 			ListenerPos.x -= MOVE_SPEED ;
@@ -77,7 +77,7 @@ int main()
 			ListenerPos.z -= MOVE_SPEED ;
 		}
 
-		// ï¼ºï¼¸ã‚­ãƒ¼ã§å‘ãã‚’å¤‰æ›´
+		// ‚y‚wƒL[‚ÅŒü‚«‚ğ•ÏX
 		if( CheckHitKey( KEY_INPUT_Z ) == 1 )
 		{
 			ListenerAngle += ANGLE_SPEED ;
@@ -96,19 +96,19 @@ int main()
 			}
 		}
 
-		// ãƒªã‚¹ãƒŠãƒ¼ã®ä½ç½®ã¨å‘ãã‚’è¨­å®š
+		// ƒŠƒXƒi[‚ÌˆÊ’u‚ÆŒü‚«‚ğİ’è
 		ListenerDir.x = cos( ListenerAngle ) ;
 		ListenerDir.y = 0.0f ;
 		ListenerDir.z = sin( ListenerAngle ) ;
 		Set3DSoundListenerPosAndFrontPos_UpVecY( ListenerPos, VAdd( ListenerPos, ListenerDir ) ) ;
 
-		// ãƒªã‚¹ãƒŠãƒ¼ã®ä½ç½®ã‚’æç”»
+		// ƒŠƒXƒi[‚ÌˆÊ’u‚ğ•`‰æ
 		DrawBox(
 			( int )( ListenerPos.x - 8 ), ( int )( 480.0f - ( ListenerPos.z + 8 ) ),
 			( int )( ListenerPos.x + 8 ), ( int )( 480.0f - ( ListenerPos.z - 8 ) ),
 			GetColor( 255,0,0 ),   TRUE ) ; 
 
-		// ãƒªã‚¹ãƒŠãƒ¼ã®å‘ãã‚’æç”»
+		// ƒŠƒXƒi[‚ÌŒü‚«‚ğ•`‰æ
 		DrawLine(
 			( int )           ListenerPos.x,
 			( int )( 480.0f - ListenerPos.z ),
@@ -116,22 +116,22 @@ int main()
 			( int )( 480.0f - ( ListenerPos.z + ListenerDir.z * 40.0f ) ),
 			GetColor( 255,255,255 ) ) ; 
 
-		// éŸ³ã®å†ç”Ÿä½ç½®ã‚’æç”»
+		// ‰¹‚ÌÄ¶ˆÊ’u‚ğ•`‰æ
 		DrawBox(
 			( int )( EmitterPos.x - 8 ), ( int )( 480.0f - ( EmitterPos.z + 8 ) ),
 			( int )( EmitterPos.x + 8 ), ( int )( 480.0f - ( EmitterPos.z - 8 ) ),
 			GetColor( 255,0,255 ), TRUE ) ; 
 
-		// è£ç”»é¢ã®å†…å®¹ã‚’è¡¨ç”»é¢ã«åæ˜ 
+		// — ‰æ–Ê‚Ì“à—e‚ğ•\‰æ–Ê‚É”½‰f
 		ScreenFlip() ;
 	}
 
-	// ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+	// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚Ìíœ
 	DeleteSoundMem( SoundHandle ) ;
 
-	// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
 	DxLib_End();
 
-	// ã‚½ãƒ•ãƒˆã®çµ‚äº†
+	// ƒ\ƒtƒg‚ÌI—¹
 	return 0;
 }

@@ -4,20 +4,20 @@ int main()
 {
     int ModelHandle ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+    // ƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ
     ModelHandle = MV1LoadModel( "SimpleModel.mqo" ) ;
 
-    // ã‚«ãƒ¡ãƒ©ã‚’æ­£å°„å½±ã«å¤‰æ›´
+    // ƒJƒƒ‰‚ğ³Ë‰e‚É•ÏX
     SetupCamera_Ortho( 2000.0f ) ;
 
-    // ã‚«ãƒ¡ãƒ©ã®å‰æ–¹ã«å¥¥è¡Œãåº§æ¨™ã®é•ã†ãƒ¢ãƒ‡ãƒ«ã‚’ï¼“å€‹æç”»
+    // ƒJƒƒ‰‚Ì‘O•û‚É‰œs‚«À•W‚Ìˆá‚¤ƒ‚ƒfƒ‹‚ğ‚RŒÂ•`‰æ
     MV1SetPosition( ModelHandle, VGet( -700.0f + 320.0f, 240.0f, 0.0f ) ) ;
     MV1DrawModel( ModelHandle ) ;
 
@@ -27,15 +27,15 @@ int main()
     MV1SetPosition( ModelHandle, VGet(  700.0f + 320.0f, 240.0f, 1000.0f ) ) ;
     MV1DrawModel( ModelHandle ) ;
 
-    // ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚Ìíœ
     MV1DeleteModel( ModelHandle ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

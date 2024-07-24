@@ -4,41 +4,41 @@ int main()
 {
     int ModelHandle, SubModelHandle ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+    // ‚R‚cƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ
     ModelHandle = MV1LoadModel( "DxChara.x" ) ;
 
-    // ModelHandle ã¨åŒã˜ãƒ¢ãƒ‡ãƒ«ã‚’ä½¿ç”¨ã™ã‚‹ãƒ¢ãƒ‡ãƒ«ã®ä½œæˆ
+    // ModelHandle ‚Æ“¯‚¶ƒ‚ƒfƒ‹‚ğg—p‚·‚éƒ‚ƒfƒ‹‚Ìì¬
     SubModelHandle = MV1DuplicateModel( ModelHandle ) ;
 
-    // ç”»é¢ã«æ˜ ã‚‹ä½ç½®ã«ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã‚’ç§»å‹•
+    // ‰æ–Ê‚É‰f‚éˆÊ’u‚É‚R‚cƒ‚ƒfƒ‹‚ğˆÚ“®
     MV1SetPosition( ModelHandle, VGet( 320.0f, 0.0f, 600.0f ) ) ;
 
-    // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®æ‹¡å¤§ç‡ã‚’ï¼ï¼ï¼•å€ã«ã™ã‚‹
+    // ‚R‚cƒ‚ƒfƒ‹‚ÌŠg‘å—¦‚ğ‚OD‚T”{‚É‚·‚é
     MV1SetScale( ModelHandle, VGet( 0.5f, 0.5f, 0.5f ) ) ;
 
-    // ModelHandle ã«è¨­å®šã—ãŸåº§æ¨™å¤‰æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®çµæœã®è¡Œåˆ—ã‚’ SubModelHandle ã®åº§æ¨™å¤‰æ›è¡Œåˆ—ã¨ã—ã¦è¨­å®šã™ã‚‹
+    // ModelHandle ‚Éİ’è‚µ‚½À•W•ÏŠ·ƒpƒ‰ƒ[ƒ^‚ÌŒ‹‰Ê‚Ìs—ñ‚ğ SubModelHandle ‚ÌÀ•W•ÏŠ·s—ñ‚Æ‚µ‚Äİ’è‚·‚é
     MV1SetMatrix( SubModelHandle, MV1GetMatrix( ModelHandle ) ) ;
 
-    // SubModelHandle ã®æ–¹ã®ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã‚’æç”»
+    // SubModelHandle ‚Ì•û‚Ì‚R‚cƒ‚ƒfƒ‹‚ğ•`‰æ
     MV1DrawModel( SubModelHandle ) ;
 
-    // ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚Ìíœ
     MV1DeleteModel( ModelHandle ) ;
     MV1DeleteModel( SubModelHandle ) ;
 
-    // ã‚­ãƒ¼ã®å…¥åŠ›å¾…ã¡
+    // ƒL[‚Ì“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

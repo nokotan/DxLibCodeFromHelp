@@ -6,30 +6,30 @@ int main()
     int InputX , InputY ;
     char String[ 64 ] ;
 
-    if( DxLib_Init() == -1 )    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
+    if( DxLib_Init() == -1 )    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
     {
-         return -1;    // ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ç›´ã¡ã«çµ‚äº†
+         return -1;    // ƒGƒ‰[‚ª‹N‚«‚½‚ç’¼‚¿‚ÉI—¹
     }
 
-    // æç”»å…ˆç”»é¢ã‚’è£ç”»é¢ã«ã™ã‚‹
+    // •`‰ææ‰æ–Ê‚ð— ‰æ–Ê‚É‚·‚é
     SetDrawScreen( DX_SCREEN_BACK ) ;
 
-    // ç™½è‰²ã®å€¤ã‚’å–å¾—
+    // ”’F‚Ì’l‚ðŽæ“¾
     Cr = GetColor( 255 , 255 , 255 ) ;
 
-    // ï¼¥ï¼³ï¼£ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã‚‹ã¾ã§ãƒ«ãƒ¼ãƒ—
+    // ‚d‚r‚bƒL[‚ª‰Ÿ‚³‚ê‚é‚Ü‚Åƒ‹[ƒv
     while( ( GetJoypadInputState( DX_INPUT_KEY_PAD1 ) & PAD_INPUT_9 ) == 0 )
     {
-        // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å‡¦ç†
+        // ƒƒbƒZ[ƒWˆ—
         if( ProcessMessage() == -1 )
         {
-             break ;    // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ãƒ«ãƒ¼ãƒ—ã‚’æŠœã‘ã‚‹
+             break ;    // ƒGƒ‰[‚ª”­¶‚µ‚½‚çƒ‹[ƒv‚ð”²‚¯‚é
         }
 
-        // ãƒ‘ãƒƒãƒ‰ï¼‘ã®å…¥åŠ›ã‚’å–å¾—
+        // ƒpƒbƒh‚P‚Ì“ü—Í‚ðŽæ“¾
         GetJoypadAnalogInput( &InputX , &InputY , DX_INPUT_KEY_PAD1 ) ;
 
-        // ç”»é¢ã«å…¥åŠ›çŠ¶æ…‹ã‚’è¡¨ç¤ºã™ã‚‹
+        // ‰æ–Ê‚É“ü—Íó‘Ô‚ð•\Ž¦‚·‚é
         {
             ClearDrawScreen() ;
 
@@ -40,11 +40,11 @@ int main()
             DrawString( 0 , 16 , String , Cr ) ;
         }
 
-        // è£ç”»é¢ã®å†…å®¹ã‚’è¡¨ç”»é¢ã«åæ˜ ã•ã›ã‚‹
+        // — ‰æ–Ê‚Ì“à—e‚ð•\‰æ–Ê‚É”½‰f‚³‚¹‚é
         ScreenFlip() ;
     }
 
-    DxLib_End() ;        // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+    DxLib_End() ;        // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠŽg—p‚ÌI—¹ˆ—
 
-    return 0 ;        // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    return 0 ;        // ƒ\ƒtƒg‚ÌI—¹
 }

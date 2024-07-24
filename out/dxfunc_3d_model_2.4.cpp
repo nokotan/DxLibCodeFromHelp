@@ -6,29 +6,29 @@ int main()
     VECTOR Position ;
     MATRIX Matrix ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+    // ‚R‚cƒ‚ƒfƒ‹‚Ì“Ç‚Ýž‚Ý
     ModelHandle = MV1LoadModel( "DxChara.x" ) ;
 
-    // ãƒ•ãƒ¬ãƒ¼ãƒ ã®æ•°ã‚’å–å¾—ã™ã‚‹
+    // ƒtƒŒ[ƒ€‚Ì”‚ðŽæ“¾‚·‚é
     FrameNum = MV1GetFrameNum( ModelHandle ) ;
 
-    // ãƒ•ãƒ¬ãƒ¼ãƒ ã®æ•°ã ã‘ãƒ«ãƒ¼ãƒ—
+    // ƒtƒŒ[ƒ€‚Ì”‚¾‚¯ƒ‹[ƒv
     for( i = 0 ; i < FrameNum ; i ++ )
     {
-        // ç”»é¢ã‚’ã‚¯ãƒªã‚¢
+        // ‰æ–Ê‚ðƒNƒŠƒA
         ClearDrawScreen() ;
 
-        // ãƒ•ãƒ¬ãƒ¼ãƒ åã®æç”»
+        // ƒtƒŒ[ƒ€–¼‚Ì•`‰æ
         DrawFormatString( 0, 0, GetColor( 255,255,255 ),      "Name         %s", MV1GetFrameName( ModelHandle, i ) ) ;
 
-        // è¦ªãƒ•ãƒ¬ãƒ¼ãƒ åã®æç”»
+        // eƒtƒŒ[ƒ€–¼‚Ì•`‰æ
         Parent = MV1GetFrameParent( ModelHandle, i ) ;
         if( Parent == -2 )
         {
@@ -39,49 +39,49 @@ int main()
             DrawFormatString( 0, 16, GetColor( 255,255,255 ), "Parent Name  %s", MV1GetFrameName( ModelHandle, Parent ) ) ;
         }
 
-        // å­ãƒ•ãƒ¬ãƒ¼ãƒ ã®æ•°ã‚’æç”»
+        // ŽqƒtƒŒ[ƒ€‚Ì”‚ð•`‰æ
         DrawFormatString( 0, 32, GetColor( 255,255,255 ),     "Child Num    %d", MV1GetFrameChildNum( ModelHandle, i ) ) ;
 
-        // ãƒ•ãƒ¬ãƒ¼ãƒ ã®ãƒ¯ãƒ¼ãƒ«ãƒ‰åº§æ¨™ã®æç”»
+        // ƒtƒŒ[ƒ€‚Ìƒ[ƒ‹ƒhÀ•W‚Ì•`‰æ
         Position = MV1GetFramePosition( ModelHandle, i ) ;
         DrawFormatString( 0, 48, GetColor( 255,255,255 ),     "Position     x:%f y:%f z:%f", Position.x, Position.y, Position.z ) ;
 
-        // å¤‰æ›è¡Œåˆ—ã‚’æç”»ã™ã‚‹
+        // •ÏŠ·s—ñ‚ð•`‰æ‚·‚é
         Matrix = MV1GetFrameLocalMatrix( ModelHandle, i ) ;
         DrawFormatString( 0, 64,  GetColor( 255,255,255 ),    "   Matrix    %f %f %f %f", Matrix.m[ 0 ][ 0 ], Matrix.m[ 0 ][ 1 ], Matrix.m[ 0 ][ 2 ], Matrix.m[ 0 ][ 3 ] ) ;
         DrawFormatString( 0, 80,  GetColor( 255,255,255 ),    "             %f %f %f %f", Matrix.m[ 1 ][ 0 ], Matrix.m[ 1 ][ 1 ], Matrix.m[ 1 ][ 2 ], Matrix.m[ 1 ][ 3 ] ) ;
         DrawFormatString( 0, 96,  GetColor( 255,255,255 ),    "             %f %f %f %f", Matrix.m[ 2 ][ 0 ], Matrix.m[ 2 ][ 1 ], Matrix.m[ 2 ][ 2 ], Matrix.m[ 2 ][ 3 ] ) ;
         DrawFormatString( 0, 112, GetColor( 255,255,255 ),    "             %f %f %f %f", Matrix.m[ 3 ][ 0 ], Matrix.m[ 3 ][ 1 ], Matrix.m[ 3 ][ 2 ], Matrix.m[ 3 ][ 3 ] ) ;
 
-        // ãƒ•ãƒ¬ãƒ¼ãƒ ã®ãƒ­ãƒ¼ã‚«ãƒ«åº§æ¨™ã‹ã‚‰ãƒ¯ãƒ¼ãƒ«ãƒ‰åº§æ¨™ã«å¤‰æ›ã™ã‚‹è¡Œåˆ—ã‚’æç”»ã™ã‚‹
+        // ƒtƒŒ[ƒ€‚Ìƒ[ƒJƒ‹À•W‚©‚çƒ[ƒ‹ƒhÀ•W‚É•ÏŠ·‚·‚és—ñ‚ð•`‰æ‚·‚é
         Matrix = MV1GetFrameLocalWorldMatrix( ModelHandle, i ) ;
         DrawFormatString( 0, 128,  GetColor( 255,255,255 ),   "LW Matrix    %f %f %f %f", Matrix.m[ 0 ][ 0 ], Matrix.m[ 0 ][ 1 ], Matrix.m[ 0 ][ 2 ], Matrix.m[ 0 ][ 3 ] ) ;
         DrawFormatString( 0, 144,  GetColor( 255,255,255 ),   "             %f %f %f %f", Matrix.m[ 1 ][ 0 ], Matrix.m[ 1 ][ 1 ], Matrix.m[ 1 ][ 2 ], Matrix.m[ 1 ][ 3 ] ) ;
         DrawFormatString( 0, 160,  GetColor( 255,255,255 ),   "             %f %f %f %f", Matrix.m[ 2 ][ 0 ], Matrix.m[ 2 ][ 1 ], Matrix.m[ 2 ][ 2 ], Matrix.m[ 2 ][ 3 ] ) ;
         DrawFormatString( 0, 176, GetColor( 255,255,255 ),    "             %f %f %f %f", Matrix.m[ 3 ][ 0 ], Matrix.m[ 3 ][ 1 ], Matrix.m[ 3 ][ 2 ], Matrix.m[ 3 ][ 3 ] ) ;
 
-        // ãƒ•ãƒ¬ãƒ¼ãƒ ã®è¡¨ç¤ºçŠ¶æ…‹ã‚’æç”»
+        // ƒtƒŒ[ƒ€‚Ì•\Ž¦ó‘Ô‚ð•`‰æ
         DrawFormatString( 0, 192, GetColor( 255,255,255 ),    "Visible      %d", MV1GetFrameVisible( ModelHandle, i ) ) ;
 
-        // ãƒ•ãƒ¬ãƒ¼ãƒ ã«åŠé€æ˜Žè¦ç´ ãŒã‚ã‚‹ã‹ã©ã†ã‹ã‚’æç”»
+        // ƒtƒŒ[ƒ€‚É”¼“§–¾—v‘f‚ª‚ ‚é‚©‚Ç‚¤‚©‚ð•`‰æ
         DrawFormatString( 0, 208, GetColor( 255,255,255 ),    "Semi Trans   %d", MV1GetFrameSemiTransState( ModelHandle, i ) ) ;
 
-        // ãƒ•ãƒ¬ãƒ¼ãƒ ã«å«ã¾ã‚Œã‚‹ãƒ¡ãƒƒã‚·ãƒ¥ã®æ•°ã‚’æç”»
+        // ƒtƒŒ[ƒ€‚ÉŠÜ‚Ü‚ê‚éƒƒbƒVƒ…‚Ì”‚ð•`‰æ
         DrawFormatString( 0, 224, GetColor( 255,255,255 ),    "Mesh Num     %d", MV1GetFrameMeshNum( ModelHandle, i ) ) ;
 
-        // ãƒ•ãƒ¬ãƒ¼ãƒ ã«å«ã¾ã‚Œã‚‹ä¸‰è§’å½¢ãƒãƒªã‚´ãƒ³ã®æ•°ã‚’æç”»
+        // ƒtƒŒ[ƒ€‚ÉŠÜ‚Ü‚ê‚éŽOŠpŒ`ƒ|ƒŠƒSƒ“‚Ì”‚ð•`‰æ
         DrawFormatString( 0, 240, GetColor( 255,255,255 ),    "Triangle Num %d", MV1GetFrameTriangleNum( ModelHandle, i ) ) ;
 
-        // ã‚­ãƒ¼ã®å…¥åŠ›å¾…ã¡
+        // ƒL[‚Ì“ü—Í‘Ò‚¿
         WaitKey() ;
     }
 
-    // ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚Ìíœ
     MV1DeleteModel( ModelHandle ) ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãŽn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

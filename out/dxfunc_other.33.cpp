@@ -8,64 +8,64 @@ int main()
     unsigned char *Data ;
     int Size, SoundHandle, i ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() == -1 )
         return -1 ;
 
-    // ãƒ•ã‚¡ã‚¤ãƒ« testWav.enc ã‚’ä¸¸ã”ã¨ãƒ¡ãƒ¢ãƒªã«èª­ã¿è¾¼ã‚€
+    // ƒtƒ@ƒCƒ‹ testWav.enc ‚ðŠÛ‚²‚Æƒƒ‚ƒŠ‚É“Ç‚Ýž‚Þ
     {
-        // ãƒã‚¤ãƒŠãƒªãƒ¢ãƒ¼ãƒ‰ã§é–‹ã
+        // ƒoƒCƒiƒŠƒ‚[ƒh‚ÅŠJ‚­
         fp = fopen( "testWav.enc", "rb" ) ;
 
-        // ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚µã‚¤ã‚ºã‚’å¾—ã‚‹
+        // ƒtƒ@ƒCƒ‹‚ÌƒTƒCƒY‚ð“¾‚é
         {
-            // ãƒ•ã‚¡ã‚¤ãƒ«ãƒã‚¤ãƒ³ã‚¿ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã®æœ«ç«¯ã«
+            // ƒtƒ@ƒCƒ‹ƒ|ƒCƒ“ƒ^‚ðƒtƒ@ƒCƒ‹‚Ì––’[‚É
             fseek( fp, 0L, SEEK_END ) ;
 
-            // ãƒ•ã‚¡ã‚¤ãƒ«ã®æœ«ç«¯ã§ãƒ•ã‚¡ã‚¤ãƒ«ãƒã‚¤ãƒ³ã‚¿ã®ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’
-            // å–å¾—ã™ã‚Œã°ãã‚Œã¯ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚µã‚¤ã‚º
+            // ƒtƒ@ƒCƒ‹‚Ì––’[‚Åƒtƒ@ƒCƒ‹ƒ|ƒCƒ“ƒ^‚ÌƒAƒhƒŒƒX‚ð
+            // Žæ“¾‚·‚ê‚Î‚»‚ê‚Íƒtƒ@ƒCƒ‹‚ÌƒTƒCƒY
             Size = ftell( fp ) ;
 
-            // ãƒ•ã‚¡ã‚¤ãƒ«ãƒã‚¤ãƒ³ã‚¿ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã®å…ˆé ­ã«æˆ»ã™
+            // ƒtƒ@ƒCƒ‹ƒ|ƒCƒ“ƒ^‚ðƒtƒ@ƒCƒ‹‚Ìæ“ª‚É–ß‚·
             fseek( fp, 0L, SEEK_SET ) ;
         }
 
-        // ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä¸¸ã€…èª­ã¿è¾¼ã‚ã‚‹ãƒ¡ãƒ¢ãƒªé ˜åŸŸã‚’ç¢ºä¿ã™ã‚‹
+        // ƒtƒ@ƒCƒ‹‚ðŠÛX“Ç‚Ýž‚ß‚éƒƒ‚ƒŠ—Ìˆæ‚ðŠm•Û‚·‚é
         Data = ( unsigned char * )malloc( Size ) ;
 
-        // ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä¸¸ã€…èª­ã¿è¾¼ã‚€
+        // ƒtƒ@ƒCƒ‹‚ðŠÛX“Ç‚Ýž‚Þ
         fread( Data, Size, 1, fp ) ;
 
-        // ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‰ã˜ã‚‹
+        // ƒtƒ@ƒCƒ‹‚ð•Â‚¶‚é
         fclose( fp ) ;
     }
 
-    // ï¼®ï¼¯ï¼´æ¼”ç®—ã®æš—å·ã‚’è§£ã
+    // ‚m‚n‚s‰‰ŽZ‚ÌˆÃ†‚ð‰ð‚­
     for( i = 0 ; i < Size ; i ++ )
     {
-        // ï¼®ï¼¯ï¼´æ¼”ç®—ã•ã‚ŒãŸãƒ‡ãƒ¼ã‚¿ã¯ã€ã‚‚ã†ä¸€å›žï¼®ï¼¯ï¼´æ¼”ç®—ã‚’ã™ã‚‹ã¨å…ƒã«æˆ»ã‚‹
+        // ‚m‚n‚s‰‰ŽZ‚³‚ê‚½ƒf[ƒ^‚ÍA‚à‚¤ˆê‰ñ‚m‚n‚s‰‰ŽZ‚ð‚·‚é‚ÆŒ³‚É–ß‚é
         Data[i] = ~Data[i] ;
     }
 
-    // å…ƒã«æˆ»ã£ãŸã‚µã‚¦ãƒ³ãƒ‰ãƒ‡ãƒ¼ã‚¿ã§ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒ³ãƒ‰ãƒ«ã‚’ä½œæˆã™ã‚‹
+    // Œ³‚É–ß‚Á‚½ƒTƒEƒ“ƒhƒf[ƒ^‚ÅƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ðì¬‚·‚é
     SoundHandle = LoadSoundMemByMemImage( Data, Size ) ;
 
-    // ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒ³ãƒ‰ãƒ«ã‚’ä½œæˆã—çµ‚ã‚ã£ãŸã‚‰ã‚µã‚¦ãƒ³ãƒ‰ãƒ‡ãƒ¼ã‚¿ã‚’
-    // æ ¼ç´ã—ã¦ã„ãŸãƒ¡ãƒ¢ãƒªé ˜åŸŸã‚’é–‹æ”¾ã™ã‚‹
+    // ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ðì¬‚µI‚í‚Á‚½‚çƒTƒEƒ“ƒhƒf[ƒ^‚ð
+    // Ši”[‚µ‚Ä‚¢‚½ƒƒ‚ƒŠ—Ìˆæ‚ðŠJ•ú‚·‚é
     free( Data ) ;
 
-    // éŸ³å£°ã‚’å†ç”Ÿ
+    // ‰¹º‚ðÄ¶
     PlaySoundMem( SoundHandle, DX_PLAYTYPE_BACK ) ;
 
-    // ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã‚‹ã¾ã§å¾…ã¤
+    // ƒL[‚ª‰Ÿ‚³‚ê‚é‚Ü‚Å‘Ò‚Â
     WaitKey() ;
 
-    // ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚Ìíœ
     DeleteSoundMem( SoundHandle ) ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãŽn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆçµ‚äº†
+    // ƒ\ƒtƒgI—¹
     return 0 ;
 }

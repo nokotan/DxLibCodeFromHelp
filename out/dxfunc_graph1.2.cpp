@@ -5,43 +5,43 @@ int main()
     int GHandle[ 10 ] ;
     int i ;
 
-    if( DxLib_Init() == -1 )        // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
+    if( DxLib_Init() == -1 )        // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
     {
-         return -1;        // ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ç›´ã¡ã«çµ‚äº†
+         return -1;        // ƒGƒ‰[‚ª‹N‚«‚½‚ç’¼‚¿‚ÉI—¹
     }
 
-    // ï¼¢ï¼­ï¼°ç”»åƒã®ãƒ¡ãƒ¢ãƒªã¸ã®åˆ†å‰²èª­ã¿è¾¼ã¿
+    // ‚a‚l‚o‰æ‘œ‚Ìƒƒ‚ƒŠ‚Ö‚Ì•ªŠ„“Ç‚Ýž‚Ý
     LoadDivGraph( "test2.bmp" , 10 , 4 , 3 , 48 , 56 , GHandle ) ;
 
-    // ãƒ­ãƒ¼ãƒ‰ã—ãŸã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ã®ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
+    // ƒ[ƒh‚µ‚½ƒOƒ‰ƒtƒBƒbƒN‚ÌƒAƒjƒ[ƒVƒ‡ƒ“
     i = 0 ;
-    // ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã‚‹ã¾ã§ãƒ«ãƒ¼ãƒ—(ã‚­ãƒ¼åˆ¤å®šã«ã¯ã€ŽCheckHitKeyAllã€ã‚’ä½¿ç”¨)
+    // ƒL[‚ª‰Ÿ‚³‚ê‚é‚Ü‚Åƒ‹[ƒv(ƒL[”»’è‚É‚ÍwCheckHitKeyAllx‚ðŽg—p)
     while( CheckHitKeyAll() == 0 )
     {
-        // ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ã®æç”»(ã€ŽDrawGraphã€ä½¿ç”¨)
+        // ƒOƒ‰ƒtƒBƒbƒN‚Ì•`‰æ(wDrawGraphxŽg—p)
         DrawGraph( 0 , 0 , GHandle[ i ] , FALSE ) ;
 
-        // ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‘ã‚¿ãƒ¼ãƒ³ãƒŠãƒ³ãƒãƒ¼ã‚’å¤‰æ›´
+        // ƒAƒjƒ[ƒVƒ‡ƒ“ƒpƒ^[ƒ“ƒiƒ“ƒo[‚ð•ÏX
         i ++ ;
         if( i == 10 ) i = 0 ;
 
-        // ä¸€å®šæ™‚é–“å¾…ã¤(ã€ŽWaitTimerã€ä½¿ç”¨)
+        // ˆê’èŽžŠÔ‘Ò‚Â(wWaitTimerxŽg—p)
         WaitTimer( 100 ) ;
 
-        // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å‡¦ç†
+        // ƒƒbƒZ[ƒWˆ—
         if( ProcessMessage() == -1 )
         {
-            break ;        // ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ãƒ«ãƒ¼ãƒ—ã‹ã‚‰æŠœã‘ã‚‹
+            break ;        // ƒGƒ‰[‚ª‹N‚«‚½‚çƒ‹[ƒv‚©‚ç”²‚¯‚é
         }
     }
 
-    // èª­ã¿è¾¼ã‚“ã ç”»åƒã®ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ãƒãƒ³ãƒ‰ãƒ«ã‚’å‰Šé™¤
+    // “Ç‚Ýž‚ñ‚¾‰æ‘œ‚ÌƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ðíœ
     for( i = 0 ; i < 10 ; i ++ )
     {
         DeleteGraph( GHandle[ i ] ) ;
     }
 
-    DxLib_End() ;            // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+    DxLib_End() ;            // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠŽg—p‚ÌI—¹ˆ—
 
-    return 0 ;            // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    return 0 ;            // ƒ\ƒtƒg‚ÌI—¹
 }

@@ -4,66 +4,66 @@ int main()
 {
     int ModelHandle, Time, UseMatrix ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+    // ƒ‚ƒfƒ‹‚Ì“Ç‚Ýž‚Ý
     ModelHandle = MV1LoadModel( "SimpleModel.mqo" ) ;
 
-    // ãƒ¢ãƒ‡ãƒ«ã‚’è¦‹ãˆã‚‹ä½ç½®ã«ç§»å‹•
+    // ƒ‚ƒfƒ‹‚ðŒ©‚¦‚éˆÊ’u‚ÉˆÚ“®
     MV1SetPosition( ModelHandle, VGet( 320.0f, 240.0f, 800.0f ) ) ;
 
-    // è¡Œåˆ—ã‚’ä½¿ç”¨ã™ã‚‹ã‹ã©ã†ã‹ã®ãƒ•ãƒ©ã‚°ã‚’ï¼‘ã«ã™ã‚‹
+    // s—ñ‚ðŽg—p‚·‚é‚©‚Ç‚¤‚©‚Ìƒtƒ‰ƒO‚ð‚P‚É‚·‚é
     UseMatrix = 1 ;
 
-    // ç¾åœ¨ã®ã‚¿ã‚¤ãƒ ã‚«ã‚¦ãƒ³ãƒˆã‚’è¨˜éŒ²ã—ã¦ãŠã
+    // Œ»Ý‚Ìƒ^ƒCƒ€ƒJƒEƒ“ƒg‚ð‹L˜^‚µ‚Ä‚¨‚­
     Time = GetNowCount() ;
 
-    // ä½•ã‹ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã‚‹ã¾ã§ãƒ«ãƒ¼ãƒ—
+    // ‰½‚©ƒL[‚ª‰Ÿ‚³‚ê‚é‚Ü‚Åƒ‹[ƒv
     while( ProcessMessage() == 0 && CheckHitKeyAll() == 0 )
     {
-        // ç”»é¢ã‚’ã‚¯ãƒªã‚¢
+        // ‰æ–Ê‚ðƒNƒŠƒA
         ClearDrawScreen() ;
 
-        // ï¼‘ç§’çµŒã¤æ¯Žã«ç‹¬è‡ªã®è¡Œåˆ—ã‚’ä½¿ç”¨ã™ã‚‹ã‹ã©ã†ã‹ã‚’å¤‰æ›´ã™ã‚‹
+        // ‚P•bŒo‚Â–ˆ‚É“ÆŽ©‚Ìs—ñ‚ðŽg—p‚·‚é‚©‚Ç‚¤‚©‚ð•ÏX‚·‚é
         if( GetNowCount() - Time > 1000 )
         {
-            // ãƒ•ãƒ©ã‚°ã«ã‚ˆã£ã¦å‡¦ç†ã‚’åˆ†å²
+            // ƒtƒ‰ƒO‚É‚æ‚Á‚Äˆ—‚ð•ªŠò
             if( UseMatrix == 1 )
             {
-                // ï¼’ç•ªç›®ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã«ä¸‹ã«å‹•ãã®ãƒ­ãƒ¼ã‚«ãƒ«è¡Œåˆ—ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
+                // ‚Q”Ô–Ú‚ÌƒtƒŒ[ƒ€‚É‰º‚É“®‚­‚Ìƒ[ƒJƒ‹s—ñ‚ðƒZƒbƒg‚·‚é
                 MV1SetFrameUserLocalMatrix( ModelHandle, 2, MGetTranslate( VGet( 0.0f, -300.0f, 0.0f ) ) ) ;
 
-                // ãƒ•ãƒ©ã‚°ã‚’ï¼ã«ã™ã‚‹
+                // ƒtƒ‰ƒO‚ð‚O‚É‚·‚é
                 UseMatrix = 0 ;
             }
             else
             {
-                // ï¼’ç•ªç›®ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã«è¨­å®šã—ãŸè¡Œåˆ—ã‚’ç„¡åŠ¹åŒ–ã™ã‚‹
+                // ‚Q”Ô–Ú‚ÌƒtƒŒ[ƒ€‚ÉÝ’è‚µ‚½s—ñ‚ð–³Œø‰»‚·‚é
                 MV1ResetFrameUserLocalMatrix( ModelHandle, 2 ) ;
 
-                // ãƒ•ãƒ©ã‚°ã‚’ï¼‘ã«ã™ã‚‹
+                // ƒtƒ‰ƒO‚ð‚P‚É‚·‚é
                 UseMatrix = 1 ;
             }
 
-            // ç¾åœ¨ã®ã‚¿ã‚¤ãƒ ã‚«ã‚¦ãƒ³ãƒˆã‚’è¨˜éŒ²ã—ã¦ãŠã
+            // Œ»Ý‚Ìƒ^ƒCƒ€ƒJƒEƒ“ƒg‚ð‹L˜^‚µ‚Ä‚¨‚­
             Time = GetNowCount() ;
         }
 
-        // ãƒ¢ãƒ‡ãƒ«ã‚’æç”»
+        // ƒ‚ƒfƒ‹‚ð•`‰æ
         MV1DrawModel( ModelHandle ) ;
     }
 
-    // ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚Ìíœ
     MV1DeleteModel( ModelHandle ) ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãŽn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

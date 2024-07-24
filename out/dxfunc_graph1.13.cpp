@@ -4,29 +4,29 @@ int main()
 {
     int Graph, Graph2 ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() == -1 ) return -1 ;
 
-    // ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ã®ãƒ­ãƒ¼ãƒ‰
+    // ƒOƒ‰ƒtƒBƒbƒN‚Ìƒ[ƒh
     Graph = LoadGraph( "testDiv.bmp" ) ;
 
-    // Graph ä¸­ã® (0,32)-(32,64) ã®éƒ¨åˆ†ã‚’æŠœãå‡ºã—ã€æ–°ãŸãª
-    // ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ãƒãƒ³ãƒ‰ãƒ«ã‚’ä½œæˆ
+    // Graph ’†‚Ì (0,32)-(32,64) ‚Ì•”•ª‚ð”²‚«o‚µAV‚½‚È
+    // ƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ðì¬
     Graph2 = DerivationGraph( 0, 32, 32, 32, Graph ) ;
 
-    // æ–°ãŸã«ä½œæˆã—ãŸã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ãƒãƒ³ãƒ‰ãƒ«ã§æç”»
+    // V‚½‚Éì¬‚µ‚½ƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚Å•`‰æ
     DrawGraph( 100, 100, Graph2, TRUE ) ;
 
-    // èª­ã¿è¾¼ã‚“ã ç”»åƒã®ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ãƒãƒ³ãƒ‰ãƒ«ã‚’å‰Šé™¤
+    // “Ç‚Ýž‚ñ‚¾‰æ‘œ‚ÌƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ðíœ
     DeleteGraph( Graph2 ) ;
     DeleteGraph( Graph ) ;
 
-    // ã‚­ãƒ¼ã®å…¥åŠ›å¾…ã¡
+    // ƒL[‚Ì“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠŽg—p‚ÌI—¹ˆ—
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

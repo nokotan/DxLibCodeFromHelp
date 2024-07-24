@@ -2,30 +2,30 @@
 
 int main()
 {
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»
     if( DxLib_Init() == -1 ) return 0;
 
-    // ï¼¨ï½…ï½Œï½Œï½ ï¼£ ï¼·ï½ï½’ï½Œï½„ï¼ã¨è¡¨ç¤ºã€æœ€å¾Œã«æ”¹è¡Œ
-    printfDx( "Hello ï¼£ World!\n" ) ;
+    // ‚g‚…‚Œ‚Œ‚ ‚b ‚v‚‚’‚Œ‚„I‚Æ•\Ž¦AÅŒã‚É‰üs
+    printfDx( "Hello ‚b World!\n" ) ;
 
-    // ç”»é¢ã«é©å½“ã«æ•°å€¤ã‚’æç”»
+    // ‰æ–Ê‚É“K“–‚É”’l‚ð•`‰æ
     printfDx( " 600 x 800 = %d \n" , 600 * 800 ) ;
 
-    // ç”»é¢ãŒé™ã‚Šåˆ‡ã‚Œã‚‹ã»ã©æ–‡å­—åˆ—ã‚’æç”»
-    printfDx( "å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“" ) ;
-    printfDx( "å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“" ) ;
-    printfDx( "å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“å®Ÿé¨“" ) ;
+    // ‰æ–Ê‚ª~‚èØ‚ê‚é‚Ù‚Ç•¶Žš—ñ‚ð•`‰æ
+    printfDx( "ŽÀŒ±ŽÀŒ±ŽÀŒ±ŽÀŒ±ŽÀŒ±ŽÀŒ±ŽÀŒ±ŽÀŒ±ŽÀŒ±" ) ;
+    printfDx( "ŽÀŒ±ŽÀŒ±ŽÀŒ±ŽÀŒ±ŽÀŒ±ŽÀŒ±ŽÀŒ±ŽÀŒ±ŽÀŒ±" ) ;
+    printfDx( "ŽÀŒ±ŽÀŒ±ŽÀŒ±ŽÀŒ±ŽÀŒ±ŽÀŒ±ŽÀŒ±ŽÀŒ±ŽÀŒ±ŽÀŒ±" ) ;
 
-    // ç”»é¢ã‚’é’ãã™ã‚‹
+    // ‰æ–Ê‚ðÂ‚­‚·‚é
     DrawBox( 0 , 0 , 640 , 480 , GetColor( 0 , 0 , 255 ) , TRUE ) ;
 
-    // å‡ºåŠ›ã—ãŸæ–‡å­—åˆ—ã‚’è¡¨ç¤º
+    // o—Í‚µ‚½•¶Žš—ñ‚ð•\Ž¦
     ScreenFlip() ;
 
-    // ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã‚‹ã¾ã§å¾…ã¤
+    // ƒL[‚ª‰Ÿ‚³‚ê‚é‚Ü‚Å‘Ò‚Â
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®ä½¿ç”¨çµ‚äº†
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŽg—pI—¹
     DxLib_End() ;
 
     return 0 ;

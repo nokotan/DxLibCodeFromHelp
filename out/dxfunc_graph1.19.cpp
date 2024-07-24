@@ -4,100 +4,100 @@ int main()
 {
     int TestHandle , BackHandle ;
 
-    if( DxLib_Init() == -1 )    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
+    if( DxLib_Init() == -1 )    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
     {
-         return -1;    // ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ç›´ã¡ã«çµ‚äº†
+         return -1;    // ƒGƒ‰[‚ª‹N‚«‚½‚ç’¼‚¿‚ÉI—¹
     }
 
-    // test1.bmpã®èª­ã¿è¾¼ã¿
+    // test1.bmp‚Ì“Ç‚Ýž‚Ý
     TestHandle = LoadGraph( "test1.bmp" ) ;
 
-    // back.bmpã®èª­ã¿è¾¼ã¿
+    // back.bmp‚Ì“Ç‚Ýž‚Ý
     BackHandle = LoadGraph( "back.bmp" ) ;
 
 
-    // æç”»ãƒ–ãƒ¬ãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚’ãƒŽãƒ¼ãƒ–ãƒ¬ãƒ³ãƒ‰ã«ã™ã‚‹
+    // •`‰æƒuƒŒƒ“ƒhƒ‚[ƒh‚ðƒm[ƒuƒŒƒ“ƒh‚É‚·‚é
     SetDrawBlendMode( DX_BLENDMODE_NOBLEND , 0 ) ;
 
-    // èƒŒæ™¯ã‚’æç”»
+    // ”wŒi‚ð•`‰æ
     DrawGraph( 0 , 0 , BackHandle , FALSE ) ;
 
-    // ä¸Šã«è¼‰ã›ã‚‹ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ã‚’æç”»
+    // ã‚ÉÚ‚¹‚éƒOƒ‰ƒtƒBƒbƒN‚ð•`‰æ
     DrawGraph( 255 , 0 , TestHandle , TRUE ) ;
 
-    // ã‚­ãƒ¼å¾…ã¡(ã€ŽWaitKeyã€ã‚’ä½¿ç”¨)
+    // ƒL[‘Ò‚¿(wWaitKeyx‚ðŽg—p)
     WaitKey() ;
 
 
-    // èƒŒæ™¯ã‚’æç”»
+    // ”wŒi‚ð•`‰æ
     DrawGraph( 0 , 0 , BackHandle , FALSE ) ;
 
-    // æç”»ãƒ–ãƒ¬ãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚’ã‚¢ãƒ«ãƒ•ã‚¡ãƒ–ãƒ¬ãƒ³ãƒ‰ï¼ˆï¼•ï¼ï¼…ï¼‰ã«ã™ã‚‹
+    // •`‰æƒuƒŒƒ“ƒhƒ‚[ƒh‚ðƒAƒ‹ƒtƒ@ƒuƒŒƒ“ƒhi‚T‚O“j‚É‚·‚é
     SetDrawBlendMode( DX_BLENDMODE_ALPHA , 128 ) ;
 
-    // ä¸Šã«è¼‰ã›ã‚‹ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ã‚’æç”»
+    // ã‚ÉÚ‚¹‚éƒOƒ‰ƒtƒBƒbƒN‚ð•`‰æ
     DrawGraph( 255 , 0 , TestHandle , TRUE ) ;
 
-    // ã‚­ãƒ¼å¾…ã¡(ã€ŽWaitKeyã€ã‚’ä½¿ç”¨)
+    // ƒL[‘Ò‚¿(wWaitKeyx‚ðŽg—p)
     WaitKey() ;
 
 
-    // æç”»ãƒ–ãƒ¬ãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚’ãƒŽãƒ¼ãƒ–ãƒ¬ãƒ³ãƒ‰ã«ã™ã‚‹
+    // •`‰æƒuƒŒƒ“ƒhƒ‚[ƒh‚ðƒm[ƒuƒŒƒ“ƒh‚É‚·‚é
     SetDrawBlendMode( DX_BLENDMODE_NOBLEND , 0 ) ;
 
-    // èƒŒæ™¯ã‚’æç”»
+    // ”wŒi‚ð•`‰æ
     DrawGraph( 0 , 0 , BackHandle , FALSE ) ;
 
-    // æç”»ãƒ–ãƒ¬ãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚’åŠ ç®—ãƒ–ãƒ¬ãƒ³ãƒ‰ï¼ˆï¼‘ï¼ï¼ï¼…ï¼‰ã«ã™ã‚‹
+    // •`‰æƒuƒŒƒ“ƒhƒ‚[ƒh‚ð‰ÁŽZƒuƒŒƒ“ƒhi‚P‚O‚O“j‚É‚·‚é
     SetDrawBlendMode( DX_BLENDMODE_ADD , 255 ) ;
 
-    // ä¸Šã«è¼‰ã›ã‚‹ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ã‚’æç”»
+    // ã‚ÉÚ‚¹‚éƒOƒ‰ƒtƒBƒbƒN‚ð•`‰æ
     DrawGraph( 255 , 0 , TestHandle , TRUE ) ;
 
-    // ã‚­ãƒ¼å¾…ã¡(ã€ŽWaitKeyã€ã‚’ä½¿ç”¨)
+    // ƒL[‘Ò‚¿(wWaitKeyx‚ðŽg—p)
     WaitKey() ;
 
 
 
-    // æç”»ãƒ–ãƒ¬ãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚’ãƒŽãƒ¼ãƒ–ãƒ¬ãƒ³ãƒ‰ã«ã™ã‚‹
+    // •`‰æƒuƒŒƒ“ƒhƒ‚[ƒh‚ðƒm[ƒuƒŒƒ“ƒh‚É‚·‚é
     SetDrawBlendMode( DX_BLENDMODE_NOBLEND , 0 ) ;
 
-    // èƒŒæ™¯ã‚’æç”»
+    // ”wŒi‚ð•`‰æ
     DrawGraph( 0 , 0 , BackHandle , FALSE ) ;
 
-    // æç”»ãƒ–ãƒ¬ãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚’æ¸›ç®—ãƒ–ãƒ¬ãƒ³ãƒ‰ï¼ˆï¼˜ï¼ï¼…ï¼‰ã«ã™ã‚‹
+    // •`‰æƒuƒŒƒ“ƒhƒ‚[ƒh‚ðŒ¸ŽZƒuƒŒƒ“ƒhi‚W‚O“j‚É‚·‚é
     SetDrawBlendMode( DX_BLENDMODE_SUB , 204 ) ;
 
-    // ä¸Šã«è¼‰ã›ã‚‹ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ã‚’æç”»
+    // ã‚ÉÚ‚¹‚éƒOƒ‰ƒtƒBƒbƒN‚ð•`‰æ
     DrawGraph( 255 , 0 , TestHandle , TRUE ) ;
 
-    // ã‚­ãƒ¼å¾…ã¡((7-3)ã€ŽWaitKeyã€ã‚’ä½¿ç”¨)
+    // ƒL[‘Ò‚¿((7-3)wWaitKeyx‚ðŽg—p)
     WaitKey() ;
 
 
 
-    // æç”»ãƒ–ãƒ¬ãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚’ãƒŽãƒ¼ãƒ–ãƒ¬ãƒ³ãƒ‰ã«ã™ã‚‹
+    // •`‰æƒuƒŒƒ“ƒhƒ‚[ƒh‚ðƒm[ƒuƒŒƒ“ƒh‚É‚·‚é
     SetDrawBlendMode( DX_BLENDMODE_NOBLEND , 0 ) ;
 
-    // èƒŒæ™¯ã‚’æç”»
+    // ”wŒi‚ð•`‰æ
     DrawGraph( 0 , 0 , BackHandle , FALSE ) ;
 
-    // æç”»ãƒ–ãƒ¬ãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚’ä¹—ç®—ãƒ–ãƒ¬ãƒ³ãƒ‰ã«ã™ã‚‹
+    // •`‰æƒuƒŒƒ“ƒhƒ‚[ƒh‚ðæŽZƒuƒŒƒ“ƒh‚É‚·‚é
     SetDrawBlendMode( DX_BLENDMODE_MUL , 0 ) ;
 
-    // ä¸Šã«è¼‰ã›ã‚‹ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ã‚’æç”»
+    // ã‚ÉÚ‚¹‚éƒOƒ‰ƒtƒBƒbƒN‚ð•`‰æ
     DrawGraph( 255 , 0 , TestHandle , TRUE ) ;
 
-    // ã‚­ãƒ¼å¾…ã¡((7-3)ã€ŽWaitKeyã€ã‚’ä½¿ç”¨)
+    // ƒL[‘Ò‚¿((7-3)wWaitKeyx‚ðŽg—p)
     WaitKey() ;
 
 
-    // èª­ã¿è¾¼ã‚“ã ç”»åƒã®ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ãƒãƒ³ãƒ‰ãƒ«ã‚’å‰Šé™¤
+    // “Ç‚Ýž‚ñ‚¾‰æ‘œ‚ÌƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ðíœ
     DeleteGraph( TestHandle ) ;
     DeleteGraph( BackHandle ) ;
 
 
-    DxLib_End() ;    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+    DxLib_End() ;    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠŽg—p‚ÌI—¹ˆ—
 
-    return 0 ;    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    return 0 ;    // ƒ\ƒtƒg‚ÌI—¹
 }

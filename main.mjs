@@ -3,6 +3,7 @@
 import jsdom from "jsdom";
 import fs from "fs/promises";
 import path from "path";
+import iconv from 'iconv-lite';
 
 const JSDOM = new jsdom.JSDOM();
 const parser = new JSDOM.window.DOMParser();
@@ -28,7 +29,8 @@ async function main(args) {
 
         await Promise.all(text.map(async (t, i) => {
             const outFile = path.join(outputDir, path.basename(filePath, ".html") + "." + i.toString() + ".cpp");
-            await fs.writeFile(outFile, t);
+            const encoded = iconv.encode(t, "sjis");
+            await fs.writeFile(outFile, encoded);
         }));
     }
 }

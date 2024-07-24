@@ -4,27 +4,27 @@ int main()
 {
     int SoundHandle ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
     if( DxLib_Init() == -1 ) return -1;
 
-    // å†ç”Ÿå½¢å¼ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ã‚¹ãƒˆãƒªãƒ¼ãƒ å†ç”Ÿã™ã‚‹ã€ã«è¨­å®š
+    // Ä¶Œ`®‚ğƒtƒ@ƒCƒ‹‚©‚çƒXƒgƒŠ[ƒ€Ä¶‚·‚éA‚Éİ’è
     SetCreateSoundDataType( DX_SOUNDDATATYPE_FILE ) ;
 
-    // BGM.wav ã‚’èª­ã¿è¾¼ã¿ã€ãƒãƒ³ãƒ‰ãƒ«ã‚’å–å¾—ã™ã‚‹
+    // BGM.wav ‚ğ“Ç‚İ‚İAƒnƒ“ƒhƒ‹‚ğæ“¾‚·‚é
     SoundHandle = LoadSoundMem( "BGM.wav" ) ;
 
-    // å†ç”Ÿ
+    // Ä¶
     PlaySoundMem( SoundHandle, DX_PLAYTYPE_LOOP ) ;
 
-    // ä½•ã‹ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã‚‹ã¾ã§å¾…ã¤
+    // ‰½‚©ƒL[‚ª‰Ÿ‚³‚ê‚é‚Ü‚Å‘Ò‚Â
     while( ProcessMessage() == 0 && CheckHitKeyAll() == 0 ){}
 
-    // ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚Ìíœ
     DeleteSoundMem( SoundHandle ) ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠg—p‚ÌI—¹ˆ—
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

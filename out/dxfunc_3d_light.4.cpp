@@ -5,20 +5,20 @@ int main()
     int ModelHandle ;
     float OutAngle, InAngle, Range, Atten0, Atten1, Atten2 ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+    // ƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ
     ModelHandle = MV1LoadModel( "SimpleModel.mqo" ) ;
 
-    // æç”»å…ˆã‚’è£ç”»é¢ã«ã™ã‚‹
+    // •`‰ææ‚ğ— ‰æ–Ê‚É‚·‚é
     SetDrawScreen( DX_SCREEN_BACK ) ;
 
-    // å„ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’åˆæœŸåŒ–
+    // Šeƒpƒ‰ƒ[ƒ^‚ğ‰Šú‰»
     OutAngle = 90.0f ;
     InAngle = 45.0f ;
     Range = 2000.0f ;
@@ -26,13 +26,13 @@ int main()
     Atten1 = 0.0006f ;
     Atten2 = 0.0f ;
 
-    // ï¼¥ï¼³ï¼£ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã‚‹ã‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãŒé–‰ã˜ã‚‰ã‚Œã‚‹ã¾ã§ãƒ«ãƒ¼ãƒ—
+    // ‚d‚r‚bƒL[‚ª‰Ÿ‚³‚ê‚é‚©ƒEƒCƒ“ƒhƒE‚ª•Â‚¶‚ç‚ê‚é‚Ü‚Åƒ‹[ƒv
     while( ProcessMessage() == 0 && CheckHitKey( KEY_INPUT_ESCAPE ) == 0 )
     {
-        // ç”»é¢ã‚’ã‚¯ãƒªã‚¢
+        // ‰æ–Ê‚ğƒNƒŠƒA
         ClearDrawScreen() ;
 
-        // ï¼¡ï¼ºã‚­ãƒ¼ã§ OutAngle ã®å€¤ã‚’å¤‰æ›´
+        // ‚`‚yƒL[‚Å OutAngle ‚Ì’l‚ğ•ÏX
         if( CheckHitKey( KEY_INPUT_A ) == 1 )
         {
             OutAngle += 1.0f ;
@@ -42,7 +42,7 @@ int main()
             OutAngle -= 1.0f ;
         }
 
-        // ï¼³ï¼¸ã‚­ãƒ¼ã§ InAngle ã®å€¤ã‚’å¤‰æ›´
+        // ‚r‚wƒL[‚Å InAngle ‚Ì’l‚ğ•ÏX
         if( CheckHitKey( KEY_INPUT_S ) == 1 )
         {
             InAngle += 1.0f ;
@@ -52,7 +52,7 @@ int main()
             InAngle -= 1.0f ;
         }
 
-        // ï¼¤ï¼£ã‚­ãƒ¼ã§ãƒ©ã‚¤ãƒˆã®å½±éŸ¿ç¯„å›²ã‚’å¤‰æ›´
+        // ‚c‚bƒL[‚Åƒ‰ƒCƒg‚Ì‰e‹¿”ÍˆÍ‚ğ•ÏX
         if( CheckHitKey( KEY_INPUT_D ) == 1 )
         {
             Range += 20.0f ;
@@ -62,7 +62,7 @@ int main()
             Range -= 20.0f ;
         }
 
-        // ï¼¦ï¼¶ã‚­ãƒ¼ã§ãƒ©ã‚¤ãƒˆã®è·é›¢æ¸›è¡°ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ï¼ã®å€¤ã‚’å¤‰æ›´
+        // ‚e‚uƒL[‚Åƒ‰ƒCƒg‚Ì‹——£Œ¸Šƒpƒ‰ƒ[ƒ^‚O‚Ì’l‚ğ•ÏX
         if( CheckHitKey( KEY_INPUT_F ) == 1 )
         {
             Atten0 += 0.001f ;
@@ -72,7 +72,7 @@ int main()
             Atten0 -= 0.001f ;
         }
 
-        // ï¼§ï¼¢ã‚­ãƒ¼ã§ãƒ©ã‚¤ãƒˆã®è·é›¢æ¸›è¡°ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ï¼‘ã®å€¤ã‚’å¤‰æ›´
+        // ‚f‚aƒL[‚Åƒ‰ƒCƒg‚Ì‹——£Œ¸Šƒpƒ‰ƒ[ƒ^‚P‚Ì’l‚ğ•ÏX
         if( CheckHitKey( KEY_INPUT_G ) == 1 )
         {
             Atten1 += 0.00001f ;
@@ -82,7 +82,7 @@ int main()
             Atten1 -= 0.00001f ;
         }
 
-        // ï¼¨ï¼®ã‚­ãƒ¼ã§ãƒ©ã‚¤ãƒˆã®è·é›¢æ¸›è¡°ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ï¼’ã®å€¤ã‚’å¤‰æ›´
+        // ‚g‚mƒL[‚Åƒ‰ƒCƒg‚Ì‹——£Œ¸Šƒpƒ‰ƒ[ƒ^‚Q‚Ì’l‚ğ•ÏX
         if( CheckHitKey( KEY_INPUT_H ) == 1 )
         {
             Atten2 += 0.0000001f ;
@@ -92,21 +92,21 @@ int main()
             Atten2 -= 0.0000001f ;
         }
 
-        // è§’åº¦ã®å€¤ã‚’è£œæ­£
+        // Šp“x‚Ì’l‚ğ•â³
         if( OutAngle < 0.0f ) OutAngle = 0.0f ;
         if( OutAngle > 180.0f ) OutAngle = 180.0f ;
         if( InAngle < 0.0f ) InAngle = 0.0f ;
         if( InAngle > OutAngle ) InAngle = OutAngle ;
 
-        // å½±éŸ¿è·é›¢ã®å€¤ã‚’è£œæ­£
+        // ‰e‹¿‹——£‚Ì’l‚ğ•â³
         if( Range < 0.0f ) Range = 0.0f ;
 
-        // è·é›¢æ¸›è¡°ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å€¤ã‚’è£œæ­£
+        // ‹——£Œ¸Šƒpƒ‰ƒ[ƒ^‚Ì’l‚ğ•â³
         if( Atten0 < 0.0f ) Atten0 = 0.0f ;
         if( Atten1 < 0.0f ) Atten1 = 0.0f ;
         if( Atten2 < 0.0f ) Atten2 = 0.0f ;
 
-        // ï¼¹è»¸ã®ãƒã‚¤ãƒŠã‚¹æ–¹å‘ã®ã‚¹ãƒãƒƒãƒˆãƒ©ã‚¤ãƒˆã‚’è¨­å®š
+        // ‚x²‚Ìƒ}ƒCƒiƒX•ûŒü‚ÌƒXƒ|ƒbƒgƒ‰ƒCƒg‚ğİ’è
         ChangeLightTypeSpot(
             VGet( 320.0f, 1000.0f, 200.0f ),
             VGet( 0.0f, -1.0f, 0.0f  ),
@@ -117,30 +117,30 @@ int main()
             Atten1,
             Atten2 ) ;
 
-        // ãƒ¢ãƒ‡ãƒ«ã‚’ã‚«ãƒ¡ãƒ©ã®æ˜ ã‚‹ä½ç½®ã«ç§»å‹•
+        // ƒ‚ƒfƒ‹‚ğƒJƒƒ‰‚Ì‰f‚éˆÊ’u‚ÉˆÚ“®
         MV1SetPosition( ModelHandle, VGet( 320.0f, 240.0f, 200.0f ) ) ;
 
-        // ãƒ¢ãƒ‡ãƒ«ã‚’æç”»
+        // ƒ‚ƒfƒ‹‚ğ•`‰æ
         MV1DrawModel( ModelHandle ) ;
 
-        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å†…å®¹ã‚’ç”»é¢ã«è¡¨ç¤º
-        DrawFormatString( 0, 0,  GetColor( 255,255,255 ), "Key:A.Z  OutAngle( åº¦ ) %f", OutAngle ) ;
-        DrawFormatString( 0, 16, GetColor( 255,255,255 ), "Key:S.X  InAngle( åº¦ )  %f", InAngle ) ;
+        // ƒpƒ‰ƒ[ƒ^‚Ì“à—e‚ğ‰æ–Ê‚É•\¦
+        DrawFormatString( 0, 0,  GetColor( 255,255,255 ), "Key:A.Z  OutAngle( “x ) %f", OutAngle ) ;
+        DrawFormatString( 0, 16, GetColor( 255,255,255 ), "Key:S.X  InAngle( “x )  %f", InAngle ) ;
         DrawFormatString( 0, 32, GetColor( 255,255,255 ), "Key:D.C  Range          %f", Range ) ;
         DrawFormatString( 0, 48, GetColor( 255,255,255 ), "Key:F.V  Atten0         %f", Atten0 ) ;
         DrawFormatString( 0, 64, GetColor( 255,255,255 ), "Key:G.B  Atten1         %f", Atten1 ) ;
         DrawFormatString( 0, 80, GetColor( 255,255,255 ), "Key:H.N  Atten2         %f / 100.0f", Atten2 * 100.0f ) ;
 
-        // è£ç”»é¢ã®å†…å®¹ã‚’è¡¨ç”»é¢ã«åæ˜ ã™ã‚‹
+        // — ‰æ–Ê‚Ì“à—e‚ğ•\‰æ–Ê‚É”½‰f‚·‚é
         ScreenFlip() ;
     }
 
-    // ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚Ìíœ
     MV1DeleteModel( ModelHandle ) ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

@@ -5,31 +5,31 @@ int main()
     VECTOR Vect ;
     MATRIX Matrix ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // Vect ã«å€¤ã‚’ä»£å…¥
+    // Vect ‚É’l‚ð‘ã“ü
     Vect = VGet( 100.0f, 200.0f, 500.0f ) ;
 
-    // 0.5å€ã‚¹ã‚±ãƒ¼ãƒªãƒ³ã‚°ã‚’è¡Œã†è¡Œåˆ—ã‚’ä½œæˆ
+    // 0.5”{ƒXƒP[ƒŠƒ“ƒO‚ðs‚¤s—ñ‚ðì¬
     Matrix = MGetScale( VGet( 0.5f, 0.5f, 0.5f ) ) ;
 
-    // 0.5å€ã‚¹ã‚±ãƒ¼ãƒªãƒ³ã‚°ã‚’è¡Œã†è¡Œåˆ—ã‚’ä½¿ç”¨ã—ã¦ãƒ™ã‚¯ãƒˆãƒ«ã®ã‚µã‚¤ã‚ºã‚’0.5å€ã—ãŸçµæžœã‚’ Vect ã«ä»£å…¥ã™ã‚‹
+    // 0.5”{ƒXƒP[ƒŠƒ“ƒO‚ðs‚¤s—ñ‚ðŽg—p‚µ‚ÄƒxƒNƒgƒ‹‚ÌƒTƒCƒY‚ð0.5”{‚µ‚½Œ‹‰Ê‚ð Vect ‚É‘ã“ü‚·‚é
     Vect = VTransform( Vect, Matrix ) ;
 
-    // Vect ã®å€¤ã‚’ç”»é¢ã«è¡¨ç¤º
+    // Vect ‚Ì’l‚ð‰æ–Ê‚É•\Ž¦
     DrawFormatString( 0, 0, GetColor( 255,255,255 ), "Vect  x=%f y=%f z=%f", Vect.x, Vect.y, Vect.z ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãŽn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

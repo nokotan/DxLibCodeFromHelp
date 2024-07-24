@@ -1,134 +1,134 @@
--- 接続側プログラム
+-- �ڑ����v���O����
 -----------------------------------
 #include "DxLib.h"
 
 int main()
 {
-    char StrBuf[ 256 ] ;    // データバッファ
-    IPDATA Ip ;        // 接続用ＩＰアドレスデータ
-    int NetHandle ;        // ネットワークハンドル
-    int DataLength ;        // 受信データ量保存用変数
+    char StrBuf[ 256 ] ;    // �f�[�^�o�b�t�@
+    IPDATA Ip ;        // �ڑ��p�h�o�A�h���X�f�[�^
+    int NetHandle ;        // �l�b�g���[�N�n���h��
+    int DataLength ;        // ��M�f�[�^�ʕۑ��p�ϐ�
 
-    if( DxLib_Init() == -1 )    // ＤＸライブラリ初期化処理
+    if( DxLib_Init() == -1 )    // �c�w���C�u��������������
     {
-         return -1;    // エラーが起きたら直ちに終了
+         return -1;    // �G���[���N�����璼���ɏI��
     }
 
-    // ＩＰアドレスを設定( ここにある４つのＩＰ値は仮です )
+    // �h�o�A�h���X��ݒ�( �����ɂ���S�̂h�o�l�͉��ł� )
     Ip.d1 = 192 ;
     Ip.d2 = 168 ;
     Ip.d3 = 5   ;
     Ip.d4 = 227 ;
 
-    // 通信を確立
+    // �ʐM���m��
     NetHandle = ConnectNetWork( Ip, 9850 ) ;
 
-    // 確立が成功した場合のみ中の処理をする
+    // �m�������������ꍇ�̂ݒ��̏���������
     if( NetHandle != -1 )
     { 
-        // データ送信
-        NetWorkSend( NetHandle , "繋がったか～！？" , 17 ) ;
+        // �f�[�^���M
+        NetWorkSend( NetHandle , "�q���������`�I�H" , 17 ) ;
 
-        // データがくるのを待つ
+        // �f�[�^������̂�҂�
         while( !ProcessMessage() )
         {
-            // 取得していない受信データ量を得る
+            // �擾���Ă��Ȃ���M�f�[�^�ʂ𓾂�
             DataLength = GetNetWorkDataLength( NetHandle ) ;
 
-            // 取得してない受信データ量が０じゃない場合はループを抜ける
+            // �擾���ĂȂ���M�f�[�^�ʂ��O����Ȃ��ꍇ�̓��[�v�𔲂���
             if( DataLength != 0 ) break ;
         }
 
-        // データ受信
-        NetWorkRecv( NetHandle , StrBuf , DataLength ) ;    // データをバッファに取得
+        // �f�[�^��M
+        NetWorkRecv( NetHandle , StrBuf , DataLength ) ;    // �f�[�^���o�b�t�@�Ɏ擾
 
-        // 受信したデータを描画
+        // ��M�����f�[�^��`��
         DrawString( 0 , 0 , StrBuf , GetColor( 255 , 255 , 255 ) ) ;
 
-        // キー入力待ち
+        // �L�[���͑҂�
         WaitKey() ;
 
-        // 接続を断つ
+        // �ڑ���f��
         CloseNetWork( NetHandle ) ;
     }
 
-    DxLib_End() ;    // ＤＸライブラリ使用の終了処理
+    DxLib_End() ;    // �c�w���C�u�����g�p�̏I������
 
-    return 0 ;    // ソフトの終了
+    return 0 ;    // �\�t�g�̏I��
 }
 
--- 接続待ち側プログラム
+-- �ڑ��҂����v���O����
 -----------------------------------
 #include "DxLib.h"
 
 int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow )
 {
-    char StrBuf[ 256 ] ;        // データバッファ
-    int NetHandle , LostHandle ;    // ネットワークハンドル
-    int DataLength ;            // 受信データ量保存用変数
-    IPDATA Ip ;            // 接続先ＩＰアドレスデータ
+    char StrBuf[ 256 ] ;        // �f�[�^�o�b�t�@
+    int NetHandle , LostHandle ;    // �l�b�g���[�N�n���h��
+    int DataLength ;            // ��M�f�[�^�ʕۑ��p�ϐ�
+    IPDATA Ip ;            // �ڑ���h�o�A�h���X�f�[�^
 
-    if( DxLib_Init() == -1 )    // ＤＸライブラリ初期化処理
+    if( DxLib_Init() == -1 )    // �c�w���C�u��������������
     {
-        return -1;    // エラーが起きたら直ちに終了
+        return -1;    // �G���[���N�����璼���ɏI��
     }
 
-    // 接続してくるのを待つ状態にする
+    // �ڑ����Ă���̂�҂�Ԃɂ���
     PreparationListenNetWork( 9850 ) ;
 
-    // 接続してくるかＥＳＣキーが押されるまでループ
+    // �ڑ����Ă��邩�d�r�b�L�[���������܂Ń��[�v
     NetHandle = -1 ;
     while( !ProcessMessage() && CheckHitKey( KEY_INPUT_ESCAPE ) == 0 )
     {
-        // 新しい接続があったらそのネットワークハンドルを得る
+        // �V�����ڑ����������炻�̃l�b�g���[�N�n���h���𓾂�
         NetHandle = GetNewAcceptNetWork() ;
         if( NetHandle != -1 ) break ;
     }
 
-    // 接続されていたら次に進む
+    // �ڑ�����Ă����玟�ɐi��
     if( NetHandle != -1 )
     {
-        // 接続の受付を終了する
+        // �ڑ��̎�t���I������
         StopListenNetWork() ;
 
-        // 接続してきたマシンのＩＰアドレスを得る
+        // �ڑ����Ă����}�V���̂h�o�A�h���X�𓾂�
         GetNetWorkIP( NetHandle , &Ip ) ;
 
-        // データが送られて来るまで待つ
+        // �f�[�^�������ė���܂ő҂�
         while( !ProcessMessage() )
         {
-            // 取得していない受信データ量が０以外のときはループから抜ける
+            // �擾���Ă��Ȃ���M�f�[�^�ʂ��O�ȊO�̂Ƃ��̓��[�v���甲����
             if( GetNetWorkDataLength( NetHandle ) != 0 ) break ;
         }
 
-        // データ受信
-        DataLength = GetNetWorkDataLength( NetHandle ) ;    // データの量を取得
-        NetWorkRecv( NetHandle , StrBuf , DataLength );    // データをバッファに取得
+        // �f�[�^��M
+        DataLength = GetNetWorkDataLength( NetHandle ) ;    // �f�[�^�̗ʂ��擾
+        NetWorkRecv( NetHandle , StrBuf , DataLength );    // �f�[�^���o�b�t�@�Ɏ擾
 
-        // 受信したデータを描画
+        // ��M�����f�[�^��`��
         DrawString( 0 , 0 , StrBuf , GetColor( 255 , 255 , 255 ) ) ;
 
-        // 受信成功のデータを送信
-        NetWorkSend( NetHandle , "繋がったぞ～！！" , 17 ) ;
+        // ��M�����̃f�[�^�𑗐M
+        NetWorkSend( NetHandle , "�q���������`�I�I" , 17 ) ;
 
-        // 相手が通信を切断するまで待つ
+        // ���肪�ʐM��ؒf����܂ő҂�
         while( !ProcessMessage() )
         {
-            // 新たに切断されたネットワークハンドルを得る
+            // �V���ɐؒf���ꂽ�l�b�g���[�N�n���h���𓾂�
             LostHandle = GetLostNetWork() ;
 
-            // 切断された接続が今まで通信してた相手だった場合ループを抜ける
+            // �ؒf���ꂽ�ڑ������܂ŒʐM���Ă����肾�����ꍇ���[�v�𔲂���
             if( LostHandle == NetHandle ) break ;
         }
 
-        // 切断確認表示
-        DrawString( 0 , 16 , "切断しました" , GetColor( 255 , 255 , 255 ) ) ;
+        // �ؒf�m�F�\��
+        DrawString( 0 , 16 , "�ؒf���܂���" , GetColor( 255 , 255 , 255 ) ) ;
 
-        // キー入力待ち
+        // �L�[���͑҂�
         WaitKey() ;
     }
 
-    DxLib_End() ;    // ＤＸライブラリ使用の終了処理
+    DxLib_End() ;    // �c�w���C�u�����g�p�̏I������
 
-    return 0 ;    // ソフトの終了
+    return 0 ;    // �\�t�g�̏I��
 }

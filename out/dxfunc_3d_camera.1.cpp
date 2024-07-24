@@ -5,31 +5,31 @@ int main()
     int ModelHandle ;
     VECTOR CameraPos ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+    // ƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ
     ModelHandle = MV1LoadModel( "SimpleModel.mqo" ) ;
 
-    // æç”»å…ˆã‚’è£ç”»é¢ã«ã™ã‚‹
+    // •`‰ææ‚ğ— ‰æ–Ê‚É‚·‚é
     SetDrawScreen( DX_SCREEN_BACK ) ;
 
-    // ã‚«ãƒ¡ãƒ©ã®åº§æ¨™ã‚’åˆæœŸåŒ–
+    // ƒJƒƒ‰‚ÌÀ•W‚ğ‰Šú‰»
     CameraPos.x = 0.0f ;
     CameraPos.y = 0.0f ;
     CameraPos.z = -800.0f ;
 
-    // ï¼¥ï¼³ï¼£ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã‚‹ã‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãŒé–‰ã˜ã‚‰ã‚Œã‚‹ã¾ã§ãƒ«ãƒ¼ãƒ—
+    // ‚d‚r‚bƒL[‚ª‰Ÿ‚³‚ê‚é‚©ƒEƒCƒ“ƒhƒE‚ª•Â‚¶‚ç‚ê‚é‚Ü‚Åƒ‹[ƒv
     while( ProcessMessage() == 0 && CheckHitKey( KEY_INPUT_ESCAPE ) == 0 )
     {
-        // ç”»é¢ã‚’ã‚¯ãƒªã‚¢
+        // ‰æ–Ê‚ğƒNƒŠƒA
         ClearDrawScreen() ;
 
-        // æ–¹å‘ã‚­ãƒ¼ã§ã‚«ãƒ¡ãƒ©ã®åº§æ¨™ã‚’ç§»å‹•
+        // •ûŒüƒL[‚ÅƒJƒƒ‰‚ÌÀ•W‚ğˆÚ“®
         if( CheckHitKey( KEY_INPUT_UP ) == 1 )
         {
             CameraPos.y += 20.0f ;
@@ -47,22 +47,22 @@ int main()
             CameraPos.x += 20.0f ;
         }
 
-        // ã‚«ãƒ¡ãƒ©ã®ä½ç½®ã¨æ³¨è¦–ç‚¹ã‚’ã‚»ãƒƒãƒˆã€æ³¨è¦–ç‚¹ã¯åŸç‚¹
+        // ƒJƒƒ‰‚ÌˆÊ’u‚Æ’‹“_‚ğƒZƒbƒgA’‹“_‚ÍŒ´“_
         SetCameraPositionAndTarget_UpVecY( CameraPos, VGet( 0.0f, 0.0f, 0.0f ) ) ;
 
-        // ãƒ¢ãƒ‡ãƒ«ã®æç”»
+        // ƒ‚ƒfƒ‹‚Ì•`‰æ
         MV1DrawModel( ModelHandle ) ;
 
-        // è£ç”»é¢ã®å†…å®¹ã‚’è¡¨ç”»é¢ã«åæ˜ 
+        // — ‰æ–Ê‚Ì“à—e‚ğ•\‰æ–Ê‚É”½‰f
         ScreenFlip() ;
     }
 
-    // ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚Ìíœ
     MV1DeleteModel( ModelHandle ) ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

@@ -4,39 +4,39 @@ int main()
 {
 	int SoundHandle ;
 
-	// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
 	if( DxLib_Init() == -1 )
 	{
 		return -1 ;
 	}
 
-	// éŸ³ã®èª­ã¿è¾¼ã¿
+	// ‰¹‚Ì“Ç‚İ‚İ
 	SoundHandle = LoadSoundMem( "Test.wav" ) ;
 
-	// ã€Œé€šå¸¸éŸ³é‡ã§éŸ³ã‚’å†ç”Ÿã€ã¨ã€Œå°éŸ³é‡ã§éŸ³ã‚’å†ç”Ÿã€ã‚’äº¤äº’ã«è¡Œã†
+	// u’Êí‰¹—Ê‚Å‰¹‚ğÄ¶v‚Æu¬‰¹—Ê‚Å‰¹‚ğÄ¶v‚ğŒğŒİ‚És‚¤
 	while( ProcessMessage() == 0 )
 	{
-		// é€šå¸¸éŸ³é‡ã§éŸ³ã‚’å†ç”Ÿã™ã‚‹
+		// ’Êí‰¹—Ê‚Å‰¹‚ğÄ¶‚·‚é
 		ChangeNextPlayVolumeSoundMem( 255, SoundHandle ) ;
 		PlaySoundMem( SoundHandle, DX_PLAYTYPE_BACK ) ;
 
-		// ï¼ï¼ï¼‘ï¼•ç§’å¾…ã¤
+		// ‚OD‚P‚T•b‘Ò‚Â
 		WaitTimer( 150 ) ;
 
-		// å°éŸ³é‡ã§éŸ³ã‚’å†ç”Ÿã™ã‚‹
+		// ¬‰¹—Ê‚Å‰¹‚ğÄ¶‚·‚é
 		ChangeNextPlayVolumeSoundMem( 128, SoundHandle ) ;
 		PlaySoundMem( SoundHandle, DX_PLAYTYPE_BACK ) ;
 
-		// ï¼ï¼ï¼‘ï¼•ç§’å¾…ã¤
+		// ‚OD‚P‚T•b‘Ò‚Â
 		WaitTimer( 150 ) ;
 	}
 
-	// ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+	// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚Ìíœ
 	DeleteSoundMem( SoundHandle ) ;
 
-	// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
 	DxLib_End() ;
 
-	// ã‚½ãƒ•ãƒˆã®çµ‚äº†
+	// ƒ\ƒtƒg‚ÌI—¹
 	return 0 ;
 }

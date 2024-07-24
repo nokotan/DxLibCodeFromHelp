@@ -4,31 +4,31 @@ int main()
 {
     int Direct3DVersion ;
 
-    // Direct3D 9Ex ã®ä½¿ç”¨ã‚’æŒ‡å®š
+    // Direct3D 9Ex ‚Ìg—p‚ğw’è
     SetUseDirect3DVersion( DX_DIRECT3D_9EX ) ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 ) return -1;
 
-    // ä½¿ç”¨ã—ã¦ã„ã‚‹ Direct3D ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚’å–å¾—
+    // g—p‚µ‚Ä‚¢‚é Direct3D ‚Ìƒo[ƒWƒ‡ƒ“‚ğæ“¾
     Direct3DVersion = GetUseDirect3DVersion() ;
 
-    // ä½¿ç”¨ãƒãƒ¼ã‚¸ãƒ§ãƒ³ãŒ Direct3D 9Ex ã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯
+    // g—pƒo[ƒWƒ‡ƒ“‚ª Direct3D 9Ex ‚©‚Ç‚¤‚©‚ğƒ`ƒFƒbƒN
     if( Direct3DVersion == DX_DIRECT3D_9EX )
     {
-        DrawString( 0, 0, "Direct3D 9Ex ã‚’ä½¿ç”¨ã—ã¦ã„ã¾ã™", GetColor( 255,255,255 ) ) ;
+        DrawString( 0, 0, "Direct3D 9Ex ‚ğg—p‚µ‚Ä‚¢‚Ü‚·", GetColor( 255,255,255 ) ) ;
     }
     else
     {
-        DrawString( 0, 0, "Direct3D 9Ex ã‚’ä½¿ç”¨ã—ã¦ã„ã¾ã›ã‚“", GetColor( 255,255,255 ) ) ;
+        DrawString( 0, 0, "Direct3D 9Ex ‚ğg—p‚µ‚Ä‚¢‚Ü‚¹‚ñ", GetColor( 255,255,255 ) ) ;
     }
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey();
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End();
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0;
 }

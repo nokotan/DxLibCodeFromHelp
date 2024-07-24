@@ -6,19 +6,19 @@ int main()
 {
     char KeyBuf[ 256 ] ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
     if( DxLib_Init() == -1 ) return -1;
 
-    // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®è¡¨ç¤º
-    DrawString( 0 , 0 , " C ã¨ K ã¨ Y ã®ã‚­ãƒ¼ã‚’åŒæ™‚ã«æŠ¼ã—ãŸã‚‰çµ‚äº†ã—ã¾ã™ ", GetColor( 255 , 255 , 255 ) ) ;
+    // ƒƒbƒZ[ƒW‚Ì•\Ž¦
+    DrawString( 0 , 0 , " C ‚Æ K ‚Æ Y ‚ÌƒL[‚ð“¯Žž‚É‰Ÿ‚µ‚½‚çI—¹‚µ‚Ü‚· ", GetColor( 255 , 255 , 255 ) ) ;
 
-    // ç„¡é™ãƒ«ãƒ¼ãƒ—
+    // –³ŒÀƒ‹[ƒv
     while( 1 )
     {
-        // ã™ã¹ã¦ã®ã‚­ãƒ¼ã®çŠ¶æ…‹ã‚’å¾—ã‚‹
+        // ‚·‚×‚Ä‚ÌƒL[‚Ìó‘Ô‚ð“¾‚é
         GetHitKeyStateAll( KeyBuf ) ;
 
-        // ï¼£ã¨ï¼«ã¨ï¼¹ã®ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã¦ã„ãŸã‚‰ãƒ«ãƒ¼ãƒ—ã‹ã‚‰æŠœã‘ã‚‹
+        // ‚b‚Æ‚j‚Æ‚x‚ÌƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚½‚çƒ‹[ƒv‚©‚ç”²‚¯‚é
         if( KeyBuf[ KEY_INPUT_C ] == 1 &&
             KeyBuf[ KEY_INPUT_K ] == 1 &&
             KeyBuf[ KEY_INPUT_Y ] == 1 )
@@ -26,13 +26,13 @@ int main()
             break ;
         }
 
-        // Windows ä¾å­˜ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å‡¦ç†ã‚’è¡Œã†
+        // Windows ˆË‘¶‚ÌƒƒbƒZ[ƒWˆ—‚ðs‚¤
         if( ProcessMessage() == -1 ) break ;
     }
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠŽg—p‚ÌI—¹ˆ—
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

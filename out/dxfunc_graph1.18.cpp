@@ -4,32 +4,32 @@ int main()
 {
     int GHandle ;
 
-    if( DxLib_Init() == -1 )    // ＤＸライブラリ初期化処理
+    if( DxLib_Init() == -1 )    // �c�w���C�u��������������
     {
-         return -1;    // エラーが起きたら直ちに終了
+         return -1;    // �G���[���N�����璼���ɏI��
     }
 
-    // test1.bmpの読み込み
+    // test1.bmp�̓ǂݍ���
     GHandle = LoadGraph( "test1.bmp" ) ;
 
-    // 描画モードをネアレストネイバー法にする
+    // �`�惂�[�h���l�A���X�g�l�C�o�[�@�ɂ���
     SetDrawMode( DX_DRAWMODE_NEAREST ) ;
 
-    // 読みこんだグラフィックを画面左上に拡大描画
+    // �ǂ݂��񂾃O���t�B�b�N����ʍ���Ɋg��`��
     DrawExtendGraph( 0 , 0 , 130 * 2 , 480 * 2 , GHandle , FALSE ) ;
 
-    // 描画モードをバイリニア法にする
+    // �`�惂�[�h���o�C���j�A�@�ɂ���
     SetDrawMode( DX_DRAWMODE_BILINEAR ) ;
 
-    // 読みこんだグラフィックを先ほどの隣に描画
+    // �ǂ݂��񂾃O���t�B�b�N���قǂׂ̗ɕ`��
     DrawExtendGraph( 260 , 0 , 260 + 130 * 2 , 480 * 2 , GHandle , FALSE ) ;
 
-    // 読み込んだ画像のグラフィックハンドルを削除
+    // �ǂݍ��񂾉摜�̃O���t�B�b�N�n���h�����폜
     DeleteGraph( GHandle ) ;
 
-    WaitKey() ;        // 結果を見るためにキー待ち(『WaitKey』を使用)
+    WaitKey() ;        // ���ʂ����邽�߂ɃL�[�҂�(�wWaitKey�x���g�p)
 
-    DxLib_End() ;        // ＤＸライブラリ使用の終了処理
+    DxLib_End() ;        // �c�w���C�u�����g�p�̏I������
 
-    return 0 ;        // ソフトの終了
+    return 0 ;        // �\�t�g�̏I��
 }

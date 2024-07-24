@@ -5,30 +5,30 @@ int main()
     int Handle ;
     int GradHandle ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
         return -1 ;
 
-    // ç”»åƒã‚’èª­ã¿è¾¼ã‚€
+    // ‰æ‘œ‚ğ“Ç‚İ‚Ş
     Handle = LoadGraph( "Src1.bmp" ) ;
 
-    // ã‚°ãƒ©ãƒ‡ãƒ¼ã‚·ãƒ§ãƒ³ãƒãƒƒãƒ—ã«ã™ã‚‹ç”»åƒã‚’èª­ã¿è¾¼ã‚€
+    // ƒOƒ‰ƒf[ƒVƒ‡ƒ“ƒ}ƒbƒv‚É‚·‚é‰æ‘œ‚ğ“Ç‚İ‚Ş
     GradHandle = LoadGraph( "GMap.bmp" ) ;
 
-    // ã‚°ãƒ©ãƒ‡ãƒ¼ã‚·ãƒ§ãƒ³ãƒãƒƒãƒ—ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼ã‚’æ–½ã™
+    // ƒOƒ‰ƒf[ƒVƒ‡ƒ“ƒ}ƒbƒvƒtƒBƒ‹ƒ^[‚ğ{‚·
     GraphFilter( Handle, DX_GRAPH_FILTER_GRADIENT_MAP, GradHandle, FALSE ) ;
 
-    // ç”»åƒã‚’ç”»é¢ã«æç”»
+    // ‰æ‘œ‚ğ‰æ–Ê‚É•`‰æ
     DrawGraph( 0, 0, Handle, FALSE ) ;
 
-    // èª­ã¿è¾¼ã‚“ã ç”»åƒã®ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ãƒãƒ³ãƒ‰ãƒ«ã‚’å‰Šé™¤
+    // “Ç‚İ‚ñ‚¾‰æ‘œ‚ÌƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ğíœ
     DeleteGraph( Handle ) ;
     DeleteGraph( GradHandle ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
     return 0 ;

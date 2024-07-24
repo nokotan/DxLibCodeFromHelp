@@ -2,32 +2,32 @@
 
 int main()
 {
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() == -1 ) return 0 ;
 
-    // ç”»é¢ã‚’é»„è‰²ã§å¡—ã‚Šã¤ã¶ã—ã¾ã™
+    // ‰æ–Ê‚ð‰©F‚Å“h‚è‚Â‚Ô‚µ‚Ü‚·
     DrawBox( 0 , 0 , 640 , 480 , GetColor( 128,128, 0) , TRUE ) ;
 
-    // ã‚µã‚¤ã‚ºã‚’ï¼”ï¼ã«å¤‰æ›´
+    // ƒTƒCƒY‚ð‚S‚O‚É•ÏX
     SetFontSize( 40 ) ;
 
-    // ã€Žï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã€ã¨æç”»
-    DrawString( 100 , 100 , "ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒª" , GetColor( 255,255,255 ) ) ;
+    // w‚c‚wƒ‰ƒCƒuƒ‰ƒŠx‚Æ•`‰æ
+    DrawString( 100 , 100 , "‚c‚wƒ‰ƒCƒuƒ‰ƒŠ" , GetColor( 255,255,255 ) ) ;
 
-    // ãƒ•ã‚©ãƒ³ãƒˆã®ã‚¿ã‚¤ãƒ—ã‚’ã‚¨ãƒƒã‚¸ã¤ãã‚¢ãƒ³ãƒã‚¨ã‚¤ãƒªã‚¢ã‚¹ãƒ•ã‚©ãƒ³ãƒˆã«å¤‰æ›´
+    // ƒtƒHƒ“ƒg‚Ìƒ^ƒCƒv‚ðƒGƒbƒW‚Â‚«ƒAƒ“ƒ`ƒGƒCƒŠƒAƒXƒtƒHƒ“ƒg‚É•ÏX
     ChangeFontType( DX_FONTTYPE_ANTIALIASING_EDGE ) ;
 
-    // ã€Žï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã€ã¨æç”»
-    DrawString( 100 , 160 , "ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒª" , GetColor( 255,255,255 ), GetColor( 0,0,0 ) ) ;
+    // w‚c‚wƒ‰ƒCƒuƒ‰ƒŠx‚Æ•`‰æ
+    DrawString( 100 , 160 , "‚c‚wƒ‰ƒCƒuƒ‰ƒŠ" , GetColor( 255,255,255 ), GetColor( 0,0,0 ) ) ;
 
 
-    // ã‚­ãƒ¼å…¥åŠ›ã‚’å¾…ã¤
+    // ƒL[“ü—Í‚ð‘Ò‚Â
     WaitKey() ;
 
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®çµ‚äº†
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌI—¹
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

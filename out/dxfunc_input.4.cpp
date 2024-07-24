@@ -2,19 +2,19 @@
 
 int main()
 {
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
     if( DxLib_Init() == -1 )
-         return -1;    // ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ç›´ã¡ã«çµ‚äº†
+         return -1;    // ƒGƒ‰[‚ª‹N‚«‚½‚ç’¼‚¿‚ÉI—¹
 
-    // æŒ¯å‹•é–‹å§‹
+    // U“®ŠJŽn
     StartJoypadVibration( DX_INPUT_PAD1, 1000, 2000, -1 ) ;
 
-    // ï¼’ç§’é–“çµŒéŽã™ã‚‹ã¾ã§å¾…ã¤
+    // ‚Q•bŠÔŒo‰ß‚·‚é‚Ü‚Å‘Ò‚Â
     WaitTimer( 2000 ) ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠŽg—p‚ÌI—¹ˆ—
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

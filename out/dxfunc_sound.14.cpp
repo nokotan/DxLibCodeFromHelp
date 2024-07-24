@@ -4,28 +4,28 @@ int main()
 {
     int SHandle, DupSHandle ;
 
-    if( DxLib_Init() == -1 )    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
+    if( DxLib_Init() == -1 )    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
     {
-         return -1;    // ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ç›´ã¡ã«çµ‚äº†
+         return -1;    // ƒGƒ‰[‚ª‹N‚«‚½‚ç’¼‚¿‚ÉI—¹
     }
 
-    // test.wavã®ãƒ¡ãƒ¢ãƒªã¸ã®èª­ã¿è¾¼ã¿ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒ³ãƒ‰ãƒ«ã‚’SHandleã«ä¿å­˜ã—ã¾ã™
+    // test.wav‚Ìƒƒ‚ƒŠ‚Ö‚Ì“Ç‚İ‚İƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ğSHandle‚É•Û‘¶‚µ‚Ü‚·
     SHandle = LoadSoundMem( "test.wav" ) ;
 
-    // test.wavã‚’ä½¿ç”¨ã™ã‚‹ SHandle ã¨ã¯åˆ¥ã®ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒ³ãƒ‰ãƒ«ã‚’ä½œæˆã™ã‚‹
+    // test.wav‚ğg—p‚·‚é SHandle ‚Æ‚Í•Ê‚ÌƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ğì¬‚·‚é
     DupSHandle = DuplicateSoundMem( SHandle ) ;
 
-    // èª­ã¿ã“ã‚“ã éŸ³ã‚’ãƒãƒ¼ãƒãƒ«å†ç”Ÿã—ã¾ã™(ã€PlaySoundMemã€é–¢æ•°ä½¿ç”¨)
+    // “Ç‚İ‚±‚ñ‚¾‰¹‚ğƒm[ƒ}ƒ‹Ä¶‚µ‚Ü‚·(wPlaySoundMemxŠÖ”g—p)
     PlaySoundMem( SHandle , DX_PLAYTYPE_NORMAL ) ;
 
-    // SHandle ã‹ã‚‰è¤‡è£½ã—ãŸ DupSHandle ã‚’ãƒãƒ¼ãƒãƒ«å†ç”Ÿã—ã¾ã™
+    // SHandle ‚©‚ç•¡»‚µ‚½ DupSHandle ‚ğƒm[ƒ}ƒ‹Ä¶‚µ‚Ü‚·
     PlaySoundMem( DupSHandle , DX_PLAYTYPE_NORMAL ) ;
 
-    // ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚Ìíœ
     DeleteSoundMem( SHandle ) ;
     DeleteSoundMem( DupSHandle ) ;
 
-    DxLib_End() ;        // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+    DxLib_End() ;        // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠg—p‚ÌI—¹ˆ—
 
-    return 0 ;        // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    return 0 ;        // ƒ\ƒtƒg‚ÌI—¹
 }

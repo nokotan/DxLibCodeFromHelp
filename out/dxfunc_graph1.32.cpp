@@ -5,32 +5,32 @@ int main()
     int SrcHandle ;
     int DestHandle ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
         return -1 ;
 
-    // ç”»åƒã‚’èª­ã¿è¾¼ã‚€
+    // ‰æ‘œ‚ğ“Ç‚İ‚Ş
     SrcHandle = LoadGraph( "Src1.bmp" ) ;
 
-    // å‡ºåŠ›å…ˆã«ä½¿ç”¨ã™ã‚‹ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ãƒãƒ³ãƒ‰ãƒ«ã‚’ä½œæˆ
+    // o—Íæ‚Ég—p‚·‚éƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ğì¬
     DestHandle = MakeScreen( 256, 256, FALSE ) ;
 
-    // ãƒ¢ãƒãƒˆãƒ¼ãƒ³ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼ã§ã‚»ãƒ”ã‚¢èª¿ã®ç”»åƒã«å¤‰æ›
+    // ƒ‚ƒmƒg[ƒ“ƒtƒBƒ‹ƒ^[‚ÅƒZƒsƒA’²‚Ì‰æ‘œ‚É•ÏŠ·
     GraphFilterBlt( SrcHandle, DestHandle, DX_GRAPH_FILTER_MONO, -60, 7 ) ;
 
-    // ç”»åƒã‚’ç”»é¢ã«æç”»
+    // ‰æ‘œ‚ğ‰æ–Ê‚É•`‰æ
     DrawGraph( 0, 0, DestHandle, FALSE ) ;
 
-    // èª­ã¿è¾¼ã‚“ã ç”»åƒã®ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ãƒãƒ³ãƒ‰ãƒ«ã‚’å‰Šé™¤
+    // “Ç‚İ‚ñ‚¾‰æ‘œ‚ÌƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ğíœ
     DeleteGraph( SrcHandle ) ;
 
-    // MakeScreen ã§ä½œæˆã—ãŸã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // MakeScreen ‚Åì¬‚µ‚½ƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚Ìíœ
     DeleteGraph( DestHandle ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
     return 0 ;

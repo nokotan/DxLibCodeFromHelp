@@ -4,27 +4,27 @@ int main()
 {
     int SHandle ;
 
-    if( DxLib_Init() == -1 )    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
+    if( DxLib_Init() == -1 )    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
     {
-         return -1;    // ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ç›´ã¡ã«çµ‚äº†
+         return -1;    // ƒGƒ‰[‚ª‹N‚«‚½‚ç’¼‚¿‚ÉI—¹
     }
 
-    // test.wavã®ãƒ¡ãƒ¢ãƒªã¸ã®èª­ã¿è¾¼ã¿ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒ³ãƒ‰ãƒ«ã‚’SHandleã«ä¿å­˜ã—ã¾ã™
+    // test.wav‚Ìƒƒ‚ƒŠ‚Ö‚Ì“Ç‚İ‚İƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ğSHandle‚É•Û‘¶‚µ‚Ü‚·
     SHandle = LoadSoundMem( "test.wav" ) ;
 
-    // ãƒ‘ãƒ³ã®è¨­å®š
+    // ƒpƒ“‚Ìİ’è
     ChangePanSoundMem( 255 , SHandle ) ;
 
-    // éŸ³ã®å†ç”Ÿ
+    // ‰¹‚ÌÄ¶
     PlaySoundMem( SHandle , DX_PLAYTYPE_BACK ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›ãŒã‚ã‚‹ã¾ã§å¾…ã¡ã¾ã™(ã€WaitKeyã€ä½¿ç”¨)
+    // ƒL[“ü—Í‚ª‚ ‚é‚Ü‚Å‘Ò‚¿‚Ü‚·(wWaitKeyxg—p)
     WaitKey() ;
 
-    // ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚Ìíœ
     DeleteSoundMem( SHandle ) ;
 
-    DxLib_End() ;        // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+    DxLib_End() ;        // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠg—p‚ÌI—¹ˆ—
 
-    return 0 ;        // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    return 0 ;        // ƒ\ƒtƒg‚ÌI—¹
 }

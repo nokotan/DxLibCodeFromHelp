@@ -8,64 +8,64 @@ int main()
     unsigned char *Data ;
     int Size, GrHandle, i ;
 
-    // ＤＸライブラリの初期化
+    // �c�w���C�u�����̏�����
     if( DxLib_Init() == -1 )
         return -1 ;
 
-    // ファイル test1.enc を丸ごとメモリに読み込む
+    // �t�@�C�� test1.enc ���ۂ��ƃ������ɓǂݍ���
     {
-        // バイナリモードで開く
+        // �o�C�i�����[�h�ŊJ��
         fp = fopen( "test1.enc", "rb" ) ;
 
-        // ファイルのサイズを得る
+        // �t�@�C���̃T�C�Y�𓾂�
         {
-            // ファイルポインタをファイルの末端に
+            // �t�@�C���|�C���^���t�@�C���̖��[��
             fseek( fp, 0L, SEEK_END ) ;
 
-            // ファイルの末端でファイルポインタのアドレスを
-            // 取得すればそれはファイルのサイズ
+            // �t�@�C���̖��[�Ńt�@�C���|�C���^�̃A�h���X��
+            // �擾����΂���̓t�@�C���̃T�C�Y
             Size = ftell( fp ) ;
 
-            // ファイルポインタをファイルの先頭に戻す
+            // �t�@�C���|�C���^���t�@�C���̐擪�ɖ߂�
             fseek( fp, 0L, SEEK_SET ) ;
         }
 
-        // ファイルを丸々読み込めるメモリ領域を確保する
+        // �t�@�C�����ہX�ǂݍ��߂郁�����̈���m�ۂ���
         Data = ( unsigned char * )malloc( Size ) ;
 
-        // ファイルを丸々読み込む
+        // �t�@�C�����ہX�ǂݍ���
         fread( Data, Size, 1, fp ) ;
 
-        // ファイルを閉じる
+        // �t�@�C�������
         fclose( fp ) ;
     }
 
-    // ＮＯＴ演算の暗号を解く
+    // �m�n�s���Z�̈Í�������
     for( i = 0 ; i < Size ; i ++ )
     {
-        // ＮＯＴ演算されたデータは、もう一回ＮＯＴ演算をすると元に戻る
+        // �m�n�s���Z���ꂽ�f�[�^�́A�������m�n�s���Z������ƌ��ɖ߂�
         Data[i] = ~Data[i] ;
     }
 
-    // 元に戻ったグラフィックデータでグラフィックハンドルを作成する
+    // ���ɖ߂����O���t�B�b�N�f�[�^�ŃO���t�B�b�N�n���h�����쐬����
     GrHandle = CreateGraphFromMem( Data, Size ) ;
 
-    // グラフィックを作成し終わったらグラフィックデータを
-    // 格納していたメモリ領域を開放する
+    // �O���t�B�b�N���쐬���I�������O���t�B�b�N�f�[�^��
+    // �i�[���Ă����������̈���J������
     free( Data ) ;
 
-    // 画像を画面に描画
+    // �摜����ʂɕ`��
     DrawGraph( 0, 0, GrHandle, FALSE ) ;
 
-    // グラフィックハンドルの削除
+    // �O���t�B�b�N�n���h���̍폜
     DeleteGraph( GrHandle ) ;
 
-    // キーが押されるまで待つ
+    // �L�[���������܂ő҂�
     WaitKey() ;
 
-    // ＤＸライブラリの後始末
+    // �c�w���C�u�����̌�n��
     DxLib_End() ;
 
-    // ソフト終了
+    // �\�t�g�I��
     return 0 ;
 }

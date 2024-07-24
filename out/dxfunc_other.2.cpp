@@ -2,15 +2,15 @@
 
 int main()
 {
-    if( DxLib_Init() == -1 )    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
+    if( DxLib_Init() == -1 )    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
     {
-         return -1;    // ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ç›´ã¡ã«çµ‚äº†
+         return -1;    // ƒGƒ‰[‚ª‹N‚«‚½‚ç’¼‚¿‚ÉI—¹
     }
 
-    // ã“ã“ã§ã‚­ãƒ¼å…¥åŠ›ã‚’å¾…ã¤
+    // ‚±‚±‚ÅƒL[“ü—Í‚ð‘Ò‚Â
     WaitKey() ;
 
-    DxLib_End() ;        // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+    DxLib_End() ;        // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠŽg—p‚ÌI—¹ˆ—
 
-    return 0 ;        // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    return 0 ;        // ƒ\ƒtƒg‚ÌI—¹
 }

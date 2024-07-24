@@ -5,40 +5,40 @@ int main()
 {
     int Count ;
 
-    if( DxLib_Init() == -1 )    // ＤＸライブラリ初期化処理
+    if( DxLib_Init() == -1 )    // �c�w���C�u��������������
     {
-         return -1;    // エラーが起きたら直ちに終了
+         return -1;    // �G���[���N�����璼���ɏI��
     }
 
-    // マウスを表示状態にする
+    // �}�E�X��\����Ԃɂ���
     SetMouseDispFlag( TRUE ) ;
 
-    // 現在のカウンタ値を得る『GetNowCount』関数使用
+    // ���݂̃J�E���^�l�𓾂�wGetNowCount�x�֐��g�p
     Count = GetNowCount() ;
 
-    // キーが押されるまでループ
+    // �L�[���������܂Ń��[�v
     while( CheckHitKeyAll() == 0 )
     {
-        // 前回のカウンタ参照から１秒たっているか判定
+        // �O��̃J�E���^�Q�Ƃ���P�b�����Ă��邩����
         if( GetNowCount() - Count > 1000 )
         {
-            // 経っていたらマウスの位置を画面左上に移動
+            // �o���Ă�����}�E�X�̈ʒu����ʍ���Ɉړ�
 
-            // マウスの位置をセット
+            // �}�E�X�̈ʒu���Z�b�g
             SetMousePoint( 0 , 0 ) ;
 
-            // 現在のカウンタ値を得る
+            // ���݂̃J�E���^�l�𓾂�
             Count = GetNowCount() ;
         }
 
-        // メッセージ処理
+        // ���b�Z�[�W����
         if( ProcessMessage() == -1 )
         {
-            break ;    // エラーが起きたらループを抜ける
+            break ;    // �G���[���N�����烋�[�v�𔲂���
         }
     }
 
-    DxLib_End() ;        // ＤＸライブラリ使用の終了処理
+    DxLib_End() ;        // �c�w���C�u�����g�p�̏I������
 
-    return 0 ;        // ソフトの終了
+    return 0 ;        // �\�t�g�̏I��
 }

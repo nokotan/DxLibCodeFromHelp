@@ -4,28 +4,28 @@ int main()
 {
     int Cr ;
 
-    if( DxLib_Init() == -1 )    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
+    if( DxLib_Init() == -1 )    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
     {
-         return -1;    // ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ç›´ã¡ã«çµ‚äº†
+         return -1;    // ƒGƒ‰[‚ª‹N‚«‚½‚ç’¼‚¿‚ÉI—¹
     }
 
-    // ç™½è‰²ã®å€¤ã‚’å–å¾—
+    // ”’F‚Ì’l‚ðŽæ“¾
     Cr = GetColor( 255 , 255 , 255 ) ;
 
-    // æ–‡å­—åˆ—ã®æç”»
-    DrawString( 200 , 240 - 32 , "ã‚­ãƒ¼ã‚’æŠ¼ã—ã¦ãã ã•ã„" , Cr );
+    // •¶Žš—ñ‚Ì•`‰æ
+    DrawString( 200 , 240 - 32 , "ƒL[‚ð‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢" , Cr );
 
-    // ã‚­ãƒ¼ã®å…¥åŠ›å¾…ã¡
+    // ƒL[‚Ì“ü—Í‘Ò‚¿
     while( CheckHitKeyAll() == 0 )
     {
-        // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å‡¦ç†
+        // ƒƒbƒZ[ƒWˆ—
         if( ProcessMessage() == -1 )
         {
-             break ;    // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ãƒ«ãƒ¼ãƒ—ã‚’æŠœã‘ã‚‹
+             break ;    // ƒGƒ‰[‚ª”­¶‚µ‚½‚çƒ‹[ƒv‚ð”²‚¯‚é
         }
     }
 
-    DxLib_End() ;        // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+    DxLib_End() ;        // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠŽg—p‚ÌI—¹ˆ—
 
-    return 0 ;        // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    return 0 ;        // ƒ\ƒtƒg‚ÌI—¹
 }

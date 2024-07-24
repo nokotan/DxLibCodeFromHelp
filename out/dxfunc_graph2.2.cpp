@@ -5,27 +5,27 @@ int main()
 {
     int StrWidth , StrLen ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() == -1 ) return -1 ;
 
-    // æœ€åˆã®æ–‡å­—åˆ—ã‚’æç”»
-    DrawString( 0 , 0 , "ä»Šæ—¥ã‚‚ã„ã„å¤©æ°—ã " , GetColor( 255 , 255 , 255 ) ) ;
+    // Å‰‚Ì•¶Žš—ñ‚ð•`‰æ
+    DrawString( 0 , 0 , "¡“ú‚à‚¢‚¢“V‹C‚¾" , GetColor( 255 , 255 , 255 ) ) ;
 
-    // æ–‡å­—åˆ—ã®é•·ã•ã‚’å–å¾—
-    StrLen = strlen( "ä»Šæ—¥ã‚‚ã„ã„å¤©æ°—ã " ) ;
+    // •¶Žš—ñ‚Ì’·‚³‚ðŽæ“¾
+    StrLen = strlen( "¡“ú‚à‚¢‚¢“V‹C‚¾" ) ;
 
-    // æç”»æ™‚ã®æ–‡å­—åˆ—ã®å¹…ã‚’å–å¾—
-    StrWidth = GetDrawStringWidth( "ä»Šæ—¥ã‚‚ã„ã„å¤©æ°—ã " , StrLen ) ;
+    // •`‰æŽž‚Ì•¶Žš—ñ‚Ì•‚ðŽæ“¾
+    StrWidth = GetDrawStringWidth( "¡“ú‚à‚¢‚¢“V‹C‚¾" , StrLen ) ;
 
-    // ã€Œä»Šæ—¥ã‚‚ã„ã„å¤©æ°—ã ã€ã®ç›´å¾Œã«æ–°ãŸãªæ–‡å­—åˆ—ã‚’æç”»
-    DrawString( StrWidth , 0 , "æ˜Žæ—¥ã‚‚æ™´ã‚Œã‚‹ã¨è‰¯ã„ãªã‚" , GetColor( 255 , 255 , 255 ) ) ;
+    // u¡“ú‚à‚¢‚¢“V‹C‚¾v‚Ì’¼Œã‚ÉV‚½‚È•¶Žš—ñ‚ð•`‰æ
+    DrawString( StrWidth , 0 , "–¾“ú‚à°‚ê‚é‚Æ—Ç‚¢‚È‚ " , GetColor( 255 , 255 , 255 ) ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®ä½¿ç”¨çµ‚äº†
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŽg—pI—¹
     DxLib_End() ;
 
-    // çµ‚äº†
+    // I—¹
     return 0 ;
 }

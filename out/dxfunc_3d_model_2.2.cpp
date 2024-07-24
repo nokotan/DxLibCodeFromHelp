@@ -4,35 +4,35 @@ int main()
 {
     int ModelHandle ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+    // ‚R‚cƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ
     ModelHandle = MV1LoadModel( "AddressTest.mqo" ) ;
 
-    // ãƒ¢ãƒ‡ãƒ«ã‚’ç”»é¢ã«æ˜ ã‚‹ä½ç½®ã«ç§»å‹•
+    // ƒ‚ƒfƒ‹‚ğ‰æ–Ê‚É‰f‚éˆÊ’u‚ÉˆÚ“®
     MV1SetPosition( ModelHandle, VGet( 320.0f, 240.0f, 400.0f ) ) ;
 
-    // ãƒ†ã‚¯ã‚¹ãƒãƒ£ï¼ç•ªã®ã‚¢ãƒ‰ãƒ¬ã‚¹ãƒ¢ãƒ¼ãƒ‰ã‚’æ¨ªæ–¹å‘ã¯ DX_TEXADDRESS_MIRROR ã«ã€
-    // ç¸¦æ–¹å‘ã¯ DX_TEXADDRESS_CLAMP ã«å¤‰æ›´ã™ã‚‹
+    // ƒeƒNƒXƒ`ƒƒ‚O”Ô‚ÌƒAƒhƒŒƒXƒ‚[ƒh‚ğ‰¡•ûŒü‚Í DX_TEXADDRESS_MIRROR ‚ÉA
+    // c•ûŒü‚Í DX_TEXADDRESS_CLAMP ‚É•ÏX‚·‚é
     MV1SetTextureAddressMode( ModelHandle, 0, DX_TEXADDRESS_MIRROR, DX_TEXADDRESS_CLAMP ) ;
 
-    // ãƒ¢ãƒ‡ãƒ«ã‚’æç”»ã™ã‚‹
+    // ƒ‚ƒfƒ‹‚ğ•`‰æ‚·‚é
     MV1DrawModel( ModelHandle ) ;
 
-    // ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚Ìíœ
     MV1DeleteModel( ModelHandle ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

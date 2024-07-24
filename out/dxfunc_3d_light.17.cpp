@@ -4,25 +4,25 @@ int main()
 {
     int LightHandle[ 3 ], ModelHandle ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+    // ‚R‚cƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ
     ModelHandle = MV1LoadModel( "SimpleModel.mqo" ) ;
 
-    // ãƒ©ã‚¤ãƒˆãƒãƒ³ãƒ‰ãƒ«ã®ãƒ©ã‚¤ãƒˆã®åŠ¹æœãŒã‚ã‹ã‚Šæ˜“ã„ã‚ˆã†ã«æ¨™æº–ãƒ©ã‚¤ãƒˆã‚’ç„¡åŠ¹åŒ–
+    // ƒ‰ƒCƒgƒnƒ“ƒhƒ‹‚Ìƒ‰ƒCƒg‚ÌŒø‰Ê‚ª‚í‚©‚èˆÕ‚¢‚æ‚¤‚É•W€ƒ‰ƒCƒg‚ğ–³Œø‰»
     SetLightEnable( FALSE ) ;
 
-    // ãƒ‡ã‚£ãƒ¬ã‚¯ã‚·ãƒ§ãƒŠãƒ«ã‚¿ã‚¤ãƒ—ã®ãƒ©ã‚¤ãƒˆãƒãƒ³ãƒ‰ãƒ«ã‚’ï¼“ã¤ä½œæˆ
+    // ƒfƒBƒŒƒNƒVƒ‡ƒiƒ‹ƒ^ƒCƒv‚Ìƒ‰ƒCƒgƒnƒ“ƒhƒ‹‚ğ‚R‚Âì¬
     LightHandle[ 0 ] = CreateDirLightHandle( VGet( 1.0f, 0.0f, 0.0f ) ) ;
     LightHandle[ 1 ] = CreateDirLightHandle( VGet( 0.0f, 1.0f, 0.0f ) ) ;
     LightHandle[ 2 ] = CreateDirLightHandle( VGet( 0.0f, 0.0f, 1.0f ) ) ;
 
-    // å„ãƒ©ã‚¤ãƒˆã‚’ï¼•ï¼ï¼…ã®ç¢ºç‡ã§ç„¡åŠ¹ã«ã™ã‚‹
+    // Šeƒ‰ƒCƒg‚ğ‚T‚O“‚ÌŠm—¦‚Å–³Œø‚É‚·‚é
     if( GetRand( 99 ) >= 50 )
     {
         SetLightEnableHandle( LightHandle[ 0 ], FALSE ) ;
@@ -38,26 +38,26 @@ int main()
         SetLightEnableHandle( LightHandle[ 2 ], FALSE ) ;
     }
 
-    // ç”»é¢ã«æ˜ ã‚‹ä½ç½®ã«ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã‚’ç§»å‹•
+    // ‰æ–Ê‚É‰f‚éˆÊ’u‚É‚R‚cƒ‚ƒfƒ‹‚ğˆÚ“®
     MV1SetPosition( ModelHandle, VGet( 320.0f, 240.0f, 600.0f ) ) ;
 
-    // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®æç”»
+    // ‚R‚cƒ‚ƒfƒ‹‚Ì•`‰æ
     MV1DrawModel( ModelHandle ) ;
 
-    // ãƒ©ã‚¤ãƒˆãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒ‰ƒCƒgƒnƒ“ƒhƒ‹‚Ìíœ
     DeleteLightHandle( LightHandle[ 0 ] ) ;
     DeleteLightHandle( LightHandle[ 1 ] ) ;
     DeleteLightHandle( LightHandle[ 2 ] ) ;
 
-    // ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚Ìíœ
     MV1DeleteModel( ModelHandle ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

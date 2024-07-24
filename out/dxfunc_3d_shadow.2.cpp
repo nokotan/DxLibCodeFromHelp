@@ -10,123 +10,123 @@ int main()
 	float Angle ;
 	VECTOR CharaPosition ;
 
-	// ＤＸライブラリの初期化
+	// �c�w���C�u�����̏�����
 	if( DxLib_Init() < 0 )
 	{
-		// エラーが発生したら終了
+		// �G���[������������I��
 		return -1 ;
 	}
 
-	// 描画先を裏画面に変更
+	// �`���𗠉�ʂɕύX
 	SetDrawScreen( DX_SCREEN_BACK ) ;
 
-	// キャラクターモデルの読み込み
+	// �L�����N�^�[���f���̓ǂݍ���
 	CharaModelHandle = MV1LoadModel( "DxChara.x" ) ;
 
-	// ステージモデルの読み込み
+	// �X�e�[�W���f���̓ǂݍ���
 	StageModelHandle = MV1LoadModel( "SimplePillarStage.mqo" ) ;
 
-	// ステージモデル用のシャドウマップハンドルの作成
+	// �X�e�[�W���f���p�̃V���h�E�}�b�v�n���h���̍쐬
 	StageShadowMapHandle = MakeShadowMap( 2048, 2048 ) ;
 
-	// キャラクターモデル用のシャドウマップハンドルの作成
+	// �L�����N�^�[���f���p�̃V���h�E�}�b�v�n���h���̍쐬
 	CharaShadowMapHandle = MakeShadowMap( 2048, 2048 ) ;
 
-	// カメラの位置と向きを設定
+	// �J�����̈ʒu�ƌ�����ݒ�
 	SetCameraPositionAndTarget_UpVecY( VGet( 0.0f, 1500.0f, -1500.0f ), VGet( 0.0f, 800.0f, -800.0f ) );
 
-	// 描画する奥行き方向の範囲を設定
+	// �`�悷�鉜�s�������͈̔͂�ݒ�
 	SetCameraNearFar( 160.000f, 80000.000f );
 
-	// シャドウマップに描画する範囲を設定
+	// �V���h�E�}�b�v�ɕ`�悷��͈͂�ݒ�
 	SetShadowMapDrawArea( StageShadowMapHandle, VGet( -4000.0f, -1.0f, -4000.0f ), VGet( 4000.0f, 4000.0f, 4000.0f ) ) ;
 	SetShadowMapDrawArea( CharaShadowMapHandle, VGet( -4000.0f, -1.0f, -4000.0f ), VGet( 4000.0f, 4000.0f, 4000.0f ) ) ;
 
-	// ライトの方向を設定
+	// ���C�g�̕�����ݒ�
 	SetLightDirection( VGet( 0.5f, -0.5f, 0.5f ) );
 
-	// シャドウマップが想定するライトの方向もセット
+	// �V���h�E�}�b�v���z�肷�郉�C�g�̕������Z�b�g
 	SetShadowMapLightDirection( StageShadowMapHandle, VGet( 0.5f, -0.5f, 0.5f ) ) ;
 	SetShadowMapLightDirection( CharaShadowMapHandle, VGet( 0.5f, -0.5f, 0.5f ) ) ;
 
-	// ステージモデル用のシャドウマップへの描画の準備
+	// �X�e�[�W���f���p�̃V���h�E�}�b�v�ւ̕`��̏���
 	ShadowMap_DrawSetup( StageShadowMapHandle ) ;
 
-	// ステージモデル用のシャドウマップへステージモデルの描画
+	// �X�e�[�W���f���p�̃V���h�E�}�b�v�փX�e�[�W���f���̕`��
 	MV1DrawModel( StageModelHandle ) ;
 
-	// ステージモデル用のシャドウマップへの描画を終了
+	// �X�e�[�W���f���p�̃V���h�E�}�b�v�ւ̕`����I��
 	ShadowMap_DrawEnd() ;
 
-	// キャラクターの位置となる角度を初期化
+	// �L�����N�^�[�̈ʒu�ƂȂ�p�x��������
 	Angle = 0.0f ;
 
-	// メインループ
+	// ���C�����[�v
 	while( ProcessMessage() == 0 )
 	{
-		// 画面をクリア
+		// ��ʂ��N���A
 		ClearDrawScreen() ;
 
 
-		// キャラクターの位置となる角度を変更
+		// �L�����N�^�[�̈ʒu�ƂȂ�p�x��ύX
 		Angle += 0.0125f ;
 		if( Angle > DX_PI_F * 2.0f )
 		{
 			Angle -= DX_PI_F * 2.0f ;
 		}
 
-		// キャラクターの座標を算出
+		// �L�����N�^�[�̍��W���Z�o
 		CharaPosition.x = sin( Angle ) * 1000.0f ;
 		CharaPosition.z = cos( Angle ) * 1000.0f ;
 		CharaPosition.y = 0.0f ;
 
-		// キャラクターモデルの座標を変更
+		// �L�����N�^�[���f���̍��W��ύX
 		MV1SetPosition( CharaModelHandle, CharaPosition ) ;
 
 
-		// キャラクターモデル用のシャドウマップへの描画の準備
+		// �L�����N�^�[���f���p�̃V���h�E�}�b�v�ւ̕`��̏���
 		ShadowMap_DrawSetup( CharaShadowMapHandle ) ;
 
-		// キャラクターモデル用のシャドウマップへキャラクターモデルの描画
+		// �L�����N�^�[���f���p�̃V���h�E�}�b�v�փL�����N�^�[���f���̕`��
 		MV1DrawModel( CharaModelHandle ) ;
 
-		// キャラクターモデル用のシャドウマップへの描画を終了
+		// �L�����N�^�[���f���p�̃V���h�E�}�b�v�ւ̕`����I��
 		ShadowMap_DrawEnd() ;
 
 
-		// 描画にキャラクターモデル用のシャドウマップと
-		// ステージモデル用のシャドウマップのどちらも使用する
+		// �`��ɃL�����N�^�[���f���p�̃V���h�E�}�b�v��
+		// �X�e�[�W���f���p�̃V���h�E�}�b�v�̂ǂ�����g�p����
 		SetUseShadowMap( 0, StageShadowMapHandle ) ;
 		SetUseShadowMap( 1, CharaShadowMapHandle ) ;
 
-		// ステージモデルの描画
+		// �X�e�[�W���f���̕`��
 		MV1DrawModel( StageModelHandle ) ;
 
-		// キャラクターモデルの描画
+		// �L�����N�^�[���f���̕`��
 		MV1DrawModel( CharaModelHandle ) ;
 
-		// 描画に使用するシャドウマップの設定を解除
+		// �`��Ɏg�p����V���h�E�}�b�v�̐ݒ������
 		SetUseShadowMap( 0, -1 ) ;
 		SetUseShadowMap( 1, -1 ) ;
 
 
-		// 裏画面の内容を表画面に反映
+		// ����ʂ̓��e��\��ʂɔ��f
 		ScreenFlip() ;
 	}
 
-	// シャドウマップの削除
+	// �V���h�E�}�b�v�̍폜
 	DeleteShadowMap( StageShadowMapHandle ) ;
 	DeleteShadowMap( CharaShadowMapHandle ) ;
 
-	// ステージモデルの削除
+	// �X�e�[�W���f���̍폜
 	MV1DeleteModel( StageModelHandle ) ;
 
-	// キャラクターモデルの削除
+	// �L�����N�^�[���f���̍폜
 	MV1DeleteModel( CharaModelHandle ) ;
 
-	// ＤＸライブラリの後始末
+	// �c�w���C�u�����̌�n��
 	DxLib_End() ;
 
-	// ソフトの終了
+	// �\�t�g�̏I��
 	return 0 ;
 }

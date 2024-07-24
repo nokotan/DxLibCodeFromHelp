@@ -4,28 +4,28 @@ int main()
 {
     char Name[ 31 ] ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() == -1 ) return -1 ;
 
-    // åå‰å…¥åŠ›æŒ‡ç¤ºæ–‡å­—åˆ—ã®æç”»
-    DrawString( 0 , 0 , "åå‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„" , GetColor( 255 , 255 , 255 ) ) ;
+    // –¼‘O“ü—ÍŽwŽ¦•¶Žš—ñ‚Ì•`‰æ
+    DrawString( 0 , 0 , "–¼‘O‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢" , GetColor( 255 , 255 , 255 ) ) ;
 
-    // åå‰ã®å…¥åŠ›
+    // –¼‘O‚Ì“ü—Í
     KeyInputString( 0 , 16 , 30 , Name , FALSE ) ;
 
-    // ç”»é¢ã®åˆæœŸåŒ–
+    // ‰æ–Ê‚Ì‰Šú‰»
     ClearDrawScreen() ;
 
-    // åå‰ã®è¡¨ç¤º
-    DrawString( 0 , 0 , "ã‚ãªãŸã®åå‰ã¯" , GetColor( 255 , 255 , 255 ) ) ;
+    // –¼‘O‚Ì•\Ž¦
+    DrawString( 0 , 0 , "‚ ‚È‚½‚Ì–¼‘O‚Í" , GetColor( 255 , 255 , 255 ) ) ;
     DrawString( 0 , 16 , Name ,  GetColor( 255 , 255 , 255 ) ) ;
         
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡    
+    // ƒL[“ü—Í‘Ò‚¿    
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®ä½¿ç”¨çµ‚äº†
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŽg—pI—¹
     DxLib_End() ;
 
-    // çµ‚äº†
+    // I—¹
     return 0 ;
 }

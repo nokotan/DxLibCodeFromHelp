@@ -4,45 +4,45 @@ int main()
 {
     int ModelHandle[ 4 ] ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+    // ‚R‚cƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ
     ModelHandle[ 0 ] = MV1LoadModel( "DxChara.x" ) ;
 
-    // åŒã˜ãƒ‡ãƒ¼ã‚¿ã‚’ä½¿ç”¨ã™ã‚‹ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã‚’ï¼“ã¤ä½œæˆã™ã‚‹
+    // “¯‚¶ƒf[ƒ^‚ğg—p‚·‚éƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚ğ‚R‚Âì¬‚·‚é
     ModelHandle[ 1 ] = MV1DuplicateModel( ModelHandle[ 0 ] ) ;
     ModelHandle[ 2 ] = MV1DuplicateModel( ModelHandle[ 0 ] ) ;
     ModelHandle[ 3 ] = MV1DuplicateModel( ModelHandle[ 0 ] ) ;
 
-    // ç”»é¢ã«æ˜ ã‚‹ä½ç½®ã«ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã‚’ç§»å‹•
+    // ‰æ–Ê‚É‰f‚éˆÊ’u‚É‚R‚cƒ‚ƒfƒ‹‚ğˆÚ“®
     MV1SetPosition( ModelHandle[ 0 ], VGet( -200.0f, -300.0f, 600.0f ) ) ;
     MV1SetPosition( ModelHandle[ 1 ], VGet(  150.0f, -300.0f, 600.0f ) ) ;
     MV1SetPosition( ModelHandle[ 2 ], VGet(  500.0f, -300.0f, 600.0f ) ) ;
     MV1SetPosition( ModelHandle[ 3 ], VGet(  850.0f, -300.0f, 600.0f ) ) ;
 
-    // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®æç”»
+    // ‚R‚cƒ‚ƒfƒ‹‚Ì•`‰æ
     MV1DrawModel( ModelHandle[ 0 ] ) ;
     MV1DrawModel( ModelHandle[ 1 ] ) ;
     MV1DrawModel( ModelHandle[ 2 ] ) ;
     MV1DrawModel( ModelHandle[ 3 ] ) ;
 
-    // ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚Ìíœ
     MV1DeleteModel( ModelHandle[ 0 ] ) ;
     MV1DeleteModel( ModelHandle[ 1 ] ) ;
     MV1DeleteModel( ModelHandle[ 2 ] ) ;
     MV1DeleteModel( ModelHandle[ 3 ] ) ;
 
-    // ã‚­ãƒ¼ã®å…¥åŠ›å¾…ã¡
+    // ƒL[‚Ì“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

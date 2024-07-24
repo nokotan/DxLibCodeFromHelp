@@ -4,65 +4,65 @@ int main()
 {
 	int ModelHandle ;
 
-	// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ¢ãƒ¼ãƒ‰ã§èµ·å‹•
+	// ƒEƒBƒ“ƒhƒEƒ‚[ƒh‚Å‹N“®
 	ChangeWindowMode( TRUE ) ;
 
-	// ç”»é¢è§£åƒåº¦ã‚’è¨­å®š
+	// ‰æ–Ê‰ğ‘œ“x‚ğİ’è
 	SetGraphMode( 1920, 1080, 32 ) ;
 
-	// Live2D Cubism Core DLL ã®èª­ã¿è¾¼ã¿( 64bit ã‚¢ãƒ—ãƒªã®å ´åˆã¨ 32bit ã‚¢ãƒ—ãƒªã®å ´åˆã§èª­ã¿è¾¼ã‚€ dll ã‚’å¤‰æ›´ )
+	// Live2D Cubism Core DLL ‚Ì“Ç‚İ‚İ( 64bit ƒAƒvƒŠ‚Ìê‡‚Æ 32bit ƒAƒvƒŠ‚Ìê‡‚Å“Ç‚İ‚Ş dll ‚ğ•ÏX )
 #ifdef _WIN64
 	Live2D_SetCubism4CoreDLLPath( "D:/CubismSdkForNative-4-beta.1/Core/dll/windows/x86_64/Live2DCubismCore.dll" ) ;
 #else
 	Live2D_SetCubism4CoreDLLPath( "D:/CubismSdkForNative-4-beta.1/Core/dll/windows/x86/Live2DCubismCore.dll" ) ;
 #endif
 
-	// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
+	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
 	if( DxLib_Init() == -1 )
 	{
 		 return -1 ;
 	}
 
-	// Live2Dãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+	// Live2Dƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ
 	ModelHandle = Live2D_LoadModel( "D:/Cubism4SDKforNative-beta12-1/Samples/Res/Hiyori/Hiyori.model3.json" ) ;
 
-	// æç”»å…ˆã‚’è£ç”»é¢ã«å¤‰æ›´
+	// •`‰ææ‚ğ— ‰æ–Ê‚É•ÏX
 	SetDrawScreen( DX_SCREEN_BACK ) ;
 
-	// ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒ—
+	// ƒƒCƒ“ƒ‹[ƒv
 	while( ProcessMessage() == 0 )
 	{
-		// ç”»é¢ã®åˆæœŸåŒ–
+		// ‰æ–Ê‚Ì‰Šú‰»
 		ClearDrawScreen() ;
 
-		// ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³å†ç”ŸãŒçµ‚äº†ã—ã¦ã„ãŸã‚‰ã‚¢ã‚¤ãƒ‰ãƒªãƒ³ã‚°ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ã‚’ãƒ©ãƒ³ãƒ€ãƒ ã§å†ç”Ÿ
+		// ƒ‚[ƒVƒ‡ƒ“Ä¶‚ªI—¹‚µ‚Ä‚¢‚½‚çƒAƒCƒhƒŠƒ“ƒOƒ‚[ƒVƒ‡ƒ“‚ğƒ‰ƒ“ƒ_ƒ€‚ÅÄ¶
 		if( Live2D_Model_IsMotionFinished( ModelHandle ) == TRUE )
 		{
 			Live2D_Model_StartMotion( ModelHandle, "Idle", GetRand( 8 ) ) ;
 		}
 
-		// ãƒ¢ãƒ‡ãƒ«ã®çŠ¶æ…‹ã‚’60åˆ†ã®1ç§’åˆ†é€²ã‚ã‚‹
+		// ƒ‚ƒfƒ‹‚Ìó‘Ô‚ğ60•ª‚Ì1•b•ªi‚ß‚é
 		Live2D_Model_Update( ModelHandle, 1 / 60.0f ) ;
 
-		// Live2Dæç”»ã®é–‹å§‹
+		// Live2D•`‰æ‚ÌŠJn
 		Live2D_RenderBegin() ;
 
-		// ãƒ¢ãƒ‡ãƒ«ã®æç”»
+		// ƒ‚ƒfƒ‹‚Ì•`‰æ
 		Live2D_Model_Draw( ModelHandle ) ;
 
-		// Live2Dæç”»ã®çµ‚äº†
+		// Live2D•`‰æ‚ÌI—¹
 		Live2D_RenderEnd() ;
 
-		// è£ç”»é¢ã®å†…å®¹ã‚’è¡¨ç”»é¢ã«åæ˜ 
+		// — ‰æ–Ê‚Ì“à—e‚ğ•\‰æ–Ê‚É”½‰f
 		ScreenFlip() ;
 	}
 
-	// Live2D ãƒ¢ãƒ‡ãƒ«ã®å‰Šé™¤
+	// Live2D ƒ‚ƒfƒ‹‚Ìíœ
 	Live2D_DeleteModel( ModelHandle ) ;
 
-	// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠg—p‚ÌI—¹ˆ—
 	DxLib_End() ;
 
-	// ã‚½ãƒ•ãƒˆã®çµ‚äº†
+	// ƒ\ƒtƒg‚ÌI—¹
 	return 0 ;
 }

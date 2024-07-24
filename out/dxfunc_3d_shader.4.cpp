@@ -10,14 +10,14 @@ int main()
     FLOAT4 pos ;
     MATRIX mtx ;
 
-    // ＤＸライブラリの初期化
+    // �c�w���C�u�����̏�����
     if( DxLib_Init() < 0 )
     {
-        // エラーが発生したら直ちに終了
+        // �G���[�����������璼���ɏI��
         return -1 ;
     }
 
-    // ２ポリゴン分の頂点のデータをセットアップ
+    // �Q�|���S�����̒��_�̃f�[�^���Z�b�g�A�b�v
     Vertex[ 0 ].pos  = VGet( -128.0f,  128.0f,  0.0f ) ;
     Vertex[ 0 ].norm = VGet(   0.0f,   0.0f, -1.0f ) ;
     Vertex[ 0 ].dif  = GetColorU8( 255,  0,255,255 ) ;
@@ -73,77 +73,77 @@ int main()
     Vertex[ 5 ].su   = 0.0f ;
     Vertex[ 5 ].sv   = 0.0f ;
 
-    // 頂点シェーダーを読み込む
+    // ���_�V�F�[�_�[��ǂݍ���
     vshandle = LoadVertexShader( "SetVSConstFMtxTestVS.vso" ) ;
 
-    // ピクセルシェーダーを読み込む
+    // �s�N�Z���V�F�[�_�[��ǂݍ���
     pshandle = LoadPixelShader( "SetVSConstFMtxTestPS.pso" ) ;
 
-    // 描画に使用する画像の読み込み
+    // �`��Ɏg�p����摜�̓ǂݍ���
     texhandle = LoadGraph( "Tex1.bmp" ) ;
 
-    // 描画先を裏画面にする
+    // �`���𗠉�ʂɂ���
     SetDrawScreen( DX_SCREEN_BACK ) ;
 
-    // 回転角度の値を初期化
+    // ��]�p�x�̒l��������
     angle = 0.0f ;
 
-    // 頂点シェーダー FLOAT4型定数０番に表示座標をセット
+    // ���_�V�F�[�_�[ FLOAT4�^�萔�O�Ԃɕ\�����W���Z�b�g
     pos.x = 320.0f ;
     pos.y = 240.0f ;
     pos.z = 0.0f ;
     pos.w = 0.0f ;
     SetVSConstF( 0, pos ) ;
 
-    // ESCキーが押されるまでループ
+    // ESC�L�[���������܂Ń��[�v
     while( ProcessMessage() == 0 && CheckHitKey( KEY_INPUT_ESCAPE ) == 0 )
     {
-        // 画面を初期化
+        // ��ʂ�������
         ClearDrawScreen() ;
 
-        // 回転角度を変化させる
+        // ��]�p�x��ω�������
         angle += 0.05f ;
 
-        // 回転角度からZ軸回転行列を作成
+        // ��]�p�x����Z����]�s����쐬
         mtx = MGetRotZ( angle ) ;
 
-        // 回転行列を頂点シェーダー FLOAT4型定数１０～１３番にセット
+        // ��]�s��𒸓_�V�F�[�_�[ FLOAT4�^�萔�P�O�`�P�R�ԂɃZ�b�g
         SetVSConstFMtx( 10, mtx ) ;
 
-        // 使用する頂点シェーダーのセット
+        // �g�p���钸�_�V�F�[�_�[�̃Z�b�g
         SetUseVertexShader( vshandle ) ;
 
-        // 使用するピクセルシェーダーをセット
+        // �g�p����s�N�Z���V�F�[�_�[���Z�b�g
         SetUsePixelShader( pshandle ) ;
 
-        // 使用するテクスチャを０番にセット
+        // �g�p����e�N�X�`�����O�ԂɃZ�b�g
         SetUseTextureToShader( 0, texhandle ) ;
 
-        // シェーダーを使用した２ポリゴンの描画
+        // �V�F�[�_�[���g�p�����Q�|���S���̕`��
         DrawPolygon3DToShader( Vertex, 2 ) ;
 
-        // 裏画面の内容を表画面に反映させる
+        // ����ʂ̓��e��\��ʂɔ��f������
         ScreenFlip() ;
     }
 
-    // 使用したfloat4型定数０番の設定を無効化する
+    // �g�p����float4�^�萔�O�Ԃ̐ݒ�𖳌�������
     ResetVSConstF( 0, 1 ) ;
 
-    // 使用したfloat4型定数１０～１３番の設定を無効化する
+    // �g�p����float4�^�萔�P�O�`�P�R�Ԃ̐ݒ�𖳌�������
     ResetVSConstF( 10, 4 ) ;
 
-    // 読み込んだ頂点シェーダーの削除
+    // �ǂݍ��񂾒��_�V�F�[�_�[�̍폜
     DeleteShader( vshandle ) ;
 
-    // 読み込んだピクセルシェーダーの削除
+    // �ǂݍ��񂾃s�N�Z���V�F�[�_�[�̍폜
     DeleteShader( pshandle ) ;
 
-    // 読み込んだ画像のグラフィックハンドルを削除
+    // �ǂݍ��񂾉摜�̃O���t�B�b�N�n���h�����폜
     DeleteGraph( texhandle ) ;
 
-    // ＤＸライブラリの後始末
+    // �c�w���C�u�����̌�n��
     DxLib_End() ;
 
-    // ソフトの終了
+    // �\�t�g�̏I��
     return 0 ;
 }

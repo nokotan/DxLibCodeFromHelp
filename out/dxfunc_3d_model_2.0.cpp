@@ -7,36 +7,36 @@ int main()
     int Width, Height, GrHandle ;
     const char *String ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+    // ‚R‚cƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ
     ModelHandle = MV1LoadModel( "SimpleModel.mqo" ) ;
 
-    // ãƒ¢ãƒ‡ãƒ«ã«å«ã¾ã‚Œã‚‹ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®ç·æ•°ã‚’å–å¾—ã™ã‚‹
+    // ƒ‚ƒfƒ‹‚ÉŠÜ‚Ü‚ê‚éƒeƒNƒXƒ`ƒƒ‚Ì‘”‚ğæ“¾‚·‚é
     TextureNum = MV1GetTextureNum( ModelHandle ) ;
 
-    // ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®æ•°ã ã‘ç¹°ã‚Šè¿”ã—
+    // ƒeƒNƒXƒ`ƒƒ‚Ì”‚¾‚¯ŒJ‚è•Ô‚µ
     for( i = 0 ; i < TextureNum ; i ++ )
     {
-        // ç”»é¢ã‚’ã‚¯ãƒªã‚¢ã™ã‚‹
+        // ‰æ–Ê‚ğƒNƒŠƒA‚·‚é
         ClearDrawScreen() ;
 
-        // ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ãƒãƒ³ãƒ‰ãƒ«ã‚’å–å¾—ã™ã‚‹
+        // ƒeƒNƒXƒ`ƒƒ‚ÌƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ğæ“¾‚·‚é
         GrHandle = MV1GetTextureGraphHandle( ModelHandle, i ) ;
 
-        // ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®åå‰ã‚’æç”»ã™ã‚‹
+        // ƒeƒNƒXƒ`ƒƒ‚Ì–¼‘O‚ğ•`‰æ‚·‚é
         DrawFormatString( 0, 0, GetColor( 255,255,255 ),  "Name                  %s", MV1GetTextureName( ModelHandle, i ) ) ;
 
-        // ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®å¤§ãã•ã‚’æç”»ã™ã‚‹
+        // ƒeƒNƒXƒ`ƒƒ‚Ì‘å‚«‚³‚ğ•`‰æ‚·‚é
         GetGraphSize( GrHandle, &Width, &Height ) ;
         DrawFormatString( 0, 16, GetColor( 255,255,255 ), "Size                  %dx%d", Width, Height ) ;
 
-        // ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®ï¼µå€¤ã®ã‚¢ãƒ‰ãƒ¬ã‚¹ãƒ¢ãƒ¼ãƒ‰ã‚’æç”»ã™ã‚‹
+        // ƒeƒNƒXƒ`ƒƒ‚Ì‚t’l‚ÌƒAƒhƒŒƒXƒ‚[ƒh‚ğ•`‰æ‚·‚é
         switch( MV1GetTextureAddressModeU( ModelHandle, i ) )
         {
         case DX_TEXADDRESS_WRAP   : String = "DX_TEXADDRESS_WRAP" ;   break ;
@@ -45,7 +45,7 @@ int main()
         }
         DrawFormatString( 0, 32, GetColor( 255,255,255 ), "Address Mode U        %s", String ) ;
 
-        // ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®ï¼¶å€¤ã®ã‚¢ãƒ‰ãƒ¬ã‚¹ãƒ¢ãƒ¼ãƒ‰ã‚’æç”»ã™ã‚‹
+        // ƒeƒNƒXƒ`ƒƒ‚Ì‚u’l‚ÌƒAƒhƒŒƒXƒ‚[ƒh‚ğ•`‰æ‚·‚é
         switch( MV1GetTextureAddressModeV( ModelHandle, i ) )
         {
         case DX_TEXADDRESS_WRAP   : String = "DX_TEXADDRESS_WRAP" ;   break ;
@@ -54,7 +54,7 @@ int main()
         }
         DrawFormatString( 0, 48, GetColor( 255,255,255 ), "Address Mode V        %s", String ) ;
 
-        // ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®ãƒ•ã‚£ãƒ«ã‚¿ãƒªãƒ³ã‚°ãƒ¢ãƒ¼ãƒ‰ã‚’æç”»ã™ã‚‹
+        // ƒeƒNƒXƒ`ƒƒ‚ÌƒtƒBƒ‹ƒ^ƒŠƒ“ƒOƒ‚[ƒh‚ğ•`‰æ‚·‚é
         switch( MV1GetTextureSampleFilterMode( ModelHandle, i ) )
         {
         case DX_DRAWMODE_NEAREST :     String = "DX_DRAWMODE_NEAREST" ;     break ;
@@ -63,19 +63,19 @@ int main()
         }
         DrawFormatString( 0, 64, GetColor( 255,255,255 ), "Sample Filter Mode    %s", String ) ;
 
-        // ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚’æç”»ã™ã‚‹
+        // ƒeƒNƒXƒ`ƒƒ‚ğ•`‰æ‚·‚é
         DrawGraph( 0, 80, GrHandle, TRUE ) ;
 
-        // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+        // ƒL[“ü—Í‘Ò‚¿
         WaitKey() ;
     }
 
-    // ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚Ìíœ
     MV1DeleteModel( ModelHandle ) ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

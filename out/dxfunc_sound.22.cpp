@@ -6,52 +6,52 @@ int main()
 	VECTOR ListenerPos ;
 	VECTOR ListenerDir ;
 
-	// ï¼‘ãƒ¡ãƒ¼ãƒˆãƒ«ã«ç›¸å½“ã™ã‚‹å€¤ã‚’è¨­å®šã™ã‚‹
+	// ‚Pƒ[ƒgƒ‹‚É‘Š“–‚·‚é’l‚ğİ’è‚·‚é
 	Set3DSoundOneMetre( 16.0f ) ;
 
-	// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
 	if( DxLib_Init() < 0 ) return -1;
 
-	// æç”»å…ˆã‚’è£ç”»é¢ã«ã™ã‚‹
+	// •`‰ææ‚ğ— ‰æ–Ê‚É‚·‚é
 	SetDrawScreen( DX_SCREEN_BACK );
 
-	// ãƒªã‚¹ãƒŠãƒ¼ã®ä½ç½®ã‚’åˆæœŸåŒ–
+	// ƒŠƒXƒi[‚ÌˆÊ’u‚ğ‰Šú‰»
 	ListenerPos = VGet( 320.0f, 0.0f, 240.0f ) ;
 
-	// ãƒªã‚¹ãƒŠãƒ¼ã®å‘ãã‚’åˆæœŸåŒ–
+	// ƒŠƒXƒi[‚ÌŒü‚«‚ğ‰Šú‰»
 	ListenerDir.x = 0.0f ;
 	ListenerDir.y = 0.0f ;
 	ListenerDir.z = 1.0f ;
 
-	// ãƒªã‚¹ãƒŠãƒ¼ã®ä½ç½®ã¨å‘ãã‚’è¨­å®š
+	// ƒŠƒXƒi[‚ÌˆÊ’u‚ÆŒü‚«‚ğİ’è
 	Set3DSoundListenerPosAndFrontPos_UpVecY( ListenerPos, VAdd( ListenerPos, ListenerDir ) ) ;
 
-	// éŸ³ã‚’ï¼“ï¼¤ã‚µã‚¦ãƒ³ãƒ‰ã¨ã—ã¦èª­ã¿è¾¼ã‚€
+	// ‰¹‚ğ‚R‚cƒTƒEƒ“ƒh‚Æ‚µ‚Ä“Ç‚İ‚Ş
 	SetCreate3DSoundFlag( TRUE ) ;
 	SoundHandle = LoadSoundMem( "Test.wav" ) ;
 	SetCreate3DSoundFlag( FALSE ) ;
 
-	// éŸ³ãŒèã“ãˆã‚‹è·é›¢ã‚’è¨­å®šã™ã‚‹
+	// ‰¹‚ª•·‚±‚¦‚é‹——£‚ğİ’è‚·‚é
 	Set3DRadiusSoundMem( 256.0f, SoundHandle ) ;
 
-	// éŸ³ã‚’é³´ã‚‰ã™ä½ç½®ã‚’è¨­å®šã™ã‚‹
+	// ‰¹‚ğ–Â‚ç‚·ˆÊ’u‚ğİ’è‚·‚é
 	Set3DPositionSoundMem( VGet( 320.0f, 0.0f, 300.0f ), SoundHandle ) ;
 
-	// ãƒªãƒãƒ¼ãƒ–ã‚¨ãƒ•ã‚§ã‚¯ãƒˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ãƒ—ãƒªã‚»ãƒƒãƒˆã€Œè¬›å ‚ã€ã‚’ä½¿ç”¨ã—ã¦è¨­å®š
+	// ƒŠƒo[ƒuƒGƒtƒFƒNƒgƒpƒ‰ƒ[ƒ^‚ğƒvƒŠƒZƒbƒguu“°v‚ğg—p‚µ‚Äİ’è
 	Set3DPresetReverbParamSoundMem( DX_REVERB_PRESET_AUDITORIUM, SoundHandle ) ;
 
-	// éŸ³ã‚’å†ç”Ÿã‚’é–‹å§‹
+	// ‰¹‚ğÄ¶‚ğŠJn
 	PlaySoundMem( SoundHandle, DX_PLAYTYPE_LOOP ) ;
 
-	// ä½•ã‹ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã‚‹ã¾ã§å¾…ã¤
+	// ‰½‚©ƒL[‚ª‰Ÿ‚³‚ê‚é‚Ü‚Å‘Ò‚Â
 	WaitKey() ;
 
-	// ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+	// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚Ìíœ
 	DeleteSoundMem( SoundHandle ) ;
 
-	// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
 	DxLib_End();
 
-	// ã‚½ãƒ•ãƒˆã®çµ‚äº†
+	// ƒ\ƒtƒg‚ÌI—¹
 	return 0;
 }

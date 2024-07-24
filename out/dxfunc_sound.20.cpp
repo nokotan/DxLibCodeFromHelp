@@ -10,76 +10,76 @@ int main()
 	int FrameCounter ;
 	int i ;
 
-	// ï¼‘ãƒ¡ãƒ¼ãƒˆãƒ«ã«ç›¸å½“ã™ã‚‹å€¤ã‚’è¨­å®šã™ã‚‹
+	// ‚Pƒ[ƒgƒ‹‚É‘Š“–‚·‚é’l‚ğİ’è‚·‚é
 	Set3DSoundOneMetre( 16.0f ) ;
 
-	// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
 	if( DxLib_Init() < 0 ) return -1;
 
-	// æç”»å…ˆã‚’è£ç”»é¢ã«ã™ã‚‹
+	// •`‰ææ‚ğ— ‰æ–Ê‚É‚·‚é
 	SetDrawScreen( DX_SCREEN_BACK );
 
-	// ãƒªã‚¹ãƒŠãƒ¼ã®ä½ç½®ã‚’åˆæœŸåŒ–
+	// ƒŠƒXƒi[‚ÌˆÊ’u‚ğ‰Šú‰»
 	ListenerPos = VGet( 320.0f, 0.0f, 240.0f ) ;
 
-	// ãƒªã‚¹ãƒŠãƒ¼ã®å‘ãã‚’åˆæœŸåŒ–
+	// ƒŠƒXƒi[‚ÌŒü‚«‚ğ‰Šú‰»
 	ListenerDir.x = 0.0f ;
 	ListenerDir.y = 0.0f ;
 	ListenerDir.z = 1.0f ;
 
-	// ãƒªã‚¹ãƒŠãƒ¼ã®ä½ç½®ã¨å‘ãã‚’è¨­å®š
+	// ƒŠƒXƒi[‚ÌˆÊ’u‚ÆŒü‚«‚ğİ’è
 	Set3DSoundListenerPosAndFrontPos_UpVecY( ListenerPos, VAdd( ListenerPos, ListenerDir ) ) ;
 
-	// éŸ³ã‚’ï¼“ï¼¤ã‚µã‚¦ãƒ³ãƒ‰ã¨ã—ã¦èª­ã¿è¾¼ã‚€
+	// ‰¹‚ğ‚R‚cƒTƒEƒ“ƒh‚Æ‚µ‚Ä“Ç‚İ‚Ş
 	SetCreate3DSoundFlag( TRUE ) ;
 	SoundHandle = LoadSoundMem( "Test.wav" ) ;
 	SetCreate3DSoundFlag( FALSE ) ;
 
-	// éŸ³ãŒèã“ãˆã‚‹è·é›¢ã‚’è¨­å®šã™ã‚‹
+	// ‰¹‚ª•·‚±‚¦‚é‹——£‚ğİ’è‚·‚é
 	Set3DRadiusSoundMem( 256.0f, SoundHandle ) ;
 
-	// éŸ³ã®å†ç”Ÿä½ç½®ã‚’åˆæœŸåŒ–
+	// ‰¹‚ÌÄ¶ˆÊ’u‚ğ‰Šú‰»
 	EmitterPos[ 0 ] = VGet( 220.0f, 0.0f, 300.0f ) ;
 	EmitterPos[ 1 ] = VGet( 420.0f, 0.0f, 300.0f ) ;
 
-	// é³´ã‚‰ã™éŸ³ã®ç•ªå·ã‚’åˆæœŸåŒ–
+	// –Â‚ç‚·‰¹‚Ì”Ô†‚ğ‰Šú‰»
 	PositionNumber = 0 ;
 
-	// ãƒ•ãƒ¬ãƒ¼ãƒ ã‚«ã‚¦ãƒ³ã‚¿ãƒ¼ã‚’åˆæœŸåŒ–
+	// ƒtƒŒ[ƒ€ƒJƒEƒ“ƒ^[‚ğ‰Šú‰»
 	FrameCounter = 0 ;
 
-	// ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒ—
+	// ƒƒCƒ“ƒ‹[ƒv
 	while( ProcessMessage() == 0 )
 	{
-		// ç”»é¢ã®ã‚¯ãƒªã‚¢
+		// ‰æ–Ê‚ÌƒNƒŠƒA
 		ClearDrawScreen();
 
-		// ãƒ•ãƒ¬ãƒ¼ãƒ ã‚«ã‚¦ãƒ³ã‚¿ãƒ¼ã‚’ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ
+		// ƒtƒŒ[ƒ€ƒJƒEƒ“ƒ^[‚ğƒCƒ“ƒNƒŠƒƒ“ƒg
 		FrameCounter ++ ;
 
-		// ï¼‘ï¼•ãƒ•ãƒ¬ãƒ¼ãƒ çµŒéã—ãŸã‚‰éŸ³ã‚’é³´ã‚‰ã™
+		// ‚P‚TƒtƒŒ[ƒ€Œo‰ß‚µ‚½‚ç‰¹‚ğ–Â‚ç‚·
 		if( FrameCounter >= 15 )
 		{
-			// ãƒ•ãƒ¬ãƒ¼ãƒ ã‚«ã‚¦ãƒ³ã‚¿ãƒ¼ã‚’åˆæœŸåŒ–
+			// ƒtƒŒ[ƒ€ƒJƒEƒ“ƒ^[‚ğ‰Šú‰»
 			FrameCounter = 0 ;
 
-			// æ¬¡ã«é³´ã‚‰ã™éŸ³ã®ä½ç½®ã‚’è¨­å®šã™ã‚‹
+			// Ÿ‚É–Â‚ç‚·‰¹‚ÌˆÊ’u‚ğİ’è‚·‚é
 			SetNextPlay3DPositionSoundMem( EmitterPos[ PositionNumber ], SoundHandle ) ;
 
-			// éŸ³ã‚’å†ç”Ÿ
+			// ‰¹‚ğÄ¶
 			PlaySoundMem( SoundHandle, DX_PLAYTYPE_BACK ) ;
 
-			// éŸ³ã‚’é³´ã‚‰ã™ä½ç½®ã®åº§æ¨™ç•ªå·ã‚’å¤‰æ›´
+			// ‰¹‚ğ–Â‚ç‚·ˆÊ’u‚ÌÀ•W”Ô†‚ğ•ÏX
 			PositionNumber = ( PositionNumber + 1 ) % 2 ;
 		}
 
-		// ãƒªã‚¹ãƒŠãƒ¼ã®ä½ç½®ã‚’æç”»
+		// ƒŠƒXƒi[‚ÌˆÊ’u‚ğ•`‰æ
 		DrawBox(
 			( int )( ListenerPos.x - 8 ), ( int )( 480.0f - ( ListenerPos.z + 8 ) ),
 			( int )( ListenerPos.x + 8 ), ( int )( 480.0f - ( ListenerPos.z - 8 ) ),
 			GetColor( 255,0,0 ),   TRUE ) ; 
 
-		// éŸ³ã®å†ç”Ÿä½ç½®ã‚’æç”»
+		// ‰¹‚ÌÄ¶ˆÊ’u‚ğ•`‰æ
 		for( i = 0 ; i < 2 ; i ++ )
 		{
 			DrawBox(
@@ -88,16 +88,16 @@ int main()
 				GetColor( 255,0,255 ), TRUE ) ; 
 		}
 
-		// è£ç”»é¢ã®å†…å®¹ã‚’è¡¨ç”»é¢ã«åæ˜ 
+		// — ‰æ–Ê‚Ì“à—e‚ğ•\‰æ–Ê‚É”½‰f
 		ScreenFlip() ;
 	}
 
-	// ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+	// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚Ìíœ
 	DeleteSoundMem( SoundHandle ) ;
 
-	// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
 	DxLib_End();
 
-	// ã‚½ãƒ•ãƒˆã®çµ‚äº†
+	// ƒ\ƒtƒg‚ÌI—¹
 	return 0;
 }

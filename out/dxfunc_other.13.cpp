@@ -6,40 +6,40 @@ int main()
     void *Buffer ;
     int FileSize, FileHandle, GrHandle ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() == -1 ) return -1 ;
 
-    // ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚µã‚¤ã‚ºã‚’å¾—ã‚‹
+    // ƒtƒ@ƒCƒ‹‚ÌƒTƒCƒY‚ğ“¾‚é
     FileSize = FileRead_size( "test1.bmp" ) ;
 
-    // ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ ¼ç´ã™ã‚‹ãƒ¡ãƒ¢ãƒªé ˜åŸŸã®ç¢ºä¿
+    // ƒtƒ@ƒCƒ‹‚ğŠi”[‚·‚éƒƒ‚ƒŠ—Ìˆæ‚ÌŠm•Û
     Buffer = malloc( FileSize ) ;
 
-    // test1.bmp ã‚’é–‹ã
+    // test1.bmp ‚ğŠJ‚­
     FileHandle = FileRead_open( "test1.bmp" ) ;
 
-    // ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä¸¸ã”ã¨ãƒ¡ãƒ¢ãƒªã«èª­ã¿è¾¼ã‚€
+    // ƒtƒ@ƒCƒ‹‚ğŠÛ‚²‚Æƒƒ‚ƒŠ‚É“Ç‚İ‚Ş
     FileRead_read( Buffer, FileSize, FileHandle ) ;
 
-    // ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‰ã˜ã‚‹
+    // ƒtƒ@ƒCƒ‹‚ğ•Â‚¶‚é
     FileRead_close( FileHandle ) ;
 
-    // ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ãƒãƒ³ãƒ‰ãƒ«ã®ä½œæˆ
+    // ƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚Ìì¬
     GrHandle = CreateGraphFromMem( Buffer, FileSize ) ;
 
-    // ãƒ¡ãƒ¢ãƒªã®è§£æ”¾
+    // ƒƒ‚ƒŠ‚Ì‰ğ•ú
     free( Buffer ) ;
 
-    // ç”»é¢ã«æç”»
+    // ‰æ–Ê‚É•`‰æ
     DrawGraph( 0, 0, GrHandle, TRUE ) ; 
 
-    // ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚Ìíœ
     DeleteGraph( GrHandle ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
     return 0 ;

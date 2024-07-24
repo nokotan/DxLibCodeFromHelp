@@ -2,22 +2,22 @@
 
 int main()
 {
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ï¼“ï¼¤ç©ºé–“ä¸Šã«ç·šåˆ†ã‚’æç”»ã™ã‚‹
+    // ‚R‚c‹óŠÔã‚Éü•ª‚ð•`‰æ‚·‚é
     DrawLine3D( VGet( 100.0f, 100.0f, 0.0f ), VGet( 300.0f, 200.0f, 0.0f ), GetColor( 255,255,255 ) ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡ã‚’ã™ã‚‹
+    // ƒL[“ü—Í‘Ò‚¿‚ð‚·‚é
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãŽn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

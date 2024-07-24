@@ -5,50 +5,50 @@ int main()
 	int FontHandle ;
 	int ScreenHandle ;
 
-	// ＤＸライブラリ初期化処理
+	// �c�w���C�u��������������
 	if( DxLib_Init() == -1 )
 		 return -1;
 
-	// 描画対象にできるαチャンネル付きのグラフィックハンドルを作成する
+	// �`��Ώۂɂł��郿�`�����l���t���̃O���t�B�b�N�n���h�����쐬����
 	ScreenHandle = MakeScreen( 256, 64, TRUE ) ;
 
-	// 乗算済みα用のフォントハンドルを作成する
+	// ��Z�ς݃��p�̃t�H���g�n���h�����쐬����
 	SetFontCacheUsePremulAlphaFlag( TRUE ) ;
-	FontHandle = CreateFontToHandle( "ＭＳ ゴシック", 32, 4, DX_FONTTYPE_ANTIALIASING_8X8 ) ;
+	FontHandle = CreateFontToHandle( "�l�r �S�V�b�N", 32, 4, DX_FONTTYPE_ANTIALIASING_8X8 ) ;
 
-	// 描画先を作成したグラフィックハンドルにする
+	// �`�����쐬�����O���t�B�b�N�n���h���ɂ���
 	SetDrawScreen( ScreenHandle ) ;
 
-	// グラフィックハンドルに乗算済みα用のαブレンドモードで透明度50%で文字を描画する
+	// �O���t�B�b�N�n���h���ɏ�Z�ς݃��p�̃��u�����h���[�h�œ����x50%�ŕ�����`�悷��
 	SetDrawBlendMode( DX_BLENDMODE_PMA_ALPHA, 128 ) ;
-	DrawStringToHandle( 0, 0, "テスト文字列", GetColor( 255,255,255 ), FontHandle ) ;
+	DrawStringToHandle( 0, 0, "�e�X�g������", GetColor( 255,255,255 ), FontHandle ) ;
 
-	// 描画先を裏画面に変更する
+	// �`���𗠉�ʂɕύX����
 	SetDrawScreen( DX_SCREEN_BACK ) ;
 
-	// 結果が分かりやすいように裏画面を緑で塗りつぶす
+	// ���ʂ�������₷���悤�ɗ���ʂ�΂œh��Ԃ�
 	SetDrawBlendMode( DX_BLENDMODE_NOBLEND, 255 ) ;
 	DrawBox( 0, 0, 640, 480, GetColor( 0,200,0 ), TRUE ) ;
 
-	// 裏画面に文字列を描画したグラフィックハンドルを乗算済みα用のαブレンドモードで描画する
+	// ����ʂɕ������`�悵���O���t�B�b�N�n���h������Z�ς݃��p�̃��u�����h���[�h�ŕ`�悷��
 	SetDrawBlendMode( DX_BLENDMODE_PMA_ALPHA, 255 ) ;
 	DrawGraph( 100, 100, ScreenHandle, TRUE ) ;
 
-	// 裏画面の内容を表画面に反映させる
+	// ����ʂ̓��e��\��ʂɔ��f������
 	ScreenFlip() ;
 
-	// 作成したフォントハンドルを削除する
+	// �쐬�����t�H���g�n���h�����폜����
 	DeleteFontToHandle( FontHandle ) ;
 
-	// MakeScreen で作成したグラフィックハンドルの削除
+	// MakeScreen �ō쐬�����O���t�B�b�N�n���h���̍폜
 	DeleteGraph( ScreenHandle ) ;
 
-	// キー入力待ち
+	// �L�[���͑҂�
 	WaitKey() ;
 
-	// ＤＸライブラリ使用の終了処理
+	// �c�w���C�u�����g�p�̏I������
 	DxLib_End() ;
 
-	// ソフトの終了
+	// �\�t�g�̏I��
 	return 0 ;
 }

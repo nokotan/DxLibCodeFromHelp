@@ -5,60 +5,60 @@ int main()
     char String[ 256 ] ;
     int InputHandle ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() == -1 ) return -1 ;
 
-    // æç”»å…ˆã‚’è£ã«ã™ã‚‹
+    // •`‰ææ‚ð— ‚É‚·‚é
     SetDrawScreen( DX_SCREEN_BACK ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›ãƒãƒ³ãƒ‰ãƒ«ã‚’ä½œã‚‹(ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãªã—å…¨è§’æ–‡å­—æœ‰ã‚Šæ•°å€¤å…¥åŠ›ã˜ã‚ƒãªã—)
+    // ƒL[“ü—Íƒnƒ“ƒhƒ‹‚ðì‚é(ƒLƒƒƒ“ƒZƒ‹‚È‚µ‘SŠp•¶Žš—L‚è”’l“ü—Í‚¶‚á‚È‚µ)
     InputHandle = MakeKeyInput( 50 , FALSE , FALSE , FALSE ) ;
 
-    // ä½œæˆã—ãŸã‚­ãƒ¼å…¥åŠ›ãƒãƒ³ãƒ‰ãƒ«ã‚’ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã«ã™ã‚‹
+    // ì¬‚µ‚½ƒL[“ü—Íƒnƒ“ƒhƒ‹‚ðƒAƒNƒeƒBƒu‚É‚·‚é
     SetActiveKeyInput( InputHandle ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›çµ‚äº†å¾…ã¡ãƒ«ãƒ¼ãƒ—
-    // (ProcessMessageã‚’ãƒ«ãƒ¼ãƒ—ã”ã¨ã«è¡Œã†)
+    // ƒL[“ü—ÍI—¹‘Ò‚¿ƒ‹[ƒv
+    // (ProcessMessage‚ðƒ‹[ƒv‚²‚Æ‚És‚¤)
     while( !ProcessMessage() )
     {
-        // å…¥åŠ›ãŒçµ‚äº†ã—ã¦ã„ã‚‹å ´åˆã¯çµ‚äº†
+        // “ü—Í‚ªI—¹‚µ‚Ä‚¢‚éê‡‚ÍI—¹
         if( CheckKeyInput( InputHandle ) != 0 ) break ;
 
-        // ç”»é¢ã®åˆæœŸåŒ–
+        // ‰æ–Ê‚Ì‰Šú‰»
         ClearDrawScreen() ;
 
-        // å…¥åŠ›ãƒ¢ãƒ¼ãƒ‰ã‚’æç”»
+        // “ü—Íƒ‚[ƒh‚ð•`‰æ
         DrawKeyInputModeString( 640 , 480 ) ; 
 
-        // å…¥åŠ›é€”ä¸­ã®æ–‡å­—åˆ—ã‚’æç”»
+        // “ü—Í“r’†‚Ì•¶Žš—ñ‚ð•`‰æ
         DrawKeyInputString( 0 , 0 , InputHandle ) ;
 
-        // è£ç”»é¢ã®å†…å®¹ã‚’è¡¨ç”»é¢ã«åæ˜ ã•ã›ã‚‹
+        // — ‰æ–Ê‚Ì“à—e‚ð•\‰æ–Ê‚É”½‰f‚³‚¹‚é
         ScreenFlip() ;
     }
 
-    // å…¥åŠ›ã•ã‚ŒãŸæ–‡å­—åˆ—ã‚’å–å¾—
+    // “ü—Í‚³‚ê‚½•¶Žš—ñ‚ðŽæ“¾
     GetKeyInputString( String , InputHandle ) ;
 
-    // ç”¨æ¸ˆã¿ã®ã‚¤ãƒ³ãƒ—ãƒƒãƒˆãƒãƒ³ãƒ‰ãƒ«ã‚’å‰Šé™¤ã™ã‚‹
+    // —pÏ‚Ý‚ÌƒCƒ“ƒvƒbƒgƒnƒ“ƒhƒ‹‚ðíœ‚·‚é
     DeleteKeyInput( InputHandle ) ;
 
-    // ç”»é¢ã®åˆæœŸåŒ–
+    // ‰æ–Ê‚Ì‰Šú‰»
     ClearDrawScreen() ;
 
-    // å…¥åŠ›ã•ã‚ŒãŸæ–‡å­—åˆ—ã‚’ç”»é¢ã«è¡¨ç¤ºã™ã‚‹
-    DrawString( 0 , 0 , "ã‚ãªãŸãŒå…¥åŠ›ã—ãŸæ–‡å­—åˆ—ã¯" , GetColor( 255 , 255 , 255 ) ) ;
+    // “ü—Í‚³‚ê‚½•¶Žš—ñ‚ð‰æ–Ê‚É•\Ž¦‚·‚é
+    DrawString( 0 , 0 , "‚ ‚È‚½‚ª“ü—Í‚µ‚½•¶Žš—ñ‚Í" , GetColor( 255 , 255 , 255 ) ) ;
     DrawString( 0 , 16 , String , GetColor( 255 , 255 , 255 ) ) ;
 
-    // è£ç”»é¢ã®å†…å®¹ã‚’è¡¨ç”»é¢ã«åæ˜ ã•ã›ã‚‹
+    // — ‰æ–Ê‚Ì“à—e‚ð•\‰æ–Ê‚É”½‰f‚³‚¹‚é
     ScreenFlip() ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®ä½¿ç”¨çµ‚äº†
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŽg—pI—¹
     DxLib_End() ;
 
-    // çµ‚äº†
+    // I—¹
     return 0 ;
 }

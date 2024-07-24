@@ -5,24 +5,24 @@ int main()
     int i ;
     int Cr ;
 
-    if( DxLib_Init() == -1 )    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
+    if( DxLib_Init() == -1 )    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
     {
-         return -1;    // ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ç›´ã¡ã«çµ‚äº†
+         return -1;    // ƒGƒ‰[‚ª‹N‚«‚½‚ç’¼‚¿‚ÉI—¹
     }
 
-    // ç™½è‰²ã®å€¤ã‚’å–å¾—
+    // ”’F‚Ì’l‚ðŽæ“¾
     Cr = GetColor( 255 , 255 , 255 ) ;
 
-    // ï¼‘ï¼ï¼ï¼å€‹ã®ç‚¹ã‚’æã
+    // ‚P‚O‚O‚OŒÂ‚Ì“_‚ð•`‚­
     for( i = 0 ; i < 1000 ; i ++ )
     {
-        // ãƒ©ãƒ³ãƒ€ãƒ ãªä½ç½®ã«ç‚¹ã‚’æãï¼ˆã€ŽGetRandã€ã‚’ä½¿ç”¨ï¼‰ 
+        // ƒ‰ƒ“ƒ_ƒ€‚ÈˆÊ’u‚É“_‚ð•`‚­iwGetRandx‚ðŽg—pj 
         DrawPixel( GetRand( 639 ) , GetRand( 479 ) , Cr ) ;
     }
 
-    WaitKey() ;        // çµæžœã‚’è¦‹ã‚‹ãŸã‚ã«ã‚­ãƒ¼å¾…ã¡(ã€ŽWaitKeyã€ã‚’ä½¿ç”¨)
+    WaitKey() ;        // Œ‹‰Ê‚ðŒ©‚é‚½‚ß‚ÉƒL[‘Ò‚¿(wWaitKeyx‚ðŽg—p)
 
-    DxLib_End() ;        // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+    DxLib_End() ;        // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠŽg—p‚ÌI—¹ˆ—
 
-    return 0 ;        // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    return 0 ;        // ƒ\ƒtƒg‚ÌI—¹
 }

@@ -4,28 +4,28 @@ int main()
 {
     VECTOR Vect ;
 
-    // ＤＸライブラリの初期化
+    // �c�w���C�u�����̏�����
     if( DxLib_Init() < 0 )
     {
-        // エラーが発生したら直ちに終了
+        // �G���[�����������璼���ɏI��
         return -1 ;
     }
 
-    // Vect に値を代入
+    // Vect �ɒl����
     Vect = VGet( 100.0f, 200.0f, 500.0f ) ;
 
-    // Vect の値を正規化して、その結果を Vect に代入する
+    // Vect �̒l�𐳋K�����āA���̌��ʂ� Vect �ɑ������
     Vect = VNorm( Vect ) ;
 
-    // Vect の値を画面に表示
+    // Vect �̒l����ʂɕ\��
     DrawFormatString( 0, 0, GetColor( 255,255,255 ), "Vect  x=%f y=%f z=%f", Vect.x, Vect.y, Vect.z ) ;
 
-    // キー入力待ち
+    // �L�[���͑҂�
     WaitKey() ;
 
-    // ＤＸライブラリの後始末
+    // �c�w���C�u�����̌�n��
     DxLib_End() ;
 
-    // ソフトの終了
+    // �\�t�g�̏I��
     return 0 ;
 }

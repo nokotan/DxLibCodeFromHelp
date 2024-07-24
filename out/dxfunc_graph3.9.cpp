@@ -4,40 +4,40 @@ int main()
 {
     int ModelHandle ;
 
-    // フルシーンアンチエイリアスを設定する
+    // �t���V�[���A���`�G�C���A�X��ݒ肷��
     SetFullSceneAntiAliasingMode( 4, 2 ) ;
 
-    // ＤＸライブラリの初期化
+    // �c�w���C�u�����̏�����
     if( DxLib_Init() < 0 )
     {
-        // エラーが発生したら直ちに終了
+        // �G���[�����������璼���ɏI��
         return -1 ;
     }
 
-    // ３Ｄモデルの読み込み
+    // �R�c���f���̓ǂݍ���
     ModelHandle = MV1LoadModel( "DxChara.x" ) ;
 
-    // 画面に映る位置に３Ｄモデルを移動
+    // ��ʂɉf��ʒu�ɂR�c���f�����ړ�
     MV1SetPosition( ModelHandle, VGet( 320.0f, -300.0f, 600.0f ) ) ;
 
-    // 描画先を裏画面に設定
+    // �`���𗠉�ʂɐݒ�
     SetDrawScreen( DX_SCREEN_BACK ) ;
 
-    // ３Ｄモデルの描画
+    // �R�c���f���̕`��
     MV1DrawModel( ModelHandle ) ;
 
-    // モデルハンドルの削除
+    // ���f���n���h���̍폜
     MV1DeleteModel( ModelHandle ) ;
 
-    // 裏画面の内容を表画面に反映
+    // ����ʂ̓��e��\��ʂɔ��f
     ScreenFlip() ;
 
-    // キーの入力待ち
+    // �L�[�̓��͑҂�
     WaitKey() ;
 
-    // ＤＸライブラリの後始末
+    // �c�w���C�u�����̌�n��
     DxLib_End() ;
 
-    // ソフトの終了
+    // �\�t�g�̏I��
     return 0 ;
 }

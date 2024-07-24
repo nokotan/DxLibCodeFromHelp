@@ -6,22 +6,22 @@ int main()
 	int i ;
 	int Color ;
 
-	// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
 	if( DxLib_Init() < 0 ) return -1 ;
 
-	// æç”»å…ˆã‚’è£ç”»é¢ã«ã™ã‚‹
+	// •`‰ææ‚ğ— ‰æ–Ê‚É‚·‚é
 	SetDrawScreen( DX_SCREEN_BACK ) ;
 
-	// ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒ—(ä½•ã‹ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸã‚‰ãƒ«ãƒ¼ãƒ—ã‚’æŠœã‘ã‚‹)
+	// ƒƒCƒ“ƒ‹[ƒv(‰½‚©ƒL[‚ª‰Ÿ‚³‚ê‚½‚çƒ‹[ƒv‚ğ”²‚¯‚é)
 	while( ProcessMessage() == 0 )
 	{
-		// ç”»é¢ã®ã‚¯ãƒªã‚¢
+		// ‰æ–Ê‚ÌƒNƒŠƒA
 		ClearDrawScreen() ;
 
-		// å…¥åŠ›çŠ¶æ…‹ã‚’å–å¾—
+		// “ü—Íó‘Ô‚ğæ“¾
 		GetJoypadXInputState( DX_INPUT_PAD1, &input ) ;
 
-		// ç”»é¢ã« XINPUT_STATE ã®ä¸­èº«ã‚’æç”»
+		// ‰æ–Ê‚É XINPUT_STATE ‚Ì’†g‚ğ•`‰æ
 		Color = GetColor( 255,255,255 ) ;
 		DrawFormatString( 0, 0, Color, "LeftTrigger:%d RightTrigger:%d",
 						input.LeftTrigger, input.RightTrigger ) ;
@@ -36,13 +36,13 @@ int main()
 								"%2d:%d", i, input.Buttons[ i ] ) ;
 		}
 
-		// è£ç”»é¢ã®å†…å®¹ã‚’è¡¨ç”»é¢ã«åæ˜ 
+		// — ‰æ–Ê‚Ì“à—e‚ğ•\‰æ–Ê‚É”½‰f
 		ScreenFlip() ;
 	}
 
-	// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
 	DxLib_End() ;
 
-	// ã‚½ãƒ•ãƒˆã®çµ‚äº†
+	// ƒ\ƒtƒg‚ÌI—¹
 	return 0;
 }

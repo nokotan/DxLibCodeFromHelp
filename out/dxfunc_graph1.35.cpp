@@ -5,30 +5,30 @@ int main()
     int Handle ;
     int BlendHandle ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
         return -1 ;
 
-    // ç”»åƒã‚’èª­ã¿è¾¼ã‚€
+    // ‰æ‘œ‚ğ“Ç‚İ‚Ş
     Handle = LoadGraph( "Src1.bmp" ) ;
 
-    // ãƒ–ãƒ¬ãƒ³ãƒ‰ã™ã‚‹ç”»åƒã‚’èª­ã¿è¾¼ã‚€
+    // ƒuƒŒƒ“ƒh‚·‚é‰æ‘œ‚ğ“Ç‚İ‚Ş
     BlendHandle = LoadGraph( "Src2.tga" ) ;
 
-    // Handle ã¨ BlendHandle ã§ã‚ªãƒ¼ãƒãƒ¼ãƒ¬ã‚¤åˆæˆã‚’è¡Œã†
+    // Handle ‚Æ BlendHandle ‚ÅƒI[ƒo[ƒŒƒC‡¬‚ğs‚¤
     GraphBlend( Handle, BlendHandle, 255, DX_GRAPH_BLEND_OVERLAY ) ;
 
-    // åˆæˆå¾Œã®ç”»åƒã‚’ç”»é¢ã«æç”»
+    // ‡¬Œã‚Ì‰æ‘œ‚ğ‰æ–Ê‚É•`‰æ
     DrawGraph( 0, 0, Handle, FALSE ) ;
 
-    // èª­ã¿è¾¼ã‚“ã ç”»åƒã®ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ãƒãƒ³ãƒ‰ãƒ«ã‚’å‰Šé™¤
+    // “Ç‚İ‚ñ‚¾‰æ‘œ‚ÌƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ğíœ
     DeleteGraph( Handle ) ;
     DeleteGraph( BlendHandle ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
     return 0 ;

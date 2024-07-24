@@ -5,43 +5,43 @@ int main()
     int BlendGraph, GrHandle1, GrHandle2 ;
     int i ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
     if( DxLib_Init() == -1 ) return -1 ;
 
-    // è£ç”»é¢ã‚’ä½¿ç”¨
+    // — ‰æ–Ê‚ğg—p
     SetDrawScreen( DX_SCREEN_BACK ) ;
 
-    // ãƒ–ãƒ¬ãƒ³ãƒ‰ç”»åƒã‚’èª­ã¿è¾¼ã‚€
+    // ƒuƒŒƒ“ƒh‰æ‘œ‚ğ“Ç‚İ‚Ş
     BlendGraph = LoadBlendGraph( "BlendGraph.bmp" ) ;
 
-    // äºŒã¤ã®ç”»åƒã®èª­ã¿è¾¼ã¿
+    // “ñ‚Â‚Ì‰æ‘œ‚Ì“Ç‚İ‚İ
     GrHandle1 = LoadGraph( "Scene1.jpg" ) ;
     GrHandle2 = LoadGraph( "Scene2.jpg" ) ;
 
-    // 256 ãƒ•ãƒ¬ãƒ¼ãƒ æ›ã‘ã¦åˆ‡ã‚Šæ›¿ãˆ
+    // 256 ƒtƒŒ[ƒ€Š|‚¯‚ÄØ‚è‘Ö‚¦
     for( i = 0 ; i < 256 ; i ++ )
     {
-        // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å‡¦ç†
+        // ƒƒbƒZ[ƒWˆ—
         if( ProcessMessage() != 0 ) break ;
 
-        // Scene2.jpg ã‚’æç”»
+        // Scene2.jpg ‚ğ•`‰æ
         DrawGraph( 0, 0, GrHandle2, FALSE ) ;
 
-        // Scene1.jpg ã¨ BlendGraph.bmp ã‚’åˆæˆã—ã¦æç”»
-        // (å¢ƒç•Œå¹…ã¯ 64)
+        // Scene1.jpg ‚Æ BlendGraph.bmp ‚ğ‡¬‚µ‚Ä•`‰æ
+        // (‹«ŠE•‚Í 64)
         DrawBlendGraph( 0, 0, GrHandle1, FALSE, BlendGraph, i, 64 ) ;
 
-        // è£ç”»é¢ã®å†…å®¹ã‚’è¡¨ç”»é¢ã«åæ˜ 
+        // — ‰æ–Ê‚Ì“à—e‚ğ•\‰æ–Ê‚É”½‰f
         ScreenFlip() ;
     }
 
-    // èª­ã¿è¾¼ã‚“ã ç”»åƒã®ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ãƒãƒ³ãƒ‰ãƒ«ã‚’å‰Šé™¤
+    // “Ç‚İ‚ñ‚¾‰æ‘œ‚ÌƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ğíœ
     DeleteGraph( GrHandle1 ) ;
     DeleteGraph( GrHandle2 ) ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠg—p‚ÌI—¹ˆ—
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

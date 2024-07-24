@@ -4,22 +4,22 @@ int main()
 {
     int FontHandle ;
 
-    if( DxLib_Init() == -1 )    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
-         return -1;    // ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ç›´ã¡ã«çµ‚äº†
+    if( DxLib_Init() == -1 )    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
+         return -1;    // ƒGƒ‰[‚ª‹N‚«‚½‚ç’¼‚¿‚ÉI—¹
 
-    // ç¸¦æ›¸ããƒ•ã‚©ãƒ³ãƒˆã‚’ä½œæˆ
-    FontHandle = CreateFontToHandle( "@ï¼­ï¼³ æ˜æœ", -1, -1, -1 ) ;
+    // c‘‚«ƒtƒHƒ“ƒg‚ğì¬
+    FontHandle = CreateFontToHandle( "@‚l‚r –¾’©", -1, -1, -1 ) ;
 
-    // æ–‡å­—åˆ—ã‚’ç¸¦æ›¸ã
-    DrawVStringToHandle( 0, 0, "ç¸¦æ›¸ããƒ•ã‚©ãƒ³ãƒˆ", GetColor( 255,255,255 ), FontHandle ) ;
+    // •¶š—ñ‚ğc‘‚«
+    DrawVStringToHandle( 0, 0, "c‘‚«ƒtƒHƒ“ƒg", GetColor( 255,255,255 ), FontHandle ) ;
 
-    // ä½œæˆã—ãŸãƒ•ã‚©ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ«ã‚’å‰Šé™¤ã™ã‚‹
+    // ì¬‚µ‚½ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğíœ‚·‚é
     DeleteFontToHandle( FontHandle ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
     return 0 ;

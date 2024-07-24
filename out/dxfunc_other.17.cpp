@@ -6,47 +6,47 @@ int main()
     void *image ;
     int image_size ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 ) return -1;
 
-    // ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä¸¸ã”ã¨ãƒ¡ãƒ¢ãƒªã«èª­ã¿è¾¼ã‚€
+    // ‰æ‘œƒtƒ@ƒCƒ‹‚ğŠÛ‚²‚Æƒƒ‚ƒŠ‚É“Ç‚İ‚Ş
     fhandle = FileRead_open( "test1.bmp" ) ;
     image_size = FileRead_size( "test1.bmp" ) ;
     image = malloc( image_size ) ;
     FileRead_read( image, image_size, fhandle ) ;
     FileRead_close( fhandle ) ;
 
-    // LoadSoftImageToMem ã§èª­ã¿è¾¼ã‚€
+    // LoadSoftImageToMem ‚Å“Ç‚İ‚Ş
     handle = LoadSoftImageToMem( image, image_size ) ;
 
-    // èª­ã¿è¾¼ã‚“ã§ã—ã¾ã£ãŸå¾Œã¯ãƒ•ã‚¡ã‚¤ãƒ«ã‚¤ãƒ¡ãƒ¼ã‚¸ã¯å¿…è¦ãªã—
+    // “Ç‚İ‚ñ‚Å‚µ‚Ü‚Á‚½Œã‚Íƒtƒ@ƒCƒ‹ƒCƒ[ƒW‚Í•K—v‚È‚µ
     free( image ) ;
 
-    // ç”»åƒã®ã‚µã‚¤ã‚ºã‚’å–å¾—
+    // ‰æ‘œ‚ÌƒTƒCƒY‚ğæ“¾
     GetSoftImageSize( handle, &w, &h ) ;
 
-    // ç”»åƒã®è‰²ã‚’ï¼‘ãƒ‰ãƒƒãƒˆã¥ã¤å‚ç…§ã—ã¦ DrawBox ã§ï¼“å€ã®å¤§ãã•ã«ã—ã¦æç”»
+    // ‰æ‘œ‚ÌF‚ğ‚Pƒhƒbƒg‚Ã‚ÂQÆ‚µ‚Ä DrawBox ‚Å‚R”{‚Ì‘å‚«‚³‚É‚µ‚Ä•`‰æ
     for( i = 0; i < h; i ++ )
     {
         for( j = 0; j < w; j ++ )
         {
-            // ï¼‘ãƒ‰ãƒƒãƒˆã®è‰²ã‚’å–å¾—
+            // ‚Pƒhƒbƒg‚ÌF‚ğæ“¾
             GetPixelSoftImage( handle, j, i, &r, &g, &b, &a ) ;
 
-            // DrawBox ã§æç”»
+            // DrawBox ‚Å•`‰æ
             DrawBox( j * 3, i * 3, j * 3 + 3, i * 3 + 3, GetColor( r, g, b ), TRUE ) ;
         }
     }
 
-    // ä½¿ã„çµ‚ã‚ã£ãŸã‚‰è§£æ”¾
+    // g‚¢I‚í‚Á‚½‚ç‰ğ•ú
     DeleteSoftImage( handle ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey();
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End();
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0;
 }

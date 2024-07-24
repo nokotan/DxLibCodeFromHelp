@@ -2,24 +2,24 @@
 
 int main()
 {
-    if( DxLib_Init() == -1 )    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
+    if( DxLib_Init() == -1 )    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
     {
-         return -1;    // ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ç›´ã¡ã«çµ‚äº†
+         return -1;    // ƒGƒ‰[‚ª‹N‚«‚½‚ç’¼‚¿‚ÉI—¹
     }
 
-    // test.midã®ãƒ«ãƒ¼ãƒ—æ¼”å¥
+    // test.mid‚Ìƒ‹[ƒv‰‰‘t
     PlayMusic( "test.wav" , DX_PLAYTYPE_LOOP ) ;
 
-    // ï¼’ç§’å¾…ã¤ã€WaitTimerã€ä½¿ç”¨
+    // ‚Q•b‘Ò‚ÂwWaitTimerxg—p
     WaitTimer( 2000 ) ;
 
-    // æ¼”å¥ã‚’æ­¢ã‚ã¾ã™
+    // ‰‰‘t‚ğ~‚ß‚Ü‚·
     StopMusic() ;
 
-    // ã‚­ãƒ¼å…¥åŠ›ãŒã‚ã‚‹ã¾ã§å¾…ã¡ã¾ã™(ã€WaitKeyã€ä½¿ç”¨)
+    // ƒL[“ü—Í‚ª‚ ‚é‚Ü‚Å‘Ò‚¿‚Ü‚·(wWaitKeyxg—p)
     WaitKey() ;
 
-    DxLib_End() ;        // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+    DxLib_End() ;        // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠg—p‚ÌI—¹ˆ—
 
-    return 0 ;        // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    return 0 ;        // ƒ\ƒtƒg‚ÌI—¹
 }

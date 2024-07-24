@@ -5,38 +5,38 @@ int main()
     int CharBytes ;
     int CharNum ;
     int i ;
-    const char *String = "aã‚bã„cã†dãˆeãŠ" ;
+    const char *String = "a‚ b‚¢c‚¤d‚¦e‚¨" ;
 
-    // ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ¢ãƒ¼ãƒ‰ã§èµ·å‹•
+    // ƒEƒCƒ“ƒhƒEƒ‚[ƒh‚Å‹N“®
     ChangeWindowMode( TRUE ) ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 ) return -1 ;
 
-    // æ–‡å­—ã®æ•°ã‚’æ•°ãˆã‚‹
+    // •¶š‚Ì”‚ğ”‚¦‚é
     i = 0 ;
     CharNum = 0 ;
     while( String[ i ] != '\0' )
     {
-        // æ–‡å­—ã®ãƒã‚¤ãƒˆæ•°ã‚’å–å¾—
+        // •¶š‚ÌƒoƒCƒg”‚ğæ“¾
         CharBytes = GetCharBytes( DX_CHARCODEFORMAT_SHIFTJIS, &String[ i ] ) ;
 
-        // æ–‡å­—ã®æ•°ã‚’å¢—ã‚„ã™
+        // •¶š‚Ì”‚ğ‘‚â‚·
         CharNum ++ ;
 
-        // èª¿ã¹ã‚‹ä½ç½®ã‚’ç§»å‹•ã™ã‚‹
+        // ’²‚×‚éˆÊ’u‚ğˆÚ“®‚·‚é
         i += CharBytes ;
     }
 
-    // çµæœã‚’è¡¨ç¤º
-    DrawFormatString( 0, 0, GetColor( 255,255,255 ), "ã€Œ%sã€ã®æ–‡å­—æ•°ã¯ %d ã§ã™", String, CharNum ) ;
+    // Œ‹‰Ê‚ğ•\¦
+    DrawFormatString( 0, 0, GetColor( 255,255,255 ), "u%sv‚Ì•¶š”‚Í %d ‚Å‚·", String, CharNum ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End();
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0;
 }

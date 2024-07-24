@@ -5,24 +5,24 @@ int main()
     MATRIX Matrix ;
     VECTOR Vect1, Vect2 ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // é©å½“ãªå€¤ã‚’ Vect1 ã«ä»£å…¥
+    // “K“–‚È’l‚ğ Vect1 ‚É‘ã“ü
     Vect1 = VGet( 100.0f, 8.0f, 56.0f ) ;
 
-    // å¹³è¡Œç§»å‹•è¡Œåˆ—ã‚’ Matrix ã«ä»£å…¥
+    // •½sˆÚ“®s—ñ‚ğ Matrix ‚É‘ã“ü
     Matrix = MGetTranslate( VGet( 100.0f, 80.0f, 85.0f ) ) ;
 
-    // Vect1 ã‚’ Matrix ã‚’ä½¿ç”¨ã—ã¦å¤‰æ›ã—ãŸå€¤ã‚’ Vect2 ã«ä»£å…¥
+    // Vect1 ‚ğ Matrix ‚ğg—p‚µ‚Ä•ÏŠ·‚µ‚½’l‚ğ Vect2 ‚É‘ã“ü
     Vect2 = VTransform( Vect1, Matrix ) ;
 
-    // Matrix ã®å€¤ã‚’ç”»é¢ã«è¡¨ç¤º
-    DrawString( 0, 0, "å¹³è¡Œç§»å‹•è¡Œåˆ—", GetColor( 255,255,255 ) ) ;
+    // Matrix ‚Ì’l‚ğ‰æ–Ê‚É•\¦
+    DrawString( 0, 0, "•½sˆÚ“®s—ñ", GetColor( 255,255,255 ) ) ;
     DrawFormatString( 0, 16, GetColor( 255,255,255 ), "m00 %f  m01 %f  m02 %f  m03 %f",
         Matrix.m[0][0], Matrix.m[0][1], Matrix.m[0][2], Matrix.m[0][3] ) ;
 
@@ -35,20 +35,20 @@ int main()
     DrawFormatString( 0, 64, GetColor( 255,255,255 ), "m30 %f  m31 %f  m32 %f  m33 %f",
         Matrix.m[3][0], Matrix.m[3][1], Matrix.m[3][2], Matrix.m[3][3] ) ;
 
-    // å¤‰æ›å…ƒã®ãƒ™ã‚¯ãƒˆãƒ«å€¤ Vect1 ã‚’ç”»é¢ã«è¡¨ç¤º
-    DrawString( 0, 96, "å¤‰æ›å‰ã®ãƒ™ã‚¯ãƒˆãƒ«", GetColor( 255,255,255 ) ) ;
+    // •ÏŠ·Œ³‚ÌƒxƒNƒgƒ‹’l Vect1 ‚ğ‰æ–Ê‚É•\¦
+    DrawString( 0, 96, "•ÏŠ·‘O‚ÌƒxƒNƒgƒ‹", GetColor( 255,255,255 ) ) ;
     DrawFormatString( 0, 112, GetColor( 255,255,255 ), "x=%f y=%f z=%f", Vect1.x, Vect1.y, Vect1.z ) ;
 
-    // å¤‰æ›å¾Œã®ãƒ™ã‚¯ãƒˆãƒ«å€¤ Vect2 ã‚’ç”»é¢ã«è¡¨ç¤º
-    DrawString( 0, 144, "å¤‰æ›å¾Œã®ãƒ™ã‚¯ãƒˆãƒ«", GetColor( 255,255,255 ) ) ;
+    // •ÏŠ·Œã‚ÌƒxƒNƒgƒ‹’l Vect2 ‚ğ‰æ–Ê‚É•\¦
+    DrawString( 0, 144, "•ÏŠ·Œã‚ÌƒxƒNƒgƒ‹", GetColor( 255,255,255 ) ) ;
     DrawFormatString( 0, 160, GetColor( 255,255,255 ), "x=%f y=%f z=%f", Vect2.x, Vect2.y, Vect2.z ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

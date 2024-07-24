@@ -5,25 +5,25 @@ int main()
     int FileHandle ;
     char String[256] ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() == -1 ) return -1 ;
 
-    // test.cpp ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
+    // test.cpp ƒtƒ@ƒCƒ‹‚ğŠJ‚­
     FileHandle = FileRead_open( "test.cpp" ) ;
 
-    // ä¸€è¡Œèª­ã‚€
+    // ˆês“Ç‚Ş
     FileRead_gets( String, 256, FileHandle ) ;
 
-    // ç”»é¢ã«æç”»
+    // ‰æ–Ê‚É•`‰æ
     DrawString( 0, 0, String, GetColor( 255,255,255 ) ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›ã‚’å¾…ã¤
+    // ƒL[“ü—Í‚ğ‘Ò‚Â
     WaitKey() ;
 
-    // ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‰ã˜ã‚‹
+    // ƒtƒ@ƒCƒ‹‚ğ•Â‚¶‚é
     FileRead_close( FileHandle ) ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
     return 0 ;

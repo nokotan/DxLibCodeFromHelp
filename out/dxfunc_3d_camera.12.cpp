@@ -6,48 +6,48 @@ int main()
     VECTOR BoxPos1, BoxPos2 ;
     float XAdd ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // æç”»å…ˆã‚’è£ç”»é¢ã«ã™ã‚‹
+    // •`‰ææ‚ð— ‰æ–Ê‚É‚·‚é
     SetDrawScreen( DX_SCREEN_BACK ) ;
 
-    // ï¼ºãƒãƒƒãƒ•ã‚¡ã‚’ä½¿ç”¨ã™ã‚‹
+    // ‚yƒoƒbƒtƒ@‚ðŽg—p‚·‚é
     SetUseZBuffer3D( TRUE ) ;
 
-    // ï¼ºãƒãƒƒãƒ•ã‚¡ã¸ã®æ›¸ãè¾¼ã¿ã‚’è¡Œã†
+    // ‚yƒoƒbƒtƒ@‚Ö‚Ì‘‚«ž‚Ý‚ðs‚¤
     SetWriteZBuffer3D( TRUE ) ; 
 
-    // é£›ã³å›žã‚‹ãƒœãƒƒã‚¯ã‚¹ã®åº§æ¨™ã‚’åˆæœŸåŒ–
+    // ”ò‚Ñ‰ñ‚éƒ{ƒbƒNƒX‚ÌÀ•W‚ð‰Šú‰»
     Position = VGet( 320, 240, 0.0f ) ;
 
-    // é£›ã³å›žã‚‹ãƒœãƒƒã‚¯ã‚¹ã®ï¼¸è»¸ã®ç§»å‹•é€Ÿåº¦ã‚’ã‚»ãƒƒãƒˆ
+    // ”ò‚Ñ‰ñ‚éƒ{ƒbƒNƒX‚Ì‚wŽ²‚ÌˆÚ“®‘¬“x‚ðƒZƒbƒg
     XAdd = 8.0f ;
 
-    // ï¼¥ï¼³ï¼£ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã‚‹ã‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãŒé–‰ã˜ã‚‰ã‚Œã‚‹ã¾ã§ãƒ«ãƒ¼ãƒ—
+    // ‚d‚r‚bƒL[‚ª‰Ÿ‚³‚ê‚é‚©ƒEƒCƒ“ƒhƒE‚ª•Â‚¶‚ç‚ê‚é‚Ü‚Åƒ‹[ƒv
     while( ProcessMessage() == 0 && CheckHitKey( KEY_INPUT_ESCAPE ) == 0 )
     {
-        // ç”»é¢ã‚’åˆæœŸåŒ–
+        // ‰æ–Ê‚ð‰Šú‰»
         ClearDrawScreen() ;
 
-        // ãƒœãƒƒã‚¯ã‚¹ã®åº§æ¨™ã‚’æ›´æ–°
+        // ƒ{ƒbƒNƒX‚ÌÀ•W‚ðXV
         Position.x += XAdd ;
 
-        // ã‚‚ã—ç”»é¢å†…ã‹ã‚‰å¤§ããå¤–ã‚ŒãŸã‚‰æ–¹å‘ã‚’åè»¢ã™ã‚‹
+        // ‚à‚µ‰æ–Ê“à‚©‚ç‘å‚«‚­ŠO‚ê‚½‚ç•ûŒü‚ð”½“]‚·‚é
         if( Position.x < -200.0f || Position.x > 840.0f )
         {
             XAdd = -XAdd ;
         }
 
-        // ãƒœãƒƒã‚¯ã‚¹ã‚’ç¾ã™ï¼’ç‚¹ã®åº§æ¨™ã‚’æº–å‚™
+        // ƒ{ƒbƒNƒX‚ðŒ»‚·‚Q“_‚ÌÀ•W‚ð€”õ
         BoxPos1 = VSub( Position, VGet( 10.0f, 10.0f, 10.0f ) ) ;
         BoxPos2 = VAdd( Position, VGet( 10.0f, 10.0f, 10.0f ) ) ;
 
-        // ç”»é¢å†…ã«ãƒœãƒƒã‚¯ã‚¹ãŒå…¥ã£ã¦ã„ãªã„ã‹ã©ã†ã‹ã‚’æç”»ã™ã‚‹
+        // ‰æ–Ê“à‚Éƒ{ƒbƒNƒX‚ª“ü‚Á‚Ä‚¢‚È‚¢‚©‚Ç‚¤‚©‚ð•`‰æ‚·‚é
         if( CheckCameraViewClip_Box( BoxPos1, BoxPos2 ) == TRUE )
         {
             DrawString( 0, 0, "Screen Out:Yes", GetColor( 255,255,255 ) ) ;
@@ -57,16 +57,16 @@ int main()
             DrawString( 0, 0, "Screen Out:No", GetColor( 255,255,255 ) ) ;
         }
 
-        // ãƒœãƒƒã‚¯ã‚¹ã‚’æç”»ã™ã‚‹
+        // ƒ{ƒbƒNƒX‚ð•`‰æ‚·‚é
         DrawCube3D( BoxPos1, BoxPos2, GetColor( 255,255,255 ), GetColor( 0,0,0 ), TRUE ) ;
 
-        // è£ç”»é¢ã®å†…å®¹ã‚’è¡¨ç”»é¢ã«åæ˜ 
+        // — ‰æ–Ê‚Ì“à—e‚ð•\‰æ–Ê‚É”½‰f
         ScreenFlip() ;
     }
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãŽn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

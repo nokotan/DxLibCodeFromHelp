@@ -6,43 +6,43 @@ int main()
     int MouseX , MouseY ;
     int StringCr , BoxCr ;
 
-    if( DxLib_Init() == -1 )    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
+    if( DxLib_Init() == -1 )    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
     {
-         return -1;    // ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ç›´ã¡ã«çµ‚äº†
+         return -1;    // ƒGƒ‰[‚ª‹N‚«‚½‚ç’¼‚¿‚ÉI—¹
     }
 
-    // ãƒžã‚¦ã‚¹ã‚’è¡¨ç¤ºçŠ¶æ…‹ã«ã™ã‚‹
+    // ƒ}ƒEƒX‚ð•\Ž¦ó‘Ô‚É‚·‚é
     SetMouseDispFlag( TRUE ) ;
 
-    // ç™½è‰²ã®å€¤ã‚’å–å¾—
+    // ”’F‚Ì’l‚ðŽæ“¾
     StringCr = GetColor( 255 , 255 , 255 ) ;
 
-    // é»’ã®å€¤ã‚’å–å¾—
+    // •‚Ì’l‚ðŽæ“¾
     BoxCr = GetColor( 0 , 0 , 0 ) ;
 
-    // ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã‚‹ã¾ã§ãƒ«ãƒ¼ãƒ—
+    // ƒL[‚ª‰Ÿ‚³‚ê‚é‚Ü‚Åƒ‹[ƒv
     while( CheckHitKeyAll() == 0 )
     {
-        // ãƒžã‚¦ã‚¹ã®ä½ç½®ã‚’å–å¾—
+        // ƒ}ƒEƒX‚ÌˆÊ’u‚ðŽæ“¾
         GetMousePoint( &MouseX , &MouseY ) ;
 
-        // ç”»é¢å·¦ä¸Šã®é ˜åŸŸã«é»’ã„å››è§’ã‚’æãå‰ã«æã„ã¦ã‚ã£ãŸæ–‡å­—åˆ—ã‚’æ¶ˆã™
+        // ‰æ–Ê¶ã‚Ì—Ìˆæ‚É•‚¢ŽlŠp‚ð•`‚«‘O‚É•`‚¢‚Ä‚ ‚Á‚½•¶Žš—ñ‚ðÁ‚·
         DrawBox( 0 , 0 , 640 , 32 , BoxCr , TRUE ) ;
 
-        // åº§æ¨™æ–‡å­—åˆ—ã‚’æã
-        DrawFormatString( 0 , 0 , StringCr , "åº§æ¨™ï¼¸ %dã€€ã€€åº§æ¨™ï¼¹ %d" , MouseX , MouseY ) ;
+        // À•W•¶Žš—ñ‚ð•`‚­
+        DrawFormatString( 0 , 0 , StringCr , "À•W‚w %d@@À•W‚x %d" , MouseX , MouseY ) ;
                 
-        // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å‡¦ç†
+        // ƒƒbƒZ[ƒWˆ—
         if( ProcessMessage() == -1 )
         {
-            break ;    // ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ãƒ«ãƒ¼ãƒ—ã‚’æŠœã‘ã‚‹
+            break ;    // ƒGƒ‰[‚ª‹N‚«‚½‚çƒ‹[ƒv‚ð”²‚¯‚é
         }
 
-        // ä¸€å®šæ™‚é–“å¾…ã¤
+        // ˆê’èŽžŠÔ‘Ò‚Â
         WaitTimer( 100 ) ;
     }
 
-    DxLib_End() ;        // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+    DxLib_End() ;        // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠŽg—p‚ÌI—¹ˆ—
 
-    return 0 ;        // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    return 0 ;        // ƒ\ƒtƒg‚ÌI—¹
 }

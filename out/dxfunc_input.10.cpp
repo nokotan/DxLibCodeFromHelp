@@ -4,35 +4,35 @@ int main()
 {
     int Rot ;
 
-    if( DxLib_Init() == -1 )    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
-         return -1;    // ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ç›´ã¡ã«çµ‚äº†
+    if( DxLib_Init() == -1 )    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
+         return -1;    // ƒGƒ‰[‚ª‹N‚«‚½‚ç’¼‚¿‚ÉI—¹
 
-    // è£ç”»é¢ã‚’ä½¿ç”¨
+    // — ‰æ–Ê‚ðŽg—p
     SetDrawScreen( DX_SCREEN_BACK ) ;
 
-    // åˆè¨ˆå€¤ã‚’åˆæœŸåŒ–
+    // ‡Œv’l‚ð‰Šú‰»
     Rot = 0 ;
 
-    // ä½•ã‹ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã‚‹ã¾ã§ãƒ«ãƒ¼ãƒ—
+    // ‰½‚©ƒL[‚ª‰Ÿ‚³‚ê‚é‚Ü‚Åƒ‹[ƒv
     while( CheckHitKeyAll() == 0 )
     {
-        // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å‡¦ç†
-        if( ProcessMessage() == -1 ) break ;    // ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ãƒ«ãƒ¼ãƒ—ã‹ã‚‰æŠœã‘ã‚‹
+        // ƒƒbƒZ[ƒWˆ—
+        if( ProcessMessage() == -1 ) break ;    // ƒGƒ‰[‚ª‹N‚«‚½‚çƒ‹[ƒv‚©‚ç”²‚¯‚é
 
-        // å‰å›ž GetMouseWheelRotVol ãŒå‘¼ã°ã‚Œã¦ã‹ã‚‰ä»Šå›žã¾ã§ã®å›žè»¢é‡ã‚’è¶³ã™
+        // ‘O‰ñ GetMouseWheelRotVol ‚ªŒÄ‚Î‚ê‚Ä‚©‚ç¡‰ñ‚Ü‚Å‚Ì‰ñ“]—Ê‚ð‘«‚·
         Rot += GetMouseWheelRotVol() ;
 
-        // ç”»é¢ã‚’åˆæœŸåŒ–
+        // ‰æ–Ê‚ð‰Šú‰»
         ClearDrawScreen() ;
 
-        // ç”»é¢ã«å›žè»¢é‡ã‚’æç”»
+        // ‰æ–Ê‚É‰ñ“]—Ê‚ð•`‰æ
         DrawFormatString( 0, 0, GetColor( 255,255,255 ), "%d", Rot ) ;
 
-        // è£ç”»é¢ã®å†…å®¹ã‚’è¡¨ç”»é¢ã«è¡¨ç¤º
+        // — ‰æ–Ê‚Ì“à—e‚ð•\‰æ–Ê‚É•\Ž¦
         ScreenFlip() ;
     }
 
-    DxLib_End() ;        // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+    DxLib_End() ;        // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠŽg—p‚ÌI—¹ˆ—
 
-    return 0 ;        // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    return 0 ;        // ƒ\ƒtƒg‚ÌI—¹
 }

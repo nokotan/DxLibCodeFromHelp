@@ -5,44 +5,44 @@ int main()
     char String[ 2 ] ;
     char InputChar ;
 
-    // ç”»é¢ãƒ¢ãƒ¼ãƒ‰ã®è¨­å®š
+    // ‰æ–Êƒ‚[ƒh‚ÌÝ’è
     SetGraphMode( 640 , 480 , 16 ) ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
     if( DxLib_Init() == -1 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª‹N‚«‚½‚ç’¼‚¿‚ÉI—¹
         return -1;
     }
     
-    // å…¥åŠ›ã•ã‚Œã‚‹æ–‡å­—ã‚’éšæ™‚ç”»é¢ä¸­å¤®ã«æç”»ã—ã¾ã™
+    // “ü—Í‚³‚ê‚é•¶Žš‚ðŽž‰æ–Ê’†‰›‚É•`‰æ‚µ‚Ü‚·
     {
         String[ 1 ] = 0 ;
 
-        // ï¼¥ï¼³ï¼£ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã‚‹ã‹ã€ä½•ã‚‰ã‹ã®å†…éƒ¨ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã™ã‚‹ã¾ã§ãƒ«ãƒ¼ãƒ—ã™ã‚‹
+        // ‚d‚r‚bƒL[‚ª‰Ÿ‚³‚ê‚é‚©A‰½‚ç‚©‚Ì“à•”ƒGƒ‰[‚ª”­¶‚·‚é‚Ü‚Åƒ‹[ƒv‚·‚é
         while( !ProcessMessage() && ( CheckHitKey( KEY_INPUT_ESCAPE ) == 0 ) )
         {
-            // æ–‡å­—å…¥åŠ›ãƒãƒƒãƒ•ã‚¡ã‹ã‚‰æ–‡å­—ã‚’å–å¾—ã™ã‚‹
+            // •¶Žš“ü—Íƒoƒbƒtƒ@‚©‚ç•¶Žš‚ðŽæ“¾‚·‚é
             InputChar = GetInputChar( TRUE ) ;
 
-            // æ“ä½œã‚³ãƒ¼ãƒ‰ä»¥å¤–ã®æ–‡å­—å…¥åŠ›ãŒã‚ã£ãŸå ´åˆã®ã¿è¡¨ç¤ºå‡¦ç†ã‚’è¡Œã†
+            // ‘€ìƒR[ƒhˆÈŠO‚Ì•¶Žš“ü—Í‚ª‚ ‚Á‚½ê‡‚Ì‚Ý•\Ž¦ˆ—‚ðs‚¤
             if( InputChar != 0 && InputChar >= CTRL_CODE_CMP )
             {
-                // ç”»é¢ã®æ¶ˆåŽ»
+                // ‰æ–Ê‚ÌÁ‹Ž
                 ClearDrawScreen() ;
 
-                // æ–‡å­—ã®ä¿å­˜
+                // •¶Žš‚Ì•Û‘¶
                 String[ 0 ] = InputChar ;
 
-                // æç”»
+                // •`‰æ
                 DrawString( 312 , 232 , String , GetColor( 255 , 255 , 255 )  ) ;
             }
         }
     }
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠŽg—p‚ÌI—¹ˆ—
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

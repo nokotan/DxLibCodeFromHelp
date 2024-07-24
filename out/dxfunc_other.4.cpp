@@ -4,25 +4,25 @@ int main()
 {
     LONGLONG StartTime ;
 
-    if( DxLib_Init() == -1 )    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
+    if( DxLib_Init() == -1 )    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
     {
-         return -1;    // ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ç›´ã¡ã«çµ‚äº†
+         return -1;    // ƒGƒ‰[‚ª‹N‚«‚½‚ç’¼‚¿‚ÉI—¹
     }
 
-    // ç¾åœ¨çµŒéŽæ™‚é–“ã‚’å¾—ã‚‹
+    // Œ»ÝŒo‰ßŽžŠÔ‚ð“¾‚é
     StartTime = GetNowHiPerformanceCount() ;
 
-    // è¨ˆæ¸¬é–‹å§‹ã‹ã‚‰ï¼–ç§’ãŒéŽãŽã‚‹ã¾ã§ãƒ«ãƒ¼ãƒ—
+    // Œv‘ªŠJŽn‚©‚ç‚U•b‚ª‰ß‚¬‚é‚Ü‚Åƒ‹[ƒv
     while( GetNowHiPerformanceCount() - StartTime < 6000000 )
     {
-        // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å‡¦ç†
+        // ƒƒbƒZ[ƒWˆ—
         if( ProcessMessage() == -1 )
         {
-            break ;    // ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ãƒ«ãƒ¼ãƒ—ã‹ã‚‰æŠœã‘ã‚‹
+            break ;    // ƒGƒ‰[‚ª‹N‚«‚½‚çƒ‹[ƒv‚©‚ç”²‚¯‚é
         }
     }
 
-    DxLib_End() ;        // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+    DxLib_End() ;        // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠŽg—p‚ÌI—¹ˆ—
 
-    return 0 ;        // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    return 0 ;        // ƒ\ƒtƒg‚ÌI—¹
 }

@@ -5,80 +5,80 @@
 
 int CharaModelHandle ;
 
-// ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ãƒ¢ãƒ‡ãƒ«ã®æç”»
+// ƒLƒƒƒ‰ƒNƒ^[ƒ‚ƒfƒ‹‚Ì•`‰æ
 void Chara_Draw( float x )
 {
 	int i ;
 
-	// æ‰‹å‰ã‹ã‚‰ï¼’ä½“æç”»
+	// è‘O‚©‚ç‚Q‘Ì•`‰æ
 	for( i = 0 ; i < 2 ; i ++ )
 	{
-		// å…ˆé ­ã®ã‚­ãƒ£ãƒ©ã‚’åŠé€æ˜ã«ã™ã‚‹
+		// æ“ª‚ÌƒLƒƒƒ‰‚ğ”¼“§–¾‚É‚·‚é
 		MV1SetOpacityRate( CharaModelHandle, i == 0 ? 0.5f : 1.0f ) ;
 
-		// åº§æ¨™ã‚’è¨­å®š
+		// À•W‚ğİ’è
 		MV1SetPosition( CharaModelHandle, VGet( x, 0.0f, i * CHARA_SPACE ) ) ;
 
-		// ãƒ¢ãƒ‡ãƒ«ã‚’æç”»
+		// ƒ‚ƒfƒ‹‚ğ•`‰æ
 		MV1DrawModel( CharaModelHandle ) ;
 	}
 }
 
 int main()
 {
-	// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
 	if( DxLib_Init() < 0 )
 	{
-		// ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰çµ‚äº†
+		// ƒGƒ‰[‚ª”­¶‚µ‚½‚çI—¹
 		return -1 ;
 	}
 
-	// æç”»å…ˆã‚’è£ç”»é¢ã«å¤‰æ›´
+	// •`‰ææ‚ğ— ‰æ–Ê‚É•ÏX
 	SetDrawScreen( DX_SCREEN_BACK ) ;
 
-	// ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+	// ƒLƒƒƒ‰ƒNƒ^[ƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ
 	CharaModelHandle = MV1LoadModel( "DxChara.x" ) ;
 
-	// ã‚«ãƒ¡ãƒ©ã®ä½ç½®ã¨å‘ãã‚’è¨­å®š
+	// ƒJƒƒ‰‚ÌˆÊ’u‚ÆŒü‚«‚ğİ’è
 	SetCameraPositionAndTarget_UpVecY( VGet( 0.0f, 400.0f, -700.0f ), VGet( 0.0f, 400.0f, 0.0f ) );
 
-	// æç”»ã™ã‚‹å¥¥è¡Œãæ–¹å‘ã®ç¯„å›²ã‚’è¨­å®š
+	// •`‰æ‚·‚é‰œs‚«•ûŒü‚Ì”ÍˆÍ‚ğİ’è
 	SetCameraNearFar( 20.0f, 5000.0f );
 
-	// èƒŒæ™¯ã®è‰²ã‚’ç°è‰²ã«å¤‰æ›´
+	// ”wŒi‚ÌF‚ğŠDF‚É•ÏX
 	SetBackgroundColor( 128,128,128 ) ;
 
-	// ç”»é¢ã‚’ã‚¯ãƒªã‚¢
+	// ‰æ–Ê‚ğƒNƒŠƒA
 	ClearDrawScreen() ;
 
-	// ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒ—
+	// ƒƒCƒ“ƒ‹[ƒv
 	while( ProcessMessage() == 0 )
 	{
-		// ç”»é¢ã‚’ã‚¯ãƒªã‚¢
+		// ‰æ–Ê‚ğƒNƒŠƒA
 		ClearDrawScreen() ;
 
-		// é€šå¸¸ã®è¨­å®šã§ç”»é¢å·¦å´ã«ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã‚’æç”»
+		// ’Êí‚Ìİ’è‚Å‰æ–Ê¶‘¤‚ÉƒLƒƒƒ‰ƒNƒ^[‚ğ•`‰æ
 		MV1SetSemiTransDrawMode( DX_SEMITRANSDRAWMODE_ALWAYS ) ;
 		Chara_Draw( -CHARA_X ) ;
 
-		// ç”»é¢å³å´ã«å…ˆã«åŠé€æ˜è¦ç´ ã®ç„¡ã„ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®ã¿æç”»ã™ã‚‹è¨­å®šã§ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã‚’æç”»ã—ãŸå¾Œã€
-		// åŠé€æ˜è¦ç´ ã®ã‚ã‚‹ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®ã¿æç”»ã™ã‚‹è¨­å®šã§ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã‚’æç”»ã™ã‚‹
+		// ‰æ–Ê‰E‘¤‚Éæ‚É”¼“§–¾—v‘f‚Ì–³‚¢‚R‚cƒ‚ƒfƒ‹‚Ì‚İ•`‰æ‚·‚éİ’è‚ÅƒLƒƒƒ‰ƒNƒ^[‚ğ•`‰æ‚µ‚½ŒãA
+		// ”¼“§–¾—v‘f‚Ì‚ ‚é‚R‚cƒ‚ƒfƒ‹‚Ì‚İ•`‰æ‚·‚éİ’è‚ÅƒLƒƒƒ‰ƒNƒ^[‚ğ•`‰æ‚·‚é
 		MV1SetSemiTransDrawMode( DX_SEMITRANSDRAWMODE_NOT_SEMITRANS_ONLY ) ;
 		Chara_Draw( CHARA_X ) ;
 
 		MV1SetSemiTransDrawMode( DX_SEMITRANSDRAWMODE_SEMITRANS_ONLY ) ;
 		Chara_Draw( CHARA_X ) ;
 
-		// è£ç”»é¢ã®å†…å®¹ã‚’è¡¨ç”»é¢ã«åæ˜ 
+		// — ‰æ–Ê‚Ì“à—e‚ğ•\‰æ–Ê‚É”½‰f
 		ScreenFlip() ;
 	}
 
-	// ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+	// ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚Ìíœ
 	MV1DeleteModel( CharaModelHandle ) ;
 
-	// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
 	DxLib_End() ;
 
-	// ã‚½ãƒ•ãƒˆã®çµ‚äº†
+	// ƒ\ƒtƒg‚ÌI—¹
 	return 0 ;
 }

@@ -4,31 +4,31 @@ int main()
 {
     int FontHandle ;
 
-    // ＤＸライブラリの初期化
+    // �c�w���C�u�����̏�����
     if( DxLib_Init() == -1 ) return 0 ;
 
 
-    // 　デフォルトのフォントで、サイズ４０、太さ３のフォントを作成し
-    // 作成したデータの識別番号を変数 FontHandle に保存する
+    // �@�f�t�H���g�̃t�H���g�ŁA�T�C�Y�S�O�A�����R�̃t�H���g���쐬��
+    // �쐬�����f�[�^�̎��ʔԍ���ϐ� FontHandle �ɕۑ�����
     FontHandle = CreateFontToHandle( NULL , 40 , 3 ) ;
 
-    // 作成したフォントで画面左上に『Ｈｅｌｌｏｗ！！』と白色の文字列を描画する
-    DrawStringToHandle( 0 , 0 , "ＨＥＬＬＯＷ！！" , GetColor( 255 , 255 , 255 ) , FontHandle ) ;
+    // �쐬�����t�H���g�ŉ�ʍ���Ɂw�g�����������I�I�x�Ɣ��F�̕������`�悷��
+    DrawStringToHandle( 0 , 0 , "�g�d�k�k�n�v�I�I" , GetColor( 255 , 255 , 255 ) , FontHandle ) ;
 
-    // 次に標準フォントデータで画面に『ＯＫ？』という文字列を描画する
-    DrawString( 0 , 50 , "ＯＫ？" , GetColor( 255 , 128 , 100 ) ) ; 
+    // ���ɕW���t�H���g�f�[�^�ŉ�ʂɁw�n�j�H�x�Ƃ����������`�悷��
+    DrawString( 0 , 50 , "�n�j�H" , GetColor( 255 , 128 , 100 ) ) ; 
 
 
-    // キー入力を待つ
+    // �L�[���͂�҂�
     WaitKey() ;
 
-    // 作成したフォントデータを削除する
+    // �쐬�����t�H���g�f�[�^���폜����
     DeleteFontToHandle( FontHandle ) ;
 
 
-    // ＤＸライブラリの終了
+    // �c�w���C�u�����̏I��
     DxLib_End() ;
 
-    // ソフトの終了
+    // �\�t�g�̏I��
     return 0 ;
 }

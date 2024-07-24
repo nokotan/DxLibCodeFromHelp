@@ -5,62 +5,62 @@ int main()
     int ModelHandle, AttachIndex ;
     float TotalTime, PlayTime ;
 
-    // ＤＸライブラリの初期化
+    // �c�w���C�u�����̏�����
     if( DxLib_Init() < 0 )
     {
-        // エラーが発生したら直ちに終了
+        // �G���[�����������璼���ɏI��
         return -1 ;
     }
 
-    // ３Ｄモデルの読み込み
+    // �R�c���f���̓ǂݍ���
     ModelHandle = MV1LoadModel( "DxChara.x" ) ;
 
-    // 描画先を裏画面に変更
+    // �`���𗠉�ʂɕύX
     SetDrawScreen( DX_SCREEN_BACK ) ;
 
-    // 画面に映る位置に３Ｄモデルを移動
+    // ��ʂɉf��ʒu�ɂR�c���f�����ړ�
     MV1SetPosition( ModelHandle, VGet( 320.0f, -300.0f, 600.0f ) ) ;
 
-    // ３Ｄモデルの０番目のアニメーションをアタッチする
+    // �R�c���f���̂O�Ԗڂ̃A�j���[�V�������A�^�b�`����
     AttachIndex = MV1AttachAnim( ModelHandle, 0, -1, FALSE ) ;
 
-    // アタッチしたアニメーションの総再生時間を取得する
+    // �A�^�b�`�����A�j���[�V�����̑��Đ����Ԃ��擾����
     TotalTime = MV1GetAttachAnimTotalTime( ModelHandle, AttachIndex ) ;
 
-    // 再生時間の初期化
+    // �Đ����Ԃ̏�����
     PlayTime = 0.0f ;
 
-    // 何かキーが押されるかウインドウが閉じられるまでループ
+    // �����L�[��������邩�E�C���h�E��������܂Ń��[�v
     while( ProcessMessage() == 0 && CheckHitKeyAll() == 0 )
     {
-        // 画面をクリア
+        // ��ʂ��N���A
         ClearDrawScreen() ;
 
-        // 再生時間を進める
+        // �Đ����Ԃ�i�߂�
         PlayTime += 100.0f ;
 
-        // 再生時間がアニメーションの総再生時間に達したら再生時間を０に戻す
+        // �Đ����Ԃ��A�j���[�V�����̑��Đ����ԂɒB������Đ����Ԃ��O�ɖ߂�
         if( PlayTime >= TotalTime )
         {
             PlayTime = 0.0f ;
         }
 
-        // 再生時間をセットする
+        // �Đ����Ԃ��Z�b�g����
         MV1SetAttachAnimTime( ModelHandle, AttachIndex, PlayTime ) ;
 
-        // ３Ｄモデルの描画
+        // �R�c���f���̕`��
         MV1DrawModel( ModelHandle ) ;
 
-        // 裏画面の内容を表画面に反映
+        // ����ʂ̓��e��\��ʂɔ��f
         ScreenFlip() ;
     }
 
-    // モデルハンドルの削除
+    // ���f���n���h���̍폜
     MV1DeleteModel( ModelHandle ) ;
 
-    // ＤＸライブラリの後始末
+    // �c�w���C�u�����̌�n��
     DxLib_End() ;
 
-    // ソフトの終了
+    // �\�t�g�̏I��
     return 0 ;
 }

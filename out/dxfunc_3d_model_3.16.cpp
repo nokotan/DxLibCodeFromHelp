@@ -7,75 +7,75 @@ int main()
     VECTOR StartPos, EndPos ;
     MV1_COLL_RESULT_POLY HitPoly ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+    // ‚R‚cƒ‚ƒfƒ‹‚Ì“Ç‚Ýž‚Ý
     ModelHandle = MV1LoadModel( "SimpleModel.mqo" ) ;
 
-    // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã‚’è¦‹ãˆã‚‹ä½ç½®ã«ç§»å‹•ã™ã‚‹
+    // ‚R‚cƒ‚ƒfƒ‹‚ðŒ©‚¦‚éˆÊ’u‚ÉˆÚ“®‚·‚é
     MV1SetPosition( ModelHandle, VGet( 320.0f, 300.0f, 600.0f ) ) ;
 
-    // æç”»å…ˆã‚’è£ç”»é¢ã«å¤‰æ›´
+    // •`‰ææ‚ð— ‰æ–Ê‚É•ÏX
     SetDrawScreen( DX_SCREEN_BACK ) ;
 
-    // ãƒ¢ãƒ‡ãƒ«å…¨ä½“ã®ã‚³ãƒªã‚¸ãƒ§ãƒ³æƒ…å ±ã‚’æ§‹ç¯‰
+    // ƒ‚ƒfƒ‹‘S‘Ì‚ÌƒRƒŠƒWƒ‡ƒ“î•ñ‚ð\’z
     MV1SetupCollInfo( ModelHandle, -1, 8, 8, 8 ) ;
 
-    // ãƒ¢ãƒ‡ãƒ«ã®é€²è¡Œæ–¹å‘ã‚’ã‚»ãƒƒãƒˆ
+    // ƒ‚ƒfƒ‹‚Ìis•ûŒü‚ðƒZƒbƒg
     Add = 8 ;
 
-    // ãƒ¢ãƒ‡ãƒ«ã®ç§»å‹•ä½ç½®ã‚’ã‚»ãƒƒãƒˆ
+    // ƒ‚ƒfƒ‹‚ÌˆÚ“®ˆÊ’u‚ðƒZƒbƒg
     y = 0 ;
 
-    // ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãŒé–‰ã˜ã‚‰ã‚Œã‚‹ã‹ä½•ã‹ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã‚‹ã¾ã§ãƒ«ãƒ¼ãƒ—
+    // ƒEƒCƒ“ƒhƒE‚ª•Â‚¶‚ç‚ê‚é‚©‰½‚©ƒL[‚ª‰Ÿ‚³‚ê‚é‚Ü‚Åƒ‹[ƒv
     while( ProcessMessage() == 0 && CheckHitKeyAll() == 0 )
     {
-        // ç”»é¢ã‚’ã‚¯ãƒªã‚¢
+        // ‰æ–Ê‚ðƒNƒŠƒA
         ClearDrawScreen() ;
 
-        // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®ç§»å‹•ä½ç½®ã‚’ä¸Šä¸‹ã«ç§»å‹•ã•ã›ã‚‹
+        // ‚R‚cƒ‚ƒfƒ‹‚ÌˆÚ“®ˆÊ’u‚ðã‰º‚ÉˆÚ“®‚³‚¹‚é
         y += Add ;
         if( y < 0 || y > 600 )
             Add = -Add ;
 
-        // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®æç”»
+        // ‚R‚cƒ‚ƒfƒ‹‚Ì•`‰æ
         MV1DrawModel( ModelHandle ) ;
 
-        // ãƒ¢ãƒ‡ãƒ«ã¨ç·šåˆ†ã¨ã®å½“ãŸã‚Šåˆ¤å®š
+        // ƒ‚ƒfƒ‹‚Æü•ª‚Æ‚Ì“–‚½‚è”»’è
         StartPos = VGet( -300.0f, y, 600.0f ) ;
         EndPos   = VGet( 1000.0f, y, 600.0f ) ;
         HitPoly = MV1CollCheck_Line( ModelHandle, -1, StartPos, EndPos ) ;
 
-        // å½“ãŸã£ãŸå ´åˆã¯ãã®ä½ç½®ã‚’æç”»ã™ã‚‹ç·šåˆ†ã®çµ‚ç‚¹ã¨ã™ã‚‹
+        // “–‚½‚Á‚½ê‡‚Í‚»‚ÌˆÊ’u‚ð•`‰æ‚·‚éü•ª‚ÌI“_‚Æ‚·‚é
         if( HitPoly.HitFlag == 1 )
         {
             EndPos = HitPoly.HitPosition ;
         }
 
-        // ç·šåˆ†ã®æç”»
+        // ü•ª‚Ì•`‰æ
         DrawLine3D( StartPos, EndPos, GetColor( 255,255,0 ) ) ;
 
-        // å½“ãŸã£ãŸã‹ã©ã†ã‹ã§å‡¦ç†ã‚’åˆ†å²
+        // “–‚½‚Á‚½‚©‚Ç‚¤‚©‚Åˆ—‚ð•ªŠò
         if( HitPoly.HitFlag == 1 )
         {
-            // å½“ãŸã£ãŸå ´åˆã¯è¡çªã®æƒ…å ±ã‚’æç”»ã™ã‚‹
+            // “–‚½‚Á‚½ê‡‚ÍÕ“Ë‚Ìî•ñ‚ð•`‰æ‚·‚é
 
-            // äº¤å·®ã—ãŸåº§æ¨™ã‚’æç”»
+            // Œð·‚µ‚½À•W‚ð•`‰æ
             DrawFormatString( 0, 0, GetColor( 255,255,255 ),  "Hit Pos   %f  %f  %f",
                 HitPoly.HitPosition.x, HitPoly.HitPosition.y, HitPoly.HitPosition.z ) ;
 
-            // å½“ãŸã£ãŸãƒãƒªã‚´ãƒ³ãŒå«ã¾ã‚Œã‚‹ãƒ•ãƒ¬ãƒ¼ãƒ ã®ç•ªå·ã‚’æç”»
+            // “–‚½‚Á‚½ƒ|ƒŠƒSƒ“‚ªŠÜ‚Ü‚ê‚éƒtƒŒ[ƒ€‚Ì”Ô†‚ð•`‰æ
             DrawFormatString( 0, 16, GetColor( 255,255,255 ), "Frame     %d", HitPoly.FrameIndex ) ;
 
-            // å½“ãŸã£ãŸãƒãƒªã‚´ãƒ³ãŒä½¿ç”¨ã—ã¦ã„ã‚‹ãƒžãƒ†ãƒªã‚¢ãƒ«ã®ç•ªå·ã‚’æç”»
+            // “–‚½‚Á‚½ƒ|ƒŠƒSƒ“‚ªŽg—p‚µ‚Ä‚¢‚éƒ}ƒeƒŠƒAƒ‹‚Ì”Ô†‚ð•`‰æ
             DrawFormatString( 0, 32, GetColor( 255,255,255 ), "Material  %d", HitPoly.MaterialIndex ) ;
 
-            // å½“ãŸã£ãŸãƒãƒªã‚´ãƒ³ã‚’å½¢æˆã™ã‚‹ä¸‰é ‚ç‚¹ã®åº§æ¨™ã‚’æç”»
+            // “–‚½‚Á‚½ƒ|ƒŠƒSƒ“‚ðŒ`¬‚·‚éŽO’¸“_‚ÌÀ•W‚ð•`‰æ
             DrawFormatString( 0, 48, GetColor( 255,255,255 ), "Position  %f  %f  %f",
                 HitPoly.Position[ 0 ].x, HitPoly.Position[ 0 ].y, HitPoly.Position[ 0 ].z ) ;
             DrawFormatString( 0, 64, GetColor( 255,255,255 ), "          %f  %f  %f",
@@ -83,26 +83,26 @@ int main()
             DrawFormatString( 0, 80, GetColor( 255,255,255 ), "          %f  %f  %f",
                 HitPoly.Position[ 2 ].x, HitPoly.Position[ 2 ].y, HitPoly.Position[ 2 ].z ) ;
 
-            // å½“ãŸã£ãŸãƒãƒªã‚´ãƒ³ã®æ³•ç·šã‚’æç”»
+            // “–‚½‚Á‚½ƒ|ƒŠƒSƒ“‚Ì–@ü‚ð•`‰æ
             DrawFormatString( 0, 96, GetColor( 255,255,255 ), "Normal    %f  %f  %f",
                 HitPoly.Normal.x, HitPoly.Normal.y, HitPoly.Normal.z ) ;
         }
         else
         {
-            // å½“ãŸã‚‰ãªã‹ã£ãŸå ´åˆã¯è¡çªã—ãªã‹ã£ãŸæ—¨ã ã‘æç”»ã™ã‚‹
+            // “–‚½‚ç‚È‚©‚Á‚½ê‡‚ÍÕ“Ë‚µ‚È‚©‚Á‚½Ž|‚¾‚¯•`‰æ‚·‚é
             DrawString( 0, 0, "NO HIT", GetColor( 255,255,255 ) ) ;
         }
 
-        // è£ç”»é¢ã®å†…å®¹ã‚’è¡¨ç”»é¢ã«åæ˜ 
+        // — ‰æ–Ê‚Ì“à—e‚ð•\‰æ–Ê‚É”½‰f
         ScreenFlip() ;
     }
 
-    // ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚Ìíœ
     MV1DeleteModel( ModelHandle ) ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãŽn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

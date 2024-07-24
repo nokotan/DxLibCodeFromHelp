@@ -6,52 +6,52 @@ int main()
     unsigned int Cr ;
     int x , y ;
 
-    if( DxLib_Init() == -1 )    // ＤＸライブラリ初期化処理
+    if( DxLib_Init() == -1 )    // �c�w���C�u��������������
     {
-         return -1;    // エラーが発生したら終了
+         return -1;    // �G���[������������I��
     }
 
-    // 描画先画面を表にする
+    // �`����ʂ�\�ɂ���
     SetDrawScreen( DX_SCREEN_FRONT ) ;
 
-    // １００００個四角形を描きます
+    // �P�O�O�O�O�l�p�`��`���܂�
     for( i = 0 ; i < 10000 ; i ++ )
     {
-        // ランダムな色を取得する『GetRand』使用
+        // �����_���ȐF���擾����wGetRand�x�g�p
         Cr = GetColor( GetRand( 255 ) , GetRand( 255 ) , GetRand( 255 ) ) ;
 
-        // ランダムな位置に四角形を描く 
+        // �����_���Ȉʒu�Ɏl�p�`��`�� 
         x = GetRand( 639 ) ;
         y = GetRand( 479 ) ;
         DrawBox( x , y , x + GetRand( 639 ) , y + GetRand( 479 ) , Cr , TRUE ) ;
     }
 
-    WaitKey() ;        // 結果を見るためにキー待ち(『WaitKey』を使用)
+    WaitKey() ;        // ���ʂ����邽�߂ɃL�[�҂�(�wWaitKey�x���g�p)
 
-    // 画面を初期化
+    // ��ʂ�������
     ClearDrawScreen() ;
 
-    // 描画先画面を裏にする
+    // �`����ʂ𗠂ɂ���
     SetDrawScreen( DX_SCREEN_BACK ) ;
 
-    // １００００個四角形を描きます
+    // �P�O�O�O�O�l�p�`��`���܂�
     for( i = 0 ; i < 10000 ; i ++ )
     {
-        // ランダムな色を取得する『GetRand』使用
+        // �����_���ȐF���擾����wGetRand�x�g�p
         Cr = GetColor( GetRand( 255 ) , GetRand( 255 ) , GetRand( 255 ) ) ;
 
-        // ランダムな位置に四角形を描く 
+        // �����_���Ȉʒu�Ɏl�p�`��`�� 
         x = GetRand( 639 ) ;
         y = GetRand( 479 ) ;
         DrawBox( x , y , x + GetRand( 639 ) , y + GetRand( 479 ) , Cr , TRUE ) ;
     }
 
-    // 裏画面の内容を表画面に反映します
+    // ����ʂ̓��e��\��ʂɔ��f���܂�
     ScreenFlip() ;
 
-    WaitKey() ;        // 結果を見るためにキー待ち(『WaitKey』を使用)
+    WaitKey() ;        // ���ʂ����邽�߂ɃL�[�҂�(�wWaitKey�x���g�p)
 
-    DxLib_End() ;        // ＤＸライブラリ使用の終了処理
+    DxLib_End() ;        // �c�w���C�u�����g�p�̏I������
 
-    return 0 ;        // ソフトの終了
+    return 0 ;        // �\�t�g�̏I��
 }

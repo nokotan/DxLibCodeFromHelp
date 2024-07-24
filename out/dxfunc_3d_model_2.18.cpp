@@ -4,39 +4,39 @@ int main()
 {
     int ModelHandle, MeshNum, i, MeshIndex ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+    // ‚R‚cƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ
     ModelHandle = MV1LoadModel( "DxChara.x" ) ;
 
-    // ï¼‘ç•ªç›®ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã«å«ã¾ã‚Œã‚‹ãƒ¡ãƒƒã‚·ãƒ¥ã®æ•°ã‚’å–å¾—ã™ã‚‹
+    // ‚P”Ô–Ú‚ÌƒtƒŒ[ƒ€‚ÉŠÜ‚Ü‚ê‚éƒƒbƒVƒ…‚Ì”‚ğæ“¾‚·‚é
     MeshNum = MV1GetFrameMeshNum( ModelHandle, 1 ) ;
 
-    // ãƒ¡ãƒƒã‚·ãƒ¥ã®æ•°ã ã‘ãƒ«ãƒ¼ãƒ—
+    // ƒƒbƒVƒ…‚Ì”‚¾‚¯ƒ‹[ƒv
     for( i = 0 ; i < MeshNum ; i ++ )
     {
-        // ãƒ¡ãƒƒã‚·ãƒ¥ç•ªå·ã®å–å¾—
+        // ƒƒbƒVƒ…”Ô†‚Ìæ“¾
         MeshIndex = MV1GetFrameMesh( ModelHandle, 1, i ) ;
 
-        // ãƒ¡ãƒƒã‚·ãƒ¥ãŒä½¿ç”¨ã—ã¦ã„ã‚‹ãƒãƒ†ãƒªã‚¢ãƒ«ã¨ãƒ¡ãƒƒã‚·ãƒ¥ã«å«ã¾ã‚Œã‚‹ä¸‰è§’å½¢ãƒãƒªã‚´ãƒ³ã®æ•°ã‚’æç”»
+        // ƒƒbƒVƒ…‚ªg—p‚µ‚Ä‚¢‚éƒ}ƒeƒŠƒAƒ‹‚ÆƒƒbƒVƒ…‚ÉŠÜ‚Ü‚ê‚éOŠpŒ`ƒ|ƒŠƒSƒ“‚Ì”‚ğ•`‰æ
         DrawFormatString( 0, i * 16, GetColor( 255,255,255 ), "Mesh No  %d   Material  %d    Triangle Polygon Num  %d",
             i, MV1GetMeshMaterial( ModelHandle, MeshIndex ), MV1GetMeshTriangleNum( ModelHandle, MeshIndex ) ) ;
     }
 
-    // ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚Ìíœ
     MV1DeleteModel( ModelHandle ) ;
 
-    // ã‚­ãƒ¼ã®å…¥åŠ›å¾…ã¡
+    // ƒL[‚Ì“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

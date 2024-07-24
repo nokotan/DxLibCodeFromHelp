@@ -1,84 +1,84 @@
--- é€ä¿¡å´ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
+-- ‘—M‘¤ƒvƒƒOƒ‰ƒ€
 -----------------------------------
 #include "DxLib.h"
 
 int main()
 {
-    IPDATA Ip ;        // é€ä¿¡ç”¨ï¼©ï¼°ã‚¢ãƒ‰ãƒ¬ã‚¹ãƒ‡ãƒ¼ã‚¿
-    int NetUDPHandle ;        // ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯ãƒãƒ³ãƒ‰ãƒ«
+    IPDATA Ip ;        // ‘—M—p‚h‚oƒAƒhƒŒƒXƒf[ƒ^
+    int NetUDPHandle ;        // ƒlƒbƒgƒ[ƒNƒnƒ“ƒhƒ‹
 
-    if( DxLib_Init() == -1 )    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
+    if( DxLib_Init() == -1 )    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
     {
-         return -1;    // ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ç›´ã¡ã«çµ‚äº†
+         return -1;    // ƒGƒ‰[‚ª‹N‚«‚½‚ç’¼‚¿‚ÉI—¹
     }
 
-    // ï¼µï¼¤ï¼°é€šä¿¡ç”¨ã®ã‚½ã‚±ãƒƒãƒˆãƒãƒ³ãƒ‰ãƒ«ã‚’ä½œæˆ
+    // ‚t‚c‚o’ÊM—p‚Ìƒ\ƒPƒbƒgƒnƒ“ƒhƒ‹‚ðì¬
     NetUDPHandle = MakeUDPSocket( -1 ) ;
 
-    // ï¼©ï¼°ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’è¨­å®š( ã“ã“ã«ã‚ã‚‹ï¼”ã¤ã®ï¼©ï¼°å€¤ã¯ä»®ã§ã™ )
+    // ‚h‚oƒAƒhƒŒƒX‚ðÝ’è( ‚±‚±‚É‚ ‚é‚S‚Â‚Ì‚h‚o’l‚Í‰¼‚Å‚· )
     Ip.d1 = 192 ;
     Ip.d2 = 168 ;
     Ip.d3 = 0 ;
     Ip.d4 = 14 ;
 
-    // æ–‡å­—åˆ—ã®é€ä¿¡
-    NetWorkSendUDP( NetUDPHandle, Ip, 9850, "ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼", 15 ) ;
+    // •¶Žš—ñ‚Ì‘—M
+    NetWorkSendUDP( NetUDPHandle, Ip, 9850, "ƒƒbƒZ[ƒWII", 15 ) ;
 
-    // é€ä¿¡ã—ãŸã‚ˆã¨è¡¨ç¤º
-    DrawString( 0, 0, "æ–‡å­—åˆ—ã‚’é€ä¿¡ã—ã¾ã—ãŸã€ä½•ã‹ã‚­ãƒ¼ã‚’æŠ¼ã™ã¨çµ‚äº†ã—ã¾ã™", GetColor( 255,255,255 ) ) ;
+    // ‘—M‚µ‚½‚æ‚Æ•\Ž¦
+    DrawString( 0, 0, "•¶Žš—ñ‚ð‘—M‚µ‚Ü‚µ‚½A‰½‚©ƒL[‚ð‰Ÿ‚·‚ÆI—¹‚µ‚Ü‚·", GetColor( 255,255,255 ) ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼µï¼¤ï¼°ã‚½ã‚±ãƒƒãƒˆãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ‚t‚c‚oƒ\ƒPƒbƒgƒnƒ“ƒhƒ‹‚Ìíœ
     DeleteUDPSocket( NetUDPHandle ) ; 
 
-    DxLib_End() ;    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+    DxLib_End() ;    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠŽg—p‚ÌI—¹ˆ—
 
-    return 0 ;    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    return 0 ;    // ƒ\ƒtƒg‚ÌI—¹
 }
 
--- å—ä¿¡å´ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
+-- ŽóM‘¤ƒvƒƒOƒ‰ƒ€
 -----------------------------------
 #include "DxLib.h"
 
 int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow )
 {
-    char StrBuf[ 256 ] ;    // ãƒ‡ãƒ¼ã‚¿ãƒãƒƒãƒ•ã‚¡
-    int NetUDPHandle ;        // ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯ãƒãƒ³ãƒ‰ãƒ«
+    char StrBuf[ 256 ] ;    // ƒf[ƒ^ƒoƒbƒtƒ@
+    int NetUDPHandle ;        // ƒlƒbƒgƒ[ƒNƒnƒ“ƒhƒ‹
 
-    if( DxLib_Init() == -1 )    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
+    if( DxLib_Init() == -1 )    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
     {
-         return -1;    // ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ç›´ã¡ã«çµ‚äº†
+         return -1;    // ƒGƒ‰[‚ª‹N‚«‚½‚ç’¼‚¿‚ÉI—¹
     }
 
-    // ï¼µï¼¤ï¼°é€šä¿¡ç”¨ã®ã‚½ã‚±ãƒƒãƒˆãƒãƒ³ãƒ‰ãƒ«ã‚’ä½œæˆ
+    // ‚t‚c‚o’ÊM—p‚Ìƒ\ƒPƒbƒgƒnƒ“ƒhƒ‹‚ðì¬
     NetUDPHandle = MakeUDPSocket( 9850 ) ;
 
-    // å—ä¿¡å¾…ã¡ã ã‚ˆã¨è¡¨ç¤º
-    DrawString( 0, 0, "å—ä¿¡å¾…ã¡", GetColor( 255,255,255 ) ) ;
+    // ŽóM‘Ò‚¿‚¾‚æ‚Æ•\Ž¦
+    DrawString( 0, 0, "ŽóM‘Ò‚¿", GetColor( 255,255,255 ) ) ;
 
-    // æ–‡å­—åˆ—ã®å—ä¿¡ã‚’å¾…ã¤
+    // •¶Žš—ñ‚ÌŽóM‚ð‘Ò‚Â
     while( CheckNetWorkRecvUDP( NetUDPHandle ) == FALSE )
     {
-        // ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚ºãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å‡¦ç†
+        // ƒEƒCƒ“ƒhƒEƒYƒƒbƒZ[ƒWˆ—
         if( ProcessMessage() < 0 ) break ;
     }
 
-    // å—ä¿¡
+    // ŽóM
     NetWorkRecvUDP( NetUDPHandle, NULL, NULL, StrBuf, 256, FALSE ) ;
 
-    // å—ä¿¡ã—ãŸæ–‡å­—åˆ—ã‚’ç”»é¢ã«æç”»
+    // ŽóM‚µ‚½•¶Žš—ñ‚ð‰æ–Ê‚É•`‰æ
     ClearDrawScreen() ;
     DrawString( 0, 0, StrBuf, GetColor( 255,255,255 ) ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼µï¼¤ï¼°ã‚½ã‚±ãƒƒãƒˆãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ‚t‚c‚oƒ\ƒPƒbƒgƒnƒ“ƒhƒ‹‚Ìíœ
     DeleteUDPSocket( NetUDPHandle ) ; 
 
-    DxLib_End() ;    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
+    DxLib_End() ;    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠŽg—p‚ÌI—¹ˆ—
 
-    return 0 ;    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    return 0 ;    // ƒ\ƒtƒg‚ÌI—¹
 }

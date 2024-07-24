@@ -4,20 +4,20 @@ int main()
 {
     MATERIALPARAM Material ;
 
-    // ＤＸライブラリの初期化
+    // �c�w���C�u�����̏�����
     if( DxLib_Init() < 0 )
     {
-        // エラーが発生したら直ちに終了
+        // �G���[�����������璼���ɏI��
         return -1 ;
     }
 
-    // Ｚバッファを有効にする
+    // �y�o�b�t�@��L���ɂ���
     SetUseZBuffer3D( TRUE ) ;
 
-    // Ｚバッファへの書き込みを有効にする
+    // �y�o�b�t�@�ւ̏������݂�L���ɂ���
     SetWriteZBuffer3D( TRUE ) ;
 
-    // マテリアルの自己発光色を暗い青色にする
+    // �}�e���A���̎��Ȕ����F���Â��F�ɂ���
     Material.Diffuse  = GetColorF( 0.0f, 0.0f, 0.0f, 1.0f ) ;
     Material.Specular = GetColorF( 0.0f, 0.0f, 0.0f, 0.0f ) ;
     Material.Ambient  = GetColorF( 0.0f, 0.0f, 0.0f, 0.0f ) ;
@@ -25,15 +25,15 @@ int main()
     Material.Power    = 20.0f ;
     SetMaterialParam( Material ) ;
 
-    // デフォルトの設定で３Ｄ空間上に球を描画する
+    // �f�t�H���g�̐ݒ�łR�c��ԏ�ɋ���`�悷��
     DrawSphere3D( VGet( 320.0f, 200.0f, 0.0f ), 80.0f, 32, GetColor( 128,0,0 ), GetColor( 255,255,255 ), TRUE ) ;
 
-    // キー入力待ちをする
+    // �L�[���͑҂�������
     WaitKey() ;
 
-    // ＤＸライブラリの後始末
+    // �c�w���C�u�����̌�n��
     DxLib_End() ;
 
-    // ソフトの終了
+    // �\�t�g�̏I��
     return 0 ;
 }

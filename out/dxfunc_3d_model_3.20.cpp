@@ -6,29 +6,29 @@ int main()
     int i ;
     MV1_REF_POLYGONLIST RefPoly ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+    // ‚R‚cƒ‚ƒfƒ‹‚Ì“Ç‚Ýž‚Ý
     ModelHandle = MV1LoadModel( "SimpleModel.mqo" ) ;
 
-    // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã‚’è¦‹ãˆã‚‹ä½ç½®ã«ç§»å‹•ã™ã‚‹
+    // ‚R‚cƒ‚ƒfƒ‹‚ðŒ©‚¦‚éˆÊ’u‚ÉˆÚ“®‚·‚é
     MV1SetPosition( ModelHandle, VGet( 320.0f, 300.0f, 600.0f ) ) ;
 
-    // ãƒ¢ãƒ‡ãƒ«å…¨ä½“ã®å‚ç…§ç”¨ãƒ¡ãƒƒã‚·ãƒ¥ã‚’æ§‹ç¯‰
+    // ƒ‚ƒfƒ‹‘S‘Ì‚ÌŽQÆ—pƒƒbƒVƒ…‚ð\’z
     MV1SetupReferenceMesh( ModelHandle, -1, TRUE ) ;
 
-    // å‚ç…§ç”¨ãƒ¡ãƒƒã‚·ãƒ¥æƒ…å ±ã®å–å¾—
+    // ŽQÆ—pƒƒbƒVƒ…î•ñ‚ÌŽæ“¾
     RefPoly = MV1GetReferenceMesh( ModelHandle, -1, TRUE ) ;
 
-    // ãƒãƒªã‚´ãƒ³ã®æ•°ã ã‘ç¹°ã‚Šè¿”ã—
+    // ƒ|ƒŠƒSƒ“‚Ì”‚¾‚¯ŒJ‚è•Ô‚µ
     for( i = 0 ; i < RefPoly.PolygonNum ; i ++ )
     {
-        // ãƒãƒªã‚´ãƒ³ã‚’å½¢æˆã™ã‚‹ä¸‰é ‚ç‚¹ã‚’ä½¿ç”¨ã—ã¦ãƒ¯ã‚¤ãƒ¤ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æç”»ã™ã‚‹
+        // ƒ|ƒŠƒSƒ“‚ðŒ`¬‚·‚éŽO’¸“_‚ðŽg—p‚µ‚ÄƒƒCƒ„[ƒtƒŒ[ƒ€‚ð•`‰æ‚·‚é
         DrawLine3D(
             RefPoly.Vertexs[ RefPoly.Polygons[ i ].VIndex[ 0 ] ].Position,
             RefPoly.Vertexs[ RefPoly.Polygons[ i ].VIndex[ 1 ] ].Position,
@@ -45,15 +45,15 @@ int main()
             GetColor( 255,255,0 ) ) ;
     }
 
-    // ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚Ìíœ
     MV1DeleteModel( ModelHandle ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãŽn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

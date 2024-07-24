@@ -5,14 +5,14 @@ int main()
     VERTEX3D Vertex[ 4 ] ;
     WORD Index[ 6 ] ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ï¼”é ‚ç‚¹åˆ†ã®ãƒ‡ãƒ¼ã‚¿ã‚’ã‚»ãƒƒãƒˆ
+    // ‚S’¸“_•ª‚Ìƒf[ƒ^‚ðƒZƒbƒg
     Vertex[ 0 ].pos  = VGet( 100.0f, 100.0f,  0.0f ) ;
     Vertex[ 0 ].norm = VGet(   0.0f,   0.0f, -1.0f ) ;
     Vertex[ 0 ].dif  = GetColorU8( 255,255,255,255 ) ;
@@ -49,7 +49,7 @@ int main()
     Vertex[ 3 ].su   = 0.0f ;
     Vertex[ 3 ].sv   = 0.0f ;
 
-    // ï¼’ãƒãƒªã‚´ãƒ³åˆ†ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãƒ‡ãƒ¼ã‚¿ã‚’ã‚»ãƒƒãƒˆ
+    // ‚Qƒ|ƒŠƒSƒ“•ª‚ÌƒCƒ“ƒfƒbƒNƒXƒf[ƒ^‚ðƒZƒbƒg
     Index[ 0 ] = 0 ;
     Index[ 1 ] = 1 ;
     Index[ 2 ] = 2 ;
@@ -57,15 +57,15 @@ int main()
     Index[ 4 ] = 2 ;
     Index[ 5 ] = 1 ;
 
-    // ï¼’ãƒãƒªã‚´ãƒ³ã®æç”»
+    // ‚Qƒ|ƒŠƒSƒ“‚Ì•`‰æ
     DrawPolygonIndexed3D( Vertex, 4, Index, 2, DX_NONE_GRAPH, FALSE ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡ã‚’ã™ã‚‹
+    // ƒL[“ü—Í‘Ò‚¿‚ð‚·‚é
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãŽn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

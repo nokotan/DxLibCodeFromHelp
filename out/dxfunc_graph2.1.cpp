@@ -5,32 +5,32 @@ int main()
     int Start , Time ;
     unsigned int Cr ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() == -1 ) return 0;
 
-    // ç™½ã®è‰²ã‚³ãƒ¼ãƒ‰ã‚’ä¿å­˜
+    // ”’‚ÌFƒR[ƒh‚ð•Û‘¶
     Cr = GetColor( 255 , 255, 255 ) ;
 
-    // ã‚¹ã‚¿ãƒ¼ãƒˆã‚¿ã‚¤ãƒ ã‚’å–å¾—
+    // ƒXƒ^[ƒgƒ^ƒCƒ€‚ðŽæ“¾
     Start = GetNowCount() ;
 
-    // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¡¨ç¤º
-    DrawString( 0 , 0 , "ãªã«ã‹ã‚­ãƒ¼ã‚’æŠ¼ã—ã¦ãã ã•ã„" , Cr ) ;
+    // ƒƒbƒZ[ƒW‚ð•\Ž¦
+    DrawString( 0 , 0 , "‚È‚É‚©ƒL[‚ð‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢" , Cr ) ;
 
-    // ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚Œã‚‹ã¾ã§å¾…ã¤
+    // ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚é‚Ü‚Å‘Ò‚Â
     WaitKey() ;
 
-    // çµ‚äº†ã€çµŒéŽæ™‚é–“ã‚’ç®—å‡º
+    // I—¹AŒo‰ßŽžŠÔ‚ðŽZo
     Time = GetNowCount() - Start ;
 
-    // ç”»é¢ã«è¡¨ç¤º
+    // ‰æ–Ê‚É•\Ž¦
     ClearDrawScreen() ;
-    DrawFormatString( 0, 0, Cr, "ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚Œã‚‹ã¾ã§ã« %dãƒŸãƒªç§’çµŒéŽã—ã¾ã—ãŸ", Time ) ;
+    DrawFormatString( 0, 0, Cr, "ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚é‚Ü‚Å‚É %dƒ~ƒŠ•bŒo‰ß‚µ‚Ü‚µ‚½", Time ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠŽg—p‚ÌI—¹
     DxLib_End() ;
 
     return 0 ;

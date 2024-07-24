@@ -5,38 +5,38 @@ int main()
     VECTOR Position ;
     float XAdd ;
 
-    // ＤＸライブラリの初期化
+    // �c�w���C�u�����̏�����
     if( DxLib_Init() < 0 )
     {
-        // エラーが発生したら直ちに終了
+        // �G���[�����������璼���ɏI��
         return -1 ;
     }
 
-    // 描画先を裏画面にする
+    // �`���𗠉�ʂɂ���
     SetDrawScreen( DX_SCREEN_BACK ) ;
 
-    // 飛び回る点の座標を初期化
+    // ��щ��_�̍��W��������
     Position = VGet( 320, 240, 0.0f ) ;
 
-    // 飛び回る点のＸ軸の移動速度をセット
+    // ��щ��_�̂w���̈ړ����x���Z�b�g
     XAdd = 8.0f ;
 
-    // ＥＳＣキーが押されるかウインドウが閉じられるまでループ
+    // �d�r�b�L�[��������邩�E�C���h�E��������܂Ń��[�v
     while( ProcessMessage() == 0 && CheckHitKey( KEY_INPUT_ESCAPE ) == 0 )
     {
-        // 画面を初期化
+        // ��ʂ�������
         ClearDrawScreen() ;
 
-        // 点の座標を更新
+        // �_�̍��W���X�V
         Position.x += XAdd ;
 
-        // もし画面内から大きく外れたら方向を反転する
+        // ������ʓ�����傫���O�ꂽ������𔽓]����
         if( Position.x < -100.0f || Position.x > 740.0f )
         {
             XAdd = -XAdd ;
         }
 
-        // 画面内に座標が入っていないかどうかを描画する
+        // ��ʓ��ɍ��W�������Ă��Ȃ����ǂ�����`�悷��
         if( CheckCameraViewClip( Position ) == TRUE )
         {
             DrawString( 0, 0, "Screen Out:Yes", GetColor( 255,255,255 ) ) ;
@@ -46,16 +46,16 @@ int main()
             DrawString( 0, 0, "Screen Out:No", GetColor( 255,255,255 ) ) ;
         }
 
-        // 点を描画する
+        // �_��`�悷��
         DrawPixel3D( Position, GetColor( 255,255,255 ) ) ;
 
-        // 裏画面の内容を表画面に反映
+        // ����ʂ̓��e��\��ʂɔ��f
         ScreenFlip() ;
     }
 
-    // ＤＸライブラリの後始末
+    // �c�w���C�u�����̌�n��
     DxLib_End() ;
 
-    // ソフトの終了
+    // �\�t�g�̏I��
     return 0 ;
 }

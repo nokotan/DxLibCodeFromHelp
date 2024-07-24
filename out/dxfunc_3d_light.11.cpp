@@ -8,14 +8,14 @@ int main()
     float Range, Atten0, Atten1, Atten2 ;
     float InAngle, OutAngle ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ç”»é¢ã«æ¨™æº–ãƒ©ã‚¤ãƒˆã®ã‚¿ã‚¤ãƒ—ã‚’æç”»
+    // ‰æ–Ê‚É•W€ƒ‰ƒCƒg‚Ìƒ^ƒCƒv‚ğ•`‰æ
     switch( GetLightType() )
     {
     case DX_LIGHTTYPE_DIRECTIONAL : TypeName = "Directional" ; break ;
@@ -24,47 +24,47 @@ int main()
     }
     DrawFormatString( 0, 0, GetColor( 255,255,255 ),   "LightType       %s", TypeName ) ;
 
-    // ãƒ©ã‚¤ãƒˆãŒæœ‰åŠ¹ã‹ã©ã†ã‹ã‚’æç”»
+    // ƒ‰ƒCƒg‚ª—LŒø‚©‚Ç‚¤‚©‚ğ•`‰æ
     DrawFormatString( 0, 16, GetColor( 255,255,255 ),  "Enable          %d", GetLightEnable() ) ;
 
-    // ãƒ‡ã‚£ãƒ•ãƒ¥ãƒ¼ã‚ºã‚«ãƒ©ãƒ¼ã‚’æç”»
+    // ƒfƒBƒtƒ…[ƒYƒJƒ‰[‚ğ•`‰æ
     Color = GetLightDifColor() ;
     DrawFormatString( 0, 32, GetColor( 255,255,255 ),  "Diffuse Color   %f %f %f", Color.r, Color.g, Color.b ) ;
 
-    // ã‚¹ãƒšã‚­ãƒ¥ãƒ©ã‚«ãƒ©ãƒ¼ã‚’æç”»
+    // ƒXƒyƒLƒ…ƒ‰ƒJƒ‰[‚ğ•`‰æ
     Color = GetLightSpcColor() ;
     DrawFormatString( 0, 48, GetColor( 255,255,255 ),  "Specular Color  %f %f %f", Color.r, Color.g, Color.b ) ;
 
-    // ã‚¢ãƒ³ãƒ“ã‚¨ãƒ³ãƒˆã‚«ãƒ©ãƒ¼ã‚’æç”»
+    // ƒAƒ“ƒrƒGƒ“ƒgƒJƒ‰[‚ğ•`‰æ
     Color = GetLightAmbColor() ;
     DrawFormatString( 0, 64, GetColor( 255,255,255 ),  "Ambient Color   %f %f %f", Color.r, Color.g, Color.b ) ;
 
-    // å‘ãã‚’æç”»
+    // Œü‚«‚ğ•`‰æ
     Vector = GetLightDirection() ;
     DrawFormatString( 0, 80, GetColor( 255,255,255 ),  "Direction       %f %f %f", Vector.x, Vector.y, Vector.z ) ;
 
-    // ä½ç½®ã‚’æç”»
+    // ˆÊ’u‚ğ•`‰æ
     Vector = GetLightPosition() ;
     DrawFormatString( 0, 96, GetColor( 255,255,255 ),  "Position        %f %f %f", Vector.x, Vector.y, Vector.z ) ;
 
-    // æœ‰åŠ¹è·é›¢ã¨è·é›¢æ¸›è¡°ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’æç”»ã™ã‚‹
+    // —LŒø‹——£‚Æ‹——£Œ¸Šƒpƒ‰ƒ[ƒ^‚ğ•`‰æ‚·‚é
     GetLightRangeAtten( &Range, &Atten0, &Atten1, &Atten2 ) ;
     DrawFormatString( 0, 112, GetColor( 255,255,255 ), "Range           %f", Range ) ;
     DrawFormatString( 0, 128, GetColor( 255,255,255 ), "Attenuation0    %f", Atten0 ) ;
     DrawFormatString( 0, 144, GetColor( 255,255,255 ), "Attenuation1    %f", Atten1 ) ;
     DrawFormatString( 0, 160, GetColor( 255,255,255 ), "Attenuation2    %f", Atten2 ) ;
 
-    // ç…§å°„è§’åº¦ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’æç”»ã™ã‚‹
+    // ÆËŠp“xƒpƒ‰ƒ[ƒ^‚ğ•`‰æ‚·‚é
     GetLightAngle( &OutAngle, &InAngle ) ;
     DrawFormatString( 0, 176, GetColor( 255,255,255 ), "In  Angle       %f", InAngle ) ;
     DrawFormatString( 0, 192, GetColor( 255,255,255 ), "Out Angle       %f", OutAngle ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

@@ -6,29 +6,29 @@ int main()
     float Rotate ;
     MATRIX Matrix ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+    // ƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ
     ModelHandle = MV1LoadModel( "SimpleModel.mqo" ) ;
 
-    // æç”»å…ˆã‚’è£ç”»é¢ã«ã™ã‚‹
+    // •`‰ææ‚ğ— ‰æ–Ê‚É‚·‚é
     SetDrawScreen( DX_SCREEN_BACK ) ;
 
-    // ã‚«ãƒ¡ãƒ©ã®å›è»¢å€¤ã‚’åˆæœŸåŒ–
+    // ƒJƒƒ‰‚Ì‰ñ“]’l‚ğ‰Šú‰»
     Rotate = 0.0f ;
 
-    // ï¼¥ï¼³ï¼£ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã‚‹ã‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãŒé–‰ã˜ã‚‰ã‚Œã‚‹ã¾ã§ãƒ«ãƒ¼ãƒ—
+    // ‚d‚r‚bƒL[‚ª‰Ÿ‚³‚ê‚é‚©ƒEƒCƒ“ƒhƒE‚ª•Â‚¶‚ç‚ê‚é‚Ü‚Åƒ‹[ƒv
     while( ProcessMessage() == 0 && CheckHitKey( KEY_INPUT_ESCAPE ) == 0 )
     {
-        // ç”»é¢ã‚’ã‚¯ãƒªã‚¢
+        // ‰æ–Ê‚ğƒNƒŠƒA
         ClearDrawScreen() ;
 
-        // å·¦å³ã‚­ãƒ¼ã§ã‚«ãƒ¡ãƒ©ã®å›è»¢å€¤ã‚’å¤‰æ›´
+        // ¶‰EƒL[‚ÅƒJƒƒ‰‚Ì‰ñ“]’l‚ğ•ÏX
         if( CheckHitKey( KEY_INPUT_LEFT ) == 1 )
         {
             Rotate -= DX_PI_F / 60.0f ;
@@ -38,13 +38,13 @@ int main()
             Rotate += DX_PI_F / 60.0f ;
         }
 
-        // å›è»¢å€¤ã‚’ä½¿ç”¨ã—ã¦ï¼¹è»¸ã®å›è»¢è¡Œåˆ—ã‚’ä½œæˆ
+        // ‰ñ“]’l‚ğg—p‚µ‚Ä‚x²‚Ì‰ñ“]s—ñ‚ğì¬
         Matrix = MGetRotY( Rotate ) ;
 
-        // å›è»¢è¡Œåˆ—ã‚’ãƒ“ãƒ¥ãƒ¼è¡Œåˆ—ã¨ã—ã¦ã‚»ãƒƒãƒˆ
+        // ‰ñ“]s—ñ‚ğƒrƒ…[s—ñ‚Æ‚µ‚ÄƒZƒbƒg
         SetCameraViewMatrix( Matrix ) ;
 
-        // ãƒ¢ãƒ‡ãƒ«ã‚’ã‚«ãƒ¡ãƒ©ã‚’å›²ã‚€ã‚ˆã†ã«ï¼”å€‹æç”»
+        // ƒ‚ƒfƒ‹‚ğƒJƒƒ‰‚ğˆÍ‚Ş‚æ‚¤‚É‚SŒÂ•`‰æ
         MV1SetPosition( ModelHandle, VGet( 0.0f, 0.0f, 800.0f ) ) ;
         MV1DrawModel( ModelHandle ) ;
 
@@ -57,16 +57,16 @@ int main()
         MV1SetPosition( ModelHandle, VGet( -800.0f, 0.0f, 0.0f ) ) ;
         MV1DrawModel( ModelHandle ) ;
 
-        // è£ç”»é¢ã®å†…å®¹ã‚’è¡¨ç”»é¢ã«åæ˜ 
+        // — ‰æ–Ê‚Ì“à—e‚ğ•\‰æ–Ê‚É”½‰f
         ScreenFlip() ;
     }
 
-    // ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚Ìíœ
     MV1DeleteModel( ModelHandle ) ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

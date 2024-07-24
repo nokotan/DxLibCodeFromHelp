@@ -5,13 +5,13 @@ int main()
 	SOUND3D_REVERB_PARAM ReverbParam ;
 	int Color ;
 
-	// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
 	if( DxLib_Init() < 0 ) return -1;
 
-	// ãƒªãƒãƒ¼ãƒ–ã‚¨ãƒ•ã‚§ã‚¯ãƒˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®ãƒ—ãƒªã‚»ãƒƒãƒˆã€Œæ°´é¢ä¸‹ã€ã‚’å–å¾—
+	// ƒŠƒo[ƒuƒGƒtƒFƒNƒgƒpƒ‰ƒ[ƒ^‚ÌƒvƒŠƒZƒbƒgu…–Ê‰ºv‚ðŽæ“¾
 	Get3DPresetReverbParamSoundMem( &ReverbParam, DX_REVERB_PRESET_UNDERWATER ) ;
 
-	// ãƒªãƒãƒ¼ãƒ–ã‚¨ãƒ•ã‚§ã‚¯ãƒˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ç”»é¢ã«æç”»
+	// ƒŠƒo[ƒuƒGƒtƒFƒNƒgƒpƒ‰ƒ[ƒ^‚ð‰æ–Ê‚É•`‰æ
 	Color = GetColor( 255,255,255 ) ;
 	DrawFormatString( 0,   0, Color, "WetDryMix          :%f", ReverbParam.WetDryMix ) ;
 	DrawFormatString( 0,  16, Color, "ReflectionsDelay   :%d", ReverbParam.ReflectionsDelay ) ;
@@ -36,12 +36,12 @@ int main()
 	DrawFormatString( 0, 320, Color, "Density            :%f", ReverbParam.Density ) ;
 	DrawFormatString( 0, 336, Color, "RoomSize           :%f", ReverbParam.RoomSize ) ;
 
-	// ä½•ã‹ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã‚‹ã¾ã§å¾…ã¤
+	// ‰½‚©ƒL[‚ª‰Ÿ‚³‚ê‚é‚Ü‚Å‘Ò‚Â
 	WaitKey() ;
 
-	// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãŽn––
 	DxLib_End();
 
-	// ã‚½ãƒ•ãƒˆã®çµ‚äº†
+	// ƒ\ƒtƒg‚ÌI—¹
 	return 0;
 }

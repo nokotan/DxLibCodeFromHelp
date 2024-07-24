@@ -5,30 +5,30 @@ int main()
     int ModelHandle, i ;
     float Near, Far ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+    // ƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ
     ModelHandle = MV1LoadModel( "SimpleModel.mqo" ) ;
 
-    // Near Far å€¤ã®åˆæœŸåŒ–
+    // Near Far ’l‚Ì‰Šú‰»
     Near = 100.0f ;
     Far = 2000.0f ;
 
-    // æç”»å…ˆã‚’è£ç”»é¢ã«ã™ã‚‹
+    // •`‰ææ‚ğ— ‰æ–Ê‚É‚·‚é
     SetDrawScreen( DX_SCREEN_BACK ) ;
 
-    // ï¼¥ï¼³ï¼£ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã‚‹ã‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãŒé–‰ã˜ã‚‰ã‚Œã‚‹ã¾ã§ãƒ«ãƒ¼ãƒ—
+    // ‚d‚r‚bƒL[‚ª‰Ÿ‚³‚ê‚é‚©ƒEƒCƒ“ƒhƒE‚ª•Â‚¶‚ç‚ê‚é‚Ü‚Åƒ‹[ƒv
     while( ProcessMessage() == 0 && CheckHitKey( KEY_INPUT_ESCAPE ) == 0 )
     {
-        // ç”»é¢ã‚’ã‚¯ãƒªã‚¢
+        // ‰æ–Ê‚ğƒNƒŠƒA
         ClearDrawScreen() ;
 
-        // ä¸Šä¸‹ã®ã‚­ãƒ¼å…¥åŠ›ã§ Far ã‚’æ“ä½œ
+        // ã‰º‚ÌƒL[“ü—Í‚Å Far ‚ğ‘€ì
         if( CheckHitKey( KEY_INPUT_UP ) == 1 )
         {
             Far += 20.0f ;
@@ -38,7 +38,7 @@ int main()
             Far -= 20.0f ;
         }
 
-        // å·¦å³ã®ã‚­ãƒ¼ã§ Near ã‚’æ“ä½œ
+        // ¶‰E‚ÌƒL[‚Å Near ‚ğ‘€ì
         if( CheckHitKey( KEY_INPUT_LEFT ) == 1 )
         {
             Near -= 20.0f ;
@@ -48,38 +48,38 @@ int main()
             Near += 20.0f ;
         }
 
-        // Near ã®å€¤ãŒ 0.0f ä»¥ä¸‹ã«ãªã£ã¦ã„ãŸã‚‰è£œæ­£
+        // Near ‚Ì’l‚ª 0.0f ˆÈ‰º‚É‚È‚Á‚Ä‚¢‚½‚ç•â³
         if( Near <= 0.0f ) Near = 10.0f ;
 
-        // Far ã®å€¤ãŒ Near ã‚ˆã‚Šå°ã•ããªã£ã¦ã„ãŸã‚‰è£œæ­£
+        // Far ‚Ì’l‚ª Near ‚æ‚è¬‚³‚­‚È‚Á‚Ä‚¢‚½‚ç•â³
         if( Far <= Near ) Far = Near + 10.0f ;
 
-        // Near, Far ã‚¯ãƒªãƒƒãƒ—ã®è·é›¢ã‚’è¨­å®š
+        // Near, Far ƒNƒŠƒbƒv‚Ì‹——£‚ğİ’è
         SetCameraNearFar( Near, Far ) ; 
 
-        // ãƒ¢ãƒ‡ãƒ«ã‚’è·é›¢ã‚’å¤‰ãˆã¦ï¼˜å€‹æç”»
+        // ƒ‚ƒfƒ‹‚ğ‹——£‚ğ•Ï‚¦‚Ä‚WŒÂ•`‰æ
         for( i = 0 ; i < 8 ; i ++ )
         {
-            // ãƒ¢ãƒ‡ãƒ«ã®åº§æ¨™ã‚’è¨­å®š
+            // ƒ‚ƒfƒ‹‚ÌÀ•W‚ğİ’è
             MV1SetPosition( ModelHandle, VGet( 320.0f, 180.0f, 100.0f + i * 400.0f ) ) ;
 
-            // ãƒ¢ãƒ‡ãƒ«ã®æç”»
+            // ƒ‚ƒfƒ‹‚Ì•`‰æ
             MV1DrawModel( ModelHandle ) ;
         }
 
-        // ç”»é¢å·¦ä¸Šã« Near ã®å€¤ã¨ Far ã®å€¤ã‚’æç”»
+        // ‰æ–Ê¶ã‚É Near ‚Ì’l‚Æ Far ‚Ì’l‚ğ•`‰æ
         DrawFormatString( 0, 0, GetColor( 255,255,255 ), "Near %f  Far %f", Near, Far ) ;
 
-        // è£ç”»é¢ã®å†…å®¹ã‚’è¡¨ç”»é¢ã«åæ˜ 
+        // — ‰æ–Ê‚Ì“à—e‚ğ•\‰æ–Ê‚É”½‰f
         ScreenFlip() ;
     }
 
-    // ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚Ìíœ
     MV1DeleteModel( ModelHandle ) ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

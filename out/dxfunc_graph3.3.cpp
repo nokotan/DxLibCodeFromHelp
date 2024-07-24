@@ -2,25 +2,25 @@
 
 int main()
 {
-    // フルスクリーンモード時の解像度モードをモニターの最大解像度を使用するモードに設定
+    // �t���X�N���[�����[�h���̉𑜓x���[�h�����j�^�[�̍ő�𑜓x���g�p���郂�[�h�ɐݒ�
     SetFullScreenResolutionMode( DX_FSRESOLUTIONMODE_MAXIMUM ) ;
 
-    // 画面の解像度を縦横２５６ドットに設定
+    // ��ʂ̉𑜓x���c���Q�T�U�h�b�g�ɐݒ�
     SetGraphMode( 256, 256, 32 ) ;
 
-    // ＤＸライブラリ初期化処理
+    // �c�w���C�u��������������
     if( DxLib_Init() == -1 )
     {
-         return -1;      // エラーが発生したら終了
+         return -1;      // �G���[������������I��
     }
 
-    // 画面の中心に円を描画
+    // ��ʂ̒��S�ɉ~��`��
     DrawCircle( 128, 128, 48, GetColor( 255,255,0 ), FALSE ) ;
 
-    // キー待ち(『WaitKey』を使用)
+    // �L�[�҂�(�wWaitKey�x���g�p)
     WaitKey() ;
 
-    DxLib_End() ;        // ＤＸライブラリ使用の終了処理
+    DxLib_End() ;        // �c�w���C�u�����g�p�̏I������
 
-    return 0 ;           // ソフトの終了
+    return 0 ;           // �\�t�g�̏I��
 }

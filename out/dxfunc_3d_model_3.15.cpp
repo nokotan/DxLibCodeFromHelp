@@ -7,75 +7,75 @@ int main()
     VECTOR StartPos, EndPos ;
     MV1_COLL_RESULT_POLY HitPoly ;
 
-    // ＤＸライブラリの初期化
+    // �c�w���C�u�����̏�����
     if( DxLib_Init() < 0 )
     {
-        // エラーが発生したら直ちに終了
+        // �G���[�����������璼���ɏI��
         return -1 ;
     }
 
-    // ３Ｄモデルの読み込み
+    // �R�c���f���̓ǂݍ���
     ModelHandle = MV1LoadModel( "SimpleModel.mqo" ) ;
 
-    // 描画先を裏画面に変更
+    // �`���𗠉�ʂɕύX
     SetDrawScreen( DX_SCREEN_BACK ) ;
 
-    // モデルの０番目のフレームのコリジョン情報を構築
+    // ���f���̂O�Ԗڂ̃t���[���̃R���W���������\�z
     MV1SetupCollInfo( ModelHandle, 0, 8, 8, 8 ) ;
 
-    // モデルの進行方向をセット
+    // ���f���̐i�s�������Z�b�g
     Add = 8 ;
 
-    // モデルの移動位置をセット
+    // ���f���̈ړ��ʒu���Z�b�g
     y = 0 ;
 
-    // ウインドウが閉じられるかＥＳＣキーが押されるまでループ
+    // �E�C���h�E�������邩�d�r�b�L�[���������܂Ń��[�v
     while( ProcessMessage() == 0 && CheckHitKey( KEY_INPUT_ESCAPE ) == 0 )
     {
-        // 画面をクリア
+        // ��ʂ��N���A
         ClearDrawScreen() ;
 
-        // ３Ｄモデルの移動位置を上下に移動させる
+        // �R�c���f���̈ړ��ʒu���㉺�Ɉړ�������
         y += Add ;
         if( y < -300 || y > 300 )
             Add = -Add ;
 
-        // ３Ｄモデルの位置を変更する
+        // �R�c���f���̈ʒu��ύX����
         MV1SetPosition( ModelHandle, VGet( 320.0f, 300.0f + y, 600.0f ) ) ;
 
-        // ０番目のフレームのコリジョン情報を更新する
+        // �O�Ԗڂ̃t���[���̃R���W���������X�V����
         MV1RefreshCollInfo( ModelHandle, 0 ) ;
 
-        // ３Ｄモデルの描画
+        // �R�c���f���̕`��
         MV1DrawModel( ModelHandle ) ;
 
-        // ０番のフレームと線分との当たり判定
+        // �O�Ԃ̃t���[���Ɛ����Ƃ̓����蔻��
         StartPos = VGet(    0.0f, 300.0f, 600.0f ) ;
         EndPos   = VGet( 1000.0f, 300.0f, 600.0f ) ;
         HitPoly = MV1CollCheck_Line( ModelHandle, 0, StartPos, EndPos ) ;
 
-        // 当たった場合はその位置を描画する線分の終点とする
+        // ���������ꍇ�͂��̈ʒu��`�悷������̏I�_�Ƃ���
         if( HitPoly.HitFlag == 1 )
         {
             EndPos = HitPoly.HitPosition ;
         }
 
-        // 線分の描画
+        // �����̕`��
         DrawLine3D( StartPos, EndPos, GetColor( 255,255,0 ) ) ;
 
-        // 当たったかどうかを表示する
+        // �����������ǂ�����\������
         DrawFormatString( 0, 0, GetColor( 255,255,255 ), "HIT:%d", HitPoly.HitFlag ) ;
 
-        // 裏画面の内容を表画面に反映
+        // ����ʂ̓��e��\��ʂɔ��f
         ScreenFlip() ;
     }
 
-    // モデルハンドルの削除
+    // ���f���n���h���̍폜
     MV1DeleteModel( ModelHandle ) ;
 
-    // ＤＸライブラリの後始末
+    // �c�w���C�u�����̌�n��
     DxLib_End() ;
 
-    // ソフトの終了
+    // �\�t�g�̏I��
     return 0 ;
 }

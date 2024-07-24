@@ -4,38 +4,38 @@ int main()
 {
     int ModelHandle, i, ChildNum, FrameIndex ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+    // ‚R‚cƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ
     ModelHandle = MV1LoadModel( "DxChara.x" ) ;
 
-    // ãƒ•ãƒ¬ãƒ¼ãƒ ï¼ç•ªã®å­ãƒ•ãƒ¬ãƒ¼ãƒ ã®æ•°ã‚’å–å¾—
+    // ƒtƒŒ[ƒ€‚O”Ô‚ÌqƒtƒŒ[ƒ€‚Ì”‚ğæ“¾
     ChildNum = MV1GetFrameChildNum( ModelHandle, 0 ) ;
 
-    // å­ãƒ•ãƒ¬ãƒ¼ãƒ ã®æ•°ã ã‘ãƒ«ãƒ¼ãƒ—
+    // qƒtƒŒ[ƒ€‚Ì”‚¾‚¯ƒ‹[ƒv
     for( i = 0 ; i < ChildNum ; i ++ )
     {
-        // å­ãƒ•ãƒ¬ãƒ¼ãƒ ã®ãƒ•ãƒ¬ãƒ¼ãƒ ç•ªå·ã‚’å–å¾—
+        // qƒtƒŒ[ƒ€‚ÌƒtƒŒ[ƒ€”Ô†‚ğæ“¾
         FrameIndex = MV1GetFrameChild( ModelHandle, 0, i ) ;
 
-        // å­ãƒ•ãƒ¬ãƒ¼ãƒ ã®åå‰ã‚’è¡¨ç¤º
+        // qƒtƒŒ[ƒ€‚Ì–¼‘O‚ğ•\¦
         DrawFormatString( 0, i * 16, GetColor( 255,255,255 ), "%s", MV1GetFrameName( ModelHandle, FrameIndex ) ) ;
     }
 
-    // ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚Ìíœ
     MV1DeleteModel( ModelHandle ) ;
 
-    // ã‚­ãƒ¼ã®å…¥åŠ›å¾…ã¡
+    // ƒL[‚Ì“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

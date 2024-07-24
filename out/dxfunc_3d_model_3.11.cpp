@@ -5,32 +5,32 @@ int main()
     int ModelHandle ;
     float OpacityRate ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+    // ‚R‚cƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ
     ModelHandle = MV1LoadModel( "DxChara.x" ) ;
 
-    // æç”»å…ˆã‚’è£ç”»é¢ã«å¤‰æ›´
+    // •`‰ææ‚ğ— ‰æ–Ê‚É•ÏX
     SetDrawScreen( DX_SCREEN_BACK ) ;
 
-    // ç”»é¢ã«æ˜ ã‚‹ä½ç½®ã«ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã‚’ç§»å‹•
+    // ‰æ–Ê‚É‰f‚éˆÊ’u‚É‚R‚cƒ‚ƒfƒ‹‚ğˆÚ“®
     MV1SetPosition( ModelHandle, VGet( 320.0f, -300.0f, 600.0f ) ) ;
 
-    // ä¸é€æ˜åº¦ã‚’åˆæœŸåŒ–
+    // •s“§–¾“x‚ğ‰Šú‰»
     OpacityRate = 1.0f ;
 
-    // ESCã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã‚‹ã‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãŒé–‰ã˜ã‚‰ã‚Œã‚‹ã¾ã§ãƒ«ãƒ¼ãƒ—
+    // ESCƒL[‚ª‰Ÿ‚³‚ê‚é‚©ƒEƒCƒ“ƒhƒE‚ª•Â‚¶‚ç‚ê‚é‚Ü‚Åƒ‹[ƒv
     while( ProcessMessage() == 0 && CheckHitKey( KEY_INPUT_ESCAPE ) == 0 )
     {
-        // ç”»é¢ã®ã‚¯ãƒªã‚¢
+        // ‰æ–Ê‚ÌƒNƒŠƒA
         ClearDrawScreen() ;
 
-        // ä¸Šã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸã‚‰ä¸é€æ˜åº¦ã‚’ä¸Šã’ã‚‹
+        // ãƒL[‚ª‰Ÿ‚³‚ê‚½‚ç•s“§–¾“x‚ğã‚°‚é
         if( CheckHitKey( KEY_INPUT_UP ) )
         {
             OpacityRate += 0.05f ;
@@ -40,7 +40,7 @@ int main()
             }
         }
 
-        // ä¸‹ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸã‚‰ä¸é€æ˜åº¦ã‚’ä¸‹ã’ã‚‹
+        // ‰ºƒL[‚ª‰Ÿ‚³‚ê‚½‚ç•s“§–¾“x‚ğ‰º‚°‚é
         if( CheckHitKey( KEY_INPUT_DOWN ) )
         {
             OpacityRate -= 0.05f ;
@@ -50,27 +50,27 @@ int main()
             }
         }
 
-        // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®ï¼‘ç•ªç›®ã®ãƒ¡ãƒƒã‚·ãƒ¥ã®ä¸é€æ˜åº¦ã‚’è¨­å®šã™ã‚‹
+        // ‚R‚cƒ‚ƒfƒ‹‚Ì‚P”Ô–Ú‚ÌƒƒbƒVƒ…‚Ì•s“§–¾“x‚ğİ’è‚·‚é
         MV1SetMeshOpacityRate( ModelHandle, 1, OpacityRate ) ;
 
-        // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®æç”»
+        // ‚R‚cƒ‚ƒfƒ‹‚Ì•`‰æ
         MV1DrawModel( ModelHandle ) ;
 
-        // ç¾åœ¨ã®ä¸é€æ˜åº¦ã¨ã€MV1GetMeshSemiTransState ã®æˆ»ã‚Šå€¤ã‚’æç”»ã™ã‚‹
+        // Œ»İ‚Ì•s“§–¾“x‚ÆAMV1GetMeshSemiTransState ‚Ì–ß‚è’l‚ğ•`‰æ‚·‚é
         DrawFormatString( 0, 0, GetColor( 255,255,255 ),
             "ESC Key:Exit OpacityRate:%f SemiTransState:%d",
             OpacityRate, MV1GetMeshSemiTransState( ModelHandle, 1 ) ) ;
 
-        // è£ç”»é¢ã®å†…å®¹ã‚’è¡¨ç”»é¢ã«åæ˜ 
+        // — ‰æ–Ê‚Ì“à—e‚ğ•\‰æ–Ê‚É”½‰f
         ScreenFlip() ;
     }
 
-    // ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚Ìíœ
     MV1DeleteModel( ModelHandle ) ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

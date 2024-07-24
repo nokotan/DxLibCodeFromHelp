@@ -4,29 +4,29 @@ int main()
 {
     VECTOR Vect1, Vect2 ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // Vect1 ã¨ Vect2 ã«å€¤ã‚’ä»£å…¥
+    // Vect1 ‚Æ Vect2 ‚É’l‚ð‘ã“ü
     Vect1 = VGet( 100.0f, 200.0f, 500.0f ) ;
     Vect2 = VGet( 30.0f, 100.0f, 80.0f ) ;
 
-    // Vect1 ã‹ã‚‰ Vect2 ã‚’æ¸›ç®—ã—ã¦çµæžœã‚’ Vect1 ã«ä»£å…¥
+    // Vect1 ‚©‚ç Vect2 ‚ðŒ¸ŽZ‚µ‚ÄŒ‹‰Ê‚ð Vect1 ‚É‘ã“ü
     Vect1 = VSub( Vect1, Vect2 ) ;
 
-    // Vect1 ã®å†…å®¹ã‚’ç”»é¢ã«è¡¨ç¤º
+    // Vect1 ‚Ì“à—e‚ð‰æ–Ê‚É•\Ž¦
     DrawFormatString( 0, 0, GetColor( 255,255,255 ), "Vect1  x=%f y=%f z=%f", Vect1.x, Vect1.y, Vect1.z ) ;  
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãŽn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

@@ -6,48 +6,48 @@ int main()
     COLOR_F Color ;
     char *Name ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+    // ‚R‚cƒ‚ƒfƒ‹‚Ì“Ç‚Ýž‚Ý
     ModelHandle = MV1LoadModel( "DxChara.x" ) ;
 
-    // ãƒ¢ãƒ‡ãƒ«ã«å«ã¾ã‚Œã‚‹ãƒžãƒ†ãƒªã‚¢ãƒ«ã®æ•°ã‚’å–å¾—ã™ã‚‹
+    // ƒ‚ƒfƒ‹‚ÉŠÜ‚Ü‚ê‚éƒ}ƒeƒŠƒAƒ‹‚Ì”‚ðŽæ“¾‚·‚é
     MaterialNum = MV1GetMaterialNum( ModelHandle ) ;
 
-    // ãƒžãƒ†ãƒªã‚¢ãƒ«ã®æƒ…å ±ã‚’ä¸€ã¤ã¥ã¤æç”»ã™ã‚‹
+    // ƒ}ƒeƒŠƒAƒ‹‚Ìî•ñ‚ðˆê‚Â‚Ã‚Â•`‰æ‚·‚é
     for( i = 0 ; i < MaterialNum ; i ++ )
     {
-        // ç”»é¢ã‚’ã‚¯ãƒªã‚¢
+        // ‰æ–Ê‚ðƒNƒŠƒA
         ClearDrawScreen() ;
 
-        // ãƒžãƒ†ãƒªã‚¢ãƒ«ã®åå‰ã‚’æç”»
+        // ƒ}ƒeƒŠƒAƒ‹‚Ì–¼‘O‚ð•`‰æ
         DrawFormatString( 0, 0, GetColor( 255,255,255 ),  "Name            %s", MV1GetMaterialName( ModelHandle, i ) ) ;
 
-        // ãƒžãƒ†ãƒªã‚¢ãƒ«ã®ãƒ‡ã‚£ãƒ•ãƒ¥ãƒ¼ã‚ºã‚«ãƒ©ãƒ¼ã‚’æç”»
+        // ƒ}ƒeƒŠƒAƒ‹‚ÌƒfƒBƒtƒ…[ƒYƒJƒ‰[‚ð•`‰æ
         Color = MV1GetMaterialDifColor( ModelHandle, i ) ;
         DrawFormatString( 0, 16, GetColor( 255,255,255 ), "Diffuse  Color  R:%f  G:%f  B:%f  A:%f", Color.r, Color.g, Color.b, Color.a ) ;
 
-        // ãƒžãƒ†ãƒªã‚¢ãƒ«ã®ã‚¹ãƒšã‚­ãƒ¥ãƒ©ã‚«ãƒ©ãƒ¼ã‚’æç”»
+        // ƒ}ƒeƒŠƒAƒ‹‚ÌƒXƒyƒLƒ…ƒ‰ƒJƒ‰[‚ð•`‰æ
         Color = MV1GetMaterialSpcColor( ModelHandle, i ) ;
         DrawFormatString( 0, 32, GetColor( 255,255,255 ), "Specular Color  R:%f  G:%f  B:%f  A:%f", Color.r, Color.g, Color.b, Color.a ) ;
 
-        // ãƒžãƒ†ãƒªã‚¢ãƒ«ã®ã‚¨ãƒŸãƒƒã‚·ãƒ–ã‚«ãƒ©ãƒ¼ã‚’æç”»
+        // ƒ}ƒeƒŠƒAƒ‹‚ÌƒGƒ~ƒbƒVƒuƒJƒ‰[‚ð•`‰æ
         Color = MV1GetMaterialEmiColor( ModelHandle, i ) ;
         DrawFormatString( 0, 48, GetColor( 255,255,255 ), "Emissive Color  R:%f  G:%f  B:%f  A:%f", Color.r, Color.g, Color.b, Color.a ) ;
 
-        // ãƒžãƒ†ãƒªã‚¢ãƒ«ã®ã‚¢ãƒ³ãƒ“ã‚¨ãƒ³ãƒˆã‚«ãƒ©ãƒ¼ã‚’æç”»
+        // ƒ}ƒeƒŠƒAƒ‹‚ÌƒAƒ“ƒrƒGƒ“ƒgƒJƒ‰[‚ð•`‰æ
         Color = MV1GetMaterialAmbColor( ModelHandle, i ) ;
         DrawFormatString( 0, 64, GetColor( 255,255,255 ), "Ambient  Color  R:%f  G:%f  B:%f  A:%f", Color.r, Color.g, Color.b, Color.a ) ;
 
-        // ãƒžãƒ†ãƒªã‚¢ãƒ«ã®ã‚¹ãƒšã‚­ãƒ¥ãƒ©ã®å¼·ã•æç”»
+        // ƒ}ƒeƒŠƒAƒ‹‚ÌƒXƒyƒLƒ…ƒ‰‚Ì‹­‚³•`‰æ
         DrawFormatString( 0, 80, GetColor( 255,255,255 ), "Specular Power  %f", MV1GetMaterialSpcPower( ModelHandle, i ) ) ;
 
-        // æç”»ãƒ–ãƒ¬ãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã®æç”»
+        // •`‰æƒuƒŒƒ“ƒhƒ‚[ƒh‚Ì•`‰æ
         switch( MV1GetMaterialDrawBlendMode( ModelHandle, i ) )
         {
         case DX_BLENDMODE_NOBLEND : Name = "DX_BLENDMODE_NOBLEND" ; break ;
@@ -59,19 +59,19 @@ int main()
         }
         DrawFormatString( 0, 96, GetColor( 255,255,255 ), "Draw Blend Mode   %s", Name ) ;
 
-        // æç”»ãƒ–ãƒ¬ãƒ³ãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®æç”»
+        // •`‰æƒuƒŒƒ“ƒhƒpƒ‰ƒ[ƒ^‚Ì•`‰æ
         DrawFormatString( 0, 112, GetColor( 255,255,255 ), "Draw Blend Param  %d", MV1GetMaterialDrawBlendParam( ModelHandle, i ) ) ;
 
-        // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+        // ƒL[“ü—Í‘Ò‚¿
         WaitKey() ;
     }
 
-    // ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚Ìíœ
     MV1DeleteModel( ModelHandle ) ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãŽn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

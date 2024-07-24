@@ -5,64 +5,64 @@ int main()
     int ModelHandle, MeshNum, i ;
     VECTOR Position ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+    // ‚R‚cƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ
     ModelHandle = MV1LoadModel( "DxChara.x" ) ;
 
-    // ãƒ¢ãƒ‡ãƒ«ã«å«ã¾ã‚Œã‚‹ãƒ¡ãƒƒã‚·ãƒ¥ã®æ•°ã‚’å–å¾—ã™ã‚‹
+    // ƒ‚ƒfƒ‹‚ÉŠÜ‚Ü‚ê‚éƒƒbƒVƒ…‚Ì”‚ğæ“¾‚·‚é
     MeshNum = MV1GetMeshNum( ModelHandle ) ;
 
-    // ãƒ¡ãƒƒã‚·ãƒ¥ã®æ•°ã ã‘ãƒ«ãƒ¼ãƒ—
+    // ƒƒbƒVƒ…‚Ì”‚¾‚¯ƒ‹[ƒv
     for( i = 0 ; i < MeshNum ; i ++ )
     {
-        // ç”»é¢ã‚’ã‚¯ãƒªã‚¢
+        // ‰æ–Ê‚ğƒNƒŠƒA
         ClearDrawScreen() ;
 
-        // ãƒ¡ãƒƒã‚·ãƒ¥ãŒä½¿ç”¨ã—ã¦ã„ã‚‹ãƒãƒ†ãƒªã‚¢ãƒ«ã®æç”»
+        // ƒƒbƒVƒ…‚ªg—p‚µ‚Ä‚¢‚éƒ}ƒeƒŠƒAƒ‹‚Ì•`‰æ
         DrawFormatString( 0,  0, GetColor( 255,255,255 ),  "Material              %d", MV1GetMeshMaterial( ModelHandle, i ) ) ;
 
-        // ãƒ¡ãƒƒã‚·ãƒ¥ã«å«ã¾ã‚Œã‚‹ä¸‰è§’å½¢ãƒãƒªã‚´ãƒ³ã®æ•°ã‚’æç”»
+        // ƒƒbƒVƒ…‚ÉŠÜ‚Ü‚ê‚éOŠpŒ`ƒ|ƒŠƒSƒ“‚Ì”‚ğ•`‰æ
         DrawFormatString( 0, 16, GetColor( 255,255,255 ),  "Triangle Polygon Num  %d", MV1GetMeshTriangleNum( ModelHandle, i ) ) ;
 
-        // ãƒ¡ãƒƒã‚·ãƒ¥ã®è¡¨ç¤ºãƒ»éè¡¨ç¤ºçŠ¶æ…‹ã‚’æç”»
+        // ƒƒbƒVƒ…‚Ì•\¦E”ñ•\¦ó‘Ô‚ğ•`‰æ
         DrawFormatString( 0, 32, GetColor( 255,255,255 ),  "Visible               %d", MV1GetMeshVisible( ModelHandle, i ) ) ;
 
-        // ãƒ¡ãƒƒã‚·ãƒ¥ã«åŠé€æ˜è¦ç´ ãŒã‚ã‚‹ã‹ã©ã†ã‹ã‚’æç”»
+        // ƒƒbƒVƒ…‚É”¼“§–¾—v‘f‚ª‚ ‚é‚©‚Ç‚¤‚©‚ğ•`‰æ
         DrawFormatString( 0, 48, GetColor( 255,255,255 ),  "Semi Trans State      %d", MV1GetMeshSemiTransState( ModelHandle, i ) ) ;
 
-        // ãƒ¡ãƒƒã‚·ãƒ¥ãŒãƒãƒƒã‚¯ã‚«ãƒªãƒ³ã‚°ã‚’è¡Œã†ã‹ã©ã†ã‹ã‚’æç”»
+        // ƒƒbƒVƒ…‚ªƒoƒbƒNƒJƒŠƒ“ƒO‚ğs‚¤‚©‚Ç‚¤‚©‚ğ•`‰æ
         DrawFormatString( 0, 64, GetColor( 255,255,255 ),  "Back Culling          %d", MV1GetMeshBackCulling( ModelHandle, i ) ) ;
 
-        // ãƒ¡ãƒƒã‚·ãƒ¥ã®é ‚ç‚¹ãƒ‡ã‚£ãƒ•ãƒ¥ãƒ¼ã‚ºã‚«ãƒ©ãƒ¼ã‚’ä½¿ç”¨ã™ã‚‹ã‹ã©ã†ã‹ã‚’æç”»
+        // ƒƒbƒVƒ…‚Ì’¸“_ƒfƒBƒtƒ…[ƒYƒJƒ‰[‚ğg—p‚·‚é‚©‚Ç‚¤‚©‚ğ•`‰æ
         DrawFormatString( 0, 80, GetColor( 255,255,255 ),  "Use Vertex Dif Color  %d", MV1GetMeshUseVertDifColor( ModelHandle, i ) ) ;
 
-        // ãƒ¡ãƒƒã‚·ãƒ¥ã®é ‚ç‚¹ã‚¹ãƒšã‚­ãƒ¥ãƒ©ã‚«ãƒ©ãƒ¼ã‚’ä½¿ç”¨ã™ã‚‹ã‹ã©ã†ã‹ã‚’æç”»
+        // ƒƒbƒVƒ…‚Ì’¸“_ƒXƒyƒLƒ…ƒ‰ƒJƒ‰[‚ğg—p‚·‚é‚©‚Ç‚¤‚©‚ğ•`‰æ
         DrawFormatString( 0, 96, GetColor( 255,255,255 ),  "Use Vertex Spc Color  %d", MV1GetMeshUseVertSpcColor( ModelHandle, i ) ) ;
 
-        // ãƒ¡ãƒƒã‚·ãƒ¥ã«å«ã¾ã‚Œã‚‹é ‚ç‚¹ã®ãƒ­ãƒ¼ã‚«ãƒ«åº§æ¨™ã®æœ€å¤§åº§æ¨™å€¤ã‚’æç”»
+        // ƒƒbƒVƒ…‚ÉŠÜ‚Ü‚ê‚é’¸“_‚Ìƒ[ƒJƒ‹À•W‚ÌÅ‘åÀ•W’l‚ğ•`‰æ
         Position = MV1GetMeshMaxPosition( ModelHandle, i ) ;
         DrawFormatString( 0, 112, GetColor( 255,255,255 ), "Max Position          x %f  y %f  z %f", Position.x, Position.y, Position.z ) ;
 
-        // ãƒ¡ãƒƒã‚·ãƒ¥ã«å«ã¾ã‚Œã‚‹é ‚ç‚¹ã®ãƒ­ãƒ¼ã‚«ãƒ«åº§æ¨™ã®æœ€å°åº§æ¨™å€¤ã‚’æç”»
+        // ƒƒbƒVƒ…‚ÉŠÜ‚Ü‚ê‚é’¸“_‚Ìƒ[ƒJƒ‹À•W‚ÌÅ¬À•W’l‚ğ•`‰æ
         Position = MV1GetMeshMinPosition( ModelHandle, i ) ;
         DrawFormatString( 0, 128, GetColor( 255,255,255 ), "Min Position          x %f  y %f  z %f", Position.x, Position.y, Position.z ) ;
 
-        // ã‚­ãƒ¼ã®å…¥åŠ›å¾…ã¡
+        // ƒL[‚Ì“ü—Í‘Ò‚¿
         WaitKey() ;
     }
 
-    // ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚Ìíœ
     MV1DeleteModel( ModelHandle ) ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

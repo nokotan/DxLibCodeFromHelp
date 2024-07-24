@@ -4,26 +4,26 @@ int main()
 {
     MATERIALPARAM Material ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ï¼ºãƒãƒƒãƒ•ã‚¡ã‚’æœ‰åŠ¹ã«ã™ã‚‹
+    // ‚yƒoƒbƒtƒ@‚ð—LŒø‚É‚·‚é
     SetUseZBuffer3D( TRUE ) ;
 
-    // ï¼ºãƒãƒƒãƒ•ã‚¡ã¸ã®æ›¸ãè¾¼ã¿ã‚’æœ‰åŠ¹ã«ã™ã‚‹
+    // ‚yƒoƒbƒtƒ@‚Ö‚Ì‘‚«ž‚Ý‚ð—LŒø‚É‚·‚é
     SetWriteZBuffer3D( TRUE ) ;
 
-    // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®è¨­å®šã§ï¼“ï¼¤ç©ºé–“ä¸Šã«çƒã‚’æç”»ã™ã‚‹
+    // ƒfƒtƒHƒ‹ƒg‚ÌÝ’è‚Å‚R‚c‹óŠÔã‚É‹…‚ð•`‰æ‚·‚é
     DrawSphere3D( VGet( 160.0f, 200.0f, 0.0f ), 80.0f, 32, GetColor( 128,0,0 ), GetColor( 255,255,255 ), TRUE ) ;
 
-    // é ‚ç‚¹ãƒ‡ãƒ¼ã‚¿ã®ã‚¹ãƒšã‚­ãƒ¥ãƒ©ã‚«ãƒ©ãƒ¼ã‚’ä½¿ç”¨ã—ãªã„ã‚ˆã†ã«ã™ã‚‹
+    // ’¸“_ƒf[ƒ^‚ÌƒXƒyƒLƒ…ƒ‰ƒJƒ‰[‚ðŽg—p‚µ‚È‚¢‚æ‚¤‚É‚·‚é
     SetMaterialUseVertSpcColor( FALSE ) ;
 
-    // ãƒžãƒ†ãƒªã‚¢ãƒ«ã®ã‚¹ãƒšã‚­ãƒ¥ãƒ©ã‚«ãƒ©ãƒ¼ã‚’é»„è‰²ã«ã™ã‚‹
+    // ƒ}ƒeƒŠƒAƒ‹‚ÌƒXƒyƒLƒ…ƒ‰ƒJƒ‰[‚ð‰©F‚É‚·‚é
     Material.Diffuse  = GetColorF( 0.0f, 0.0f, 0.0f, 1.0f ) ;
     Material.Specular = GetColorF( 1.0f, 1.0f, 0.0f, 0.0f ) ;
     Material.Ambient  = GetColorF( 0.0f, 0.0f, 0.0f, 0.0f ) ;
@@ -31,15 +31,15 @@ int main()
     Material.Power    = 20.0f ;
     SetMaterialParam( Material ) ;
 
-    // å†åº¦ï¼“ï¼¤ç©ºé–“ä¸Šã«çƒã‚’æç”»ã™ã‚‹( å¼•æ•° SpcColor ã®å€¤ã¯ç„¡è¦–ã•ã‚Œã¾ã™ )
+    // Ä“x‚R‚c‹óŠÔã‚É‹…‚ð•`‰æ‚·‚é( ˆø” SpcColor ‚Ì’l‚Í–³Ž‹‚³‚ê‚Ü‚· )
     DrawSphere3D( VGet( 480.0f, 200.0f, 0.0f ), 80.0f, 32, GetColor( 128,0,0 ), GetColor( 255,255,255 ), TRUE ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡ã‚’ã™ã‚‹
+    // ƒL[“ü—Í‘Ò‚¿‚ð‚·‚é
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãŽn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

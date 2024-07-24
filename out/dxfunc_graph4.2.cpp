@@ -5,52 +5,52 @@ int main()
     int MaskHandle[ 16 ] ;
     int i ;
 
-    if( DxLib_Init() == -1 )    // ＤＸライブラリ初期化処理
+    if( DxLib_Init() == -1 )    // �c�w���C�u��������������
     {
-         return -1;    // エラーが起きたら直ちに終了
+         return -1;    // �G���[���N�����璼���ɏI��
     }
 
-    // 描画先画面を裏画面にします
+    // �`����ʂ𗠉�ʂɂ��܂�
     SetDrawScreen( DX_SCREEN_BACK ) ;
 
-    // マスク画面を作成します
+    // �}�X�N��ʂ��쐬���܂�
     CreateMaskScreen() ;
 
-    // マスクデータをロードします
+    // �}�X�N�f�[�^�����[�h���܂�
     LoadDivMask( "testMask2.bmp", 16, 8, 2, 8, 16, MaskHandle ) ;
 
-    // マスクを画面全体にタイル上に描画しアニメーションさせます
+    // �}�X�N����ʑS�̂Ƀ^�C����ɕ`�悵�A�j���[�V���������܂�
     for( i = 0 ; i < 16 ; i ++ )
     {
-        // 画面初期化
+        // ��ʏ�����
         ClearDrawScreen() ;
 
-        // 画面全体にタイル上描画
+        // ��ʑS�̂Ƀ^�C����`��
         DrawFillMask( 0 , 0 , 640 , 480 , MaskHandle[ i ] ) ;
 
-        // 画面いっぱいに青い四角を描きます
+        // ��ʂ����ς��ɐ��l�p��`���܂�
         DrawBox( 0 , 0 , 640 , 480 , GetColor( 0 , 0 , 255 ) , TRUE ) ;
 
-        // 時間待ち
+        // ���ԑ҂�
         WaitTimer( 100 ) ;
 
-        // 裏画面の内容を表画面に反映させる
+        // ����ʂ̓��e��\��ʂɔ��f������
         ScreenFlip() ;
     }
 
-    // 最後の時間待ち
+    // �Ō�̎��ԑ҂�
     WaitTimer( 1000 ) ;
 
-    // マスクデータを削除します
+    // �}�X�N�f�[�^���폜���܂�
     for( i = 0 ; i < 16 ; i ++ )
     {
         DeleteMask( MaskHandle[ i ] ) ;
     }
 
-    // マスク画面を削除します
+    // �}�X�N��ʂ��폜���܂�
     DeleteMaskScreen() ;
 
-    DxLib_End() ;        // ＤＸライブラリ使用の終了処理
+    DxLib_End() ;        // �c�w���C�u�����g�p�̏I������
 
-    return 0 ;        // ソフトの終了
+    return 0 ;        // �\�t�g�̏I��
 }

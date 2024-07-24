@@ -7,51 +7,51 @@ int main()
 	int ShadowMapHandle ;
 	float Adjust ;
 
-	// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
 	if( DxLib_Init() < 0 )
 	{
-		// ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰çµ‚äº†
+		// ƒGƒ‰[‚ª”­¶‚µ‚½‚çI—¹
 		return -1 ;
 	}
 
-	// æç”»å…ˆã‚’è£ç”»é¢ã«å¤‰æ›´
+	// •`‰ææ‚ğ— ‰æ–Ê‚É•ÏX
 	SetDrawScreen( DX_SCREEN_BACK ) ;
 
-	// ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+	// ƒLƒƒƒ‰ƒNƒ^[ƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ
 	CharaModelHandle = MV1LoadModel( "DxChara.x" ) ;
 
-	// ã‚¹ãƒ†ãƒ¼ã‚¸ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+	// ƒXƒe[ƒWƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ
 	StageModelHandle = MV1LoadModel( "Plane.mqo" ) ;
 
-	// ã‚·ãƒ£ãƒ‰ã‚¦ãƒãƒƒãƒ—ãƒãƒ³ãƒ‰ãƒ«ã®ä½œæˆ
+	// ƒVƒƒƒhƒEƒ}ƒbƒvƒnƒ“ƒhƒ‹‚Ìì¬
 	ShadowMapHandle = MakeShadowMap( 1024, 1024 ) ;
 
-	// ã‚«ãƒ¡ãƒ©ã®ä½ç½®ã¨å‘ãã‚’è¨­å®š
+	// ƒJƒƒ‰‚ÌˆÊ’u‚ÆŒü‚«‚ğİ’è
 	SetCameraPositionAndTarget_UpVecY( VGet( 0.0f, 800.0f, -800.0f ), VGet( 0.000f, 500.000f, 0.000f ) );
 
-	// æç”»ã™ã‚‹å¥¥è¡Œãæ–¹å‘ã®ç¯„å›²ã‚’è¨­å®š
+	// •`‰æ‚·‚é‰œs‚«•ûŒü‚Ì”ÍˆÍ‚ğİ’è
 	SetCameraNearFar( 40.000f, 2000.000f );
 
-	// ãƒ©ã‚¤ãƒˆã®æ–¹å‘ã‚’è¨­å®š
+	// ƒ‰ƒCƒg‚Ì•ûŒü‚ğİ’è
 	SetLightDirection( VGet( 0.5f, -0.5f, 0.5f ) );
 
-	// ã‚·ãƒ£ãƒ‰ã‚¦ãƒãƒƒãƒ—ãŒæƒ³å®šã™ã‚‹ãƒ©ã‚¤ãƒˆã®æ–¹å‘ã‚‚ã‚»ãƒƒãƒˆ
+	// ƒVƒƒƒhƒEƒ}ƒbƒv‚ª‘z’è‚·‚éƒ‰ƒCƒg‚Ì•ûŒü‚àƒZƒbƒg
 	SetShadowMapLightDirection( ShadowMapHandle, VGet( 0.5f, -0.5f, 0.5f ) ) ;
 
-	// ã‚·ãƒ£ãƒ‰ã‚¦ãƒãƒƒãƒ—ã«æç”»ã™ã‚‹ç¯„å›²ã‚’è¨­å®š
+	// ƒVƒƒƒhƒEƒ}ƒbƒv‚É•`‰æ‚·‚é”ÍˆÍ‚ğİ’è
 	SetShadowMapDrawArea( ShadowMapHandle, VGet( -1000.0f, -1.0f, -1000.0f ), VGet( 1000.0f, 1000.0f, 1000.0f ) ) ;
 
-	// è£œæ­£å€¤ã‚’åˆæœŸåŒ–
+	// •â³’l‚ğ‰Šú‰»
 	Adjust = 0.002f ;
 
-	// ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒ—
+	// ƒƒCƒ“ƒ‹[ƒv
 	while( ProcessMessage() == 0 )
 	{
-		// ç”»é¢ã‚’ã‚¯ãƒªã‚¢
+		// ‰æ–Ê‚ğƒNƒŠƒA
 		ClearDrawScreen() ;
 
 
-		// ä¸Šä¸‹ã‚­ãƒ¼ã§è£œæ­£å€¤ã‚’å¤‰æ›´
+		// ã‰ºƒL[‚Å•â³’l‚ğ•ÏX
 		if( CheckHitKey( KEY_INPUT_UP ) == 1 )
 		{
 			Adjust += 0.001f ;
@@ -64,52 +64,52 @@ int main()
 		SetShadowMapAdjustDepth( ShadowMapHandle, Adjust ) ;
 
 
-		// ã‚·ãƒ£ãƒ‰ã‚¦ãƒãƒƒãƒ—ã¸ã®æç”»ã®æº–å‚™
+		// ƒVƒƒƒhƒEƒ}ƒbƒv‚Ö‚Ì•`‰æ‚Ì€”õ
 		ShadowMap_DrawSetup( ShadowMapHandle ) ;
 
-		// ã‚·ãƒ£ãƒ‰ã‚¦ãƒãƒƒãƒ—ã¸ã‚¹ãƒ†ãƒ¼ã‚¸ãƒ¢ãƒ‡ãƒ«ã®æç”»
+		// ƒVƒƒƒhƒEƒ}ƒbƒv‚ÖƒXƒe[ƒWƒ‚ƒfƒ‹‚Ì•`‰æ
 		MV1DrawModel( StageModelHandle ) ;
 
-		// ã‚·ãƒ£ãƒ‰ã‚¦ãƒãƒƒãƒ—ã¸ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ãƒ¢ãƒ‡ãƒ«ã®æç”»
+		// ƒVƒƒƒhƒEƒ}ƒbƒv‚ÖƒLƒƒƒ‰ƒNƒ^[ƒ‚ƒfƒ‹‚Ì•`‰æ
 		MV1DrawModel( CharaModelHandle ) ;
 
-		// ã‚·ãƒ£ãƒ‰ã‚¦ãƒãƒƒãƒ—ã¸ã®æç”»ã‚’çµ‚äº†
+		// ƒVƒƒƒhƒEƒ}ƒbƒv‚Ö‚Ì•`‰æ‚ğI—¹
 		ShadowMap_DrawEnd() ;
 
 
-		// æç”»ã«ä½¿ç”¨ã™ã‚‹ã‚·ãƒ£ãƒ‰ã‚¦ãƒãƒƒãƒ—ã‚’è¨­å®š
+		// •`‰æ‚Ég—p‚·‚éƒVƒƒƒhƒEƒ}ƒbƒv‚ğİ’è
 		SetUseShadowMap( 0, ShadowMapHandle ) ;
 
-		// ã‚¹ãƒ†ãƒ¼ã‚¸ãƒ¢ãƒ‡ãƒ«ã®æç”»
+		// ƒXƒe[ƒWƒ‚ƒfƒ‹‚Ì•`‰æ
 		MV1DrawModel( StageModelHandle ) ;
 
-		// ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ãƒ¢ãƒ‡ãƒ«ã®æç”»
+		// ƒLƒƒƒ‰ƒNƒ^[ƒ‚ƒfƒ‹‚Ì•`‰æ
 		MV1DrawModel( CharaModelHandle ) ;
 
-		// æç”»ã«ä½¿ç”¨ã™ã‚‹ã‚·ãƒ£ãƒ‰ã‚¦ãƒãƒƒãƒ—ã®è¨­å®šã‚’è§£é™¤
+		// •`‰æ‚Ég—p‚·‚éƒVƒƒƒhƒEƒ}ƒbƒv‚Ìİ’è‚ğ‰ğœ
 		SetUseShadowMap( 0, -1 ) ;
 
 
-		// ç¾åœ¨ã®è£œæ­£å€¤ã‚’ç”»é¢ã«æç”»
+		// Œ»İ‚Ì•â³’l‚ğ‰æ–Ê‚É•`‰æ
 		DrawFormatString( 0, 0, GetColor( 255,255,255 ), "Adjust Depth:%f", Adjust ) ;
 
 
-		// è£ç”»é¢ã®å†…å®¹ã‚’è¡¨ç”»é¢ã«åæ˜ 
+		// — ‰æ–Ê‚Ì“à—e‚ğ•\‰æ–Ê‚É”½‰f
 		ScreenFlip() ;
 	}
 
-	// ã‚·ãƒ£ãƒ‰ã‚¦ãƒãƒƒãƒ—ã®å‰Šé™¤
+	// ƒVƒƒƒhƒEƒ}ƒbƒv‚Ìíœ
 	DeleteShadowMap( ShadowMapHandle ) ;
 
-	// ã‚¹ãƒ†ãƒ¼ã‚¸ãƒ¢ãƒ‡ãƒ«ã®å‰Šé™¤
+	// ƒXƒe[ƒWƒ‚ƒfƒ‹‚Ìíœ
 	MV1DeleteModel( StageModelHandle ) ;
 
-	// ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ãƒ¢ãƒ‡ãƒ«ã®å‰Šé™¤
+	// ƒLƒƒƒ‰ƒNƒ^[ƒ‚ƒfƒ‹‚Ìíœ
 	MV1DeleteModel( CharaModelHandle ) ;
 
-	// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
 	DxLib_End() ;
 
-	// ã‚½ãƒ•ãƒˆã®çµ‚äº†
+	// ƒ\ƒtƒg‚ÌI—¹
 	return 0 ;
 }

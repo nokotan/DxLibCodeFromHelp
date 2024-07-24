@@ -4,17 +4,17 @@ int main()
 {
     MATRIX Matrix ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // å˜ä½è¡Œåˆ—ã‚’ Matrix ã«ä»£å…¥
+    // ’PˆÊs—ñ‚ð Matrix ‚É‘ã“ü
     Matrix = MGetIdent() ;
 
-    // Matrix ã®å€¤ã‚’ç”»é¢ã«è¡¨ç¤º
+    // Matrix ‚Ì’l‚ð‰æ–Ê‚É•\Ž¦
     DrawFormatString( 0,  0, GetColor( 255,255,255 ), "m00 %f  m01 %f  m02 %f  m03 %f",
         Matrix.m[0][0], Matrix.m[0][1], Matrix.m[0][2], Matrix.m[0][3] ) ;
 
@@ -27,12 +27,12 @@ int main()
     DrawFormatString( 0, 48, GetColor( 255,255,255 ), "m30 %f  m31 %f  m32 %f  m33 %f",
         Matrix.m[3][0], Matrix.m[3][1], Matrix.m[3][2], Matrix.m[3][3] ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãŽn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

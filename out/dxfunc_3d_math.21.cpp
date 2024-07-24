@@ -5,28 +5,28 @@ int main()
     MATRIX Matrix, Matrix1, Matrix2 ;
     VECTOR Vect1, Vect2 ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ï¼ï¼ï¼˜å€ã«æ‹¡å¤§ã™ã‚‹è¡Œåˆ—ã¨ï¼ï¼ï¼’å€ã«æ‹¡å¤§ã™ã‚‹è¡Œåˆ—ã‚’ Matrix1 ã¨ Matrix2 ã«ä»£å…¥
+    // ‚OD‚W”{‚ÉŠg‘å‚·‚és—ñ‚Æ‚OD‚Q”{‚ÉŠg‘å‚·‚és—ñ‚ğ Matrix1 ‚Æ Matrix2 ‚É‘ã“ü
     Matrix1 = MGetScale( VGet( 0.8f, 0.8f, 0.8f ) ) ;
     Matrix2 = MGetScale( VGet( 0.2f, 0.2f, 0.2f ) ) ;
 
-    // äºŒã¤ã®è¡Œåˆ—ã‚’è¶³ã—ãŸã‚‚ã®ã‚’ Matrix ã«ä»£å…¥
+    // “ñ‚Â‚Ìs—ñ‚ğ‘«‚µ‚½‚à‚Ì‚ğ Matrix ‚É‘ã“ü
     Matrix = MAdd( Matrix1, Matrix2 ) ;
 
-    // é©å½“ãªå€¤ã‚’ Vect1 ã«ä»£å…¥
+    // “K“–‚È’l‚ğ Vect1 ‚É‘ã“ü
     Vect1 = VGet( 100.0f, 0.0f, 200.0f ) ;
 
-    // Vect1 ã‚’ Matrix3 ã‚’ä½¿ç”¨ã—ã¦å¤‰æ›ã—ãŸå€¤ã‚’ Vect2 ã«ä»£å…¥
+    // Vect1 ‚ğ Matrix3 ‚ğg—p‚µ‚Ä•ÏŠ·‚µ‚½’l‚ğ Vect2 ‚É‘ã“ü
     Vect2 = VTransform( Vect1, Matrix ) ;
 
-    // Matrix1 ã®å€¤ã‚’ç”»é¢ã«è¡¨ç¤º
-    DrawString( 0, 0, "ï¼ï¼ï¼˜å€è¡Œåˆ—", GetColor( 255,255,255 ) ) ;
+    // Matrix1 ‚Ì’l‚ğ‰æ–Ê‚É•\¦
+    DrawString( 0, 0, "‚OD‚W”{s—ñ", GetColor( 255,255,255 ) ) ;
     DrawFormatString( 0, 16, GetColor( 255,255,255 ), "m00 %f  m01 %f  m02 %f  m03 %f",
         Matrix1.m[0][0], Matrix1.m[0][1], Matrix1.m[0][2], Matrix1.m[0][3] ) ;
 
@@ -39,8 +39,8 @@ int main()
     DrawFormatString( 0, 64, GetColor( 255,255,255 ), "m30 %f  m31 %f  m32 %f  m33 %f",
         Matrix1.m[3][0], Matrix1.m[3][1], Matrix1.m[3][2], Matrix1.m[3][3] ) ;
 
-    // Matrix2 ã®å€¤ã‚’ç”»é¢ã«è¡¨ç¤º
-    DrawString( 0, 96, "ï¼ï¼ï¼’å€è¡Œåˆ—", GetColor( 255,255,255 ) ) ;
+    // Matrix2 ‚Ì’l‚ğ‰æ–Ê‚É•\¦
+    DrawString( 0, 96, "‚OD‚Q”{s—ñ", GetColor( 255,255,255 ) ) ;
     DrawFormatString( 0, 112, GetColor( 255,255,255 ), "m00 %f  m01 %f  m02 %f  m03 %f",
         Matrix2.m[0][0], Matrix2.m[0][1], Matrix2.m[0][2], Matrix2.m[0][3] ) ;
 
@@ -53,8 +53,8 @@ int main()
     DrawFormatString( 0, 160, GetColor( 255,255,255 ), "m30 %f  m31 %f  m32 %f  m33 %f",
         Matrix2.m[3][0], Matrix2.m[3][1], Matrix2.m[3][2], Matrix2.m[3][3] ) ;
 
-    // Matrix ã®å€¤ã‚’ç”»é¢ã«è¡¨ç¤º
-    DrawString( 0, 192, "åŠ ç®—å¾Œã®è¡Œåˆ—", GetColor( 255,255,255 ) ) ;
+    // Matrix ‚Ì’l‚ğ‰æ–Ê‚É•\¦
+    DrawString( 0, 192, "‰ÁZŒã‚Ìs—ñ", GetColor( 255,255,255 ) ) ;
     DrawFormatString( 0, 208, GetColor( 255,255,255 ), "m00 %f  m01 %f  m02 %f  m03 %f",
         Matrix.m[0][0], Matrix.m[0][1], Matrix.m[0][2], Matrix.m[0][3] ) ;
 
@@ -67,20 +67,20 @@ int main()
     DrawFormatString( 0, 256, GetColor( 255,255,255 ), "m30 %f  m31 %f  m32 %f  m33 %f",
         Matrix.m[3][0], Matrix.m[3][1], Matrix.m[3][2], Matrix.m[3][3] ) ;
 
-    // å¤‰æ›å…ƒã®ãƒ™ã‚¯ãƒˆãƒ«å€¤ Vect1 ã‚’ç”»é¢ã«è¡¨ç¤º
-    DrawString( 0, 288, "å¤‰æ›å‰ã®ãƒ™ã‚¯ãƒˆãƒ«", GetColor( 255,255,255 ) ) ;
+    // •ÏŠ·Œ³‚ÌƒxƒNƒgƒ‹’l Vect1 ‚ğ‰æ–Ê‚É•\¦
+    DrawString( 0, 288, "•ÏŠ·‘O‚ÌƒxƒNƒgƒ‹", GetColor( 255,255,255 ) ) ;
     DrawFormatString( 0, 304, GetColor( 255,255,255 ), "x=%f y=%f z=%f", Vect1.x, Vect1.y, Vect1.z ) ;
 
-    // å¤‰æ›å¾Œã®ãƒ™ã‚¯ãƒˆãƒ«å€¤ Vect2 ã‚’ç”»é¢ã«è¡¨ç¤º
-    DrawString( 0, 336, "å¤‰æ›å¾Œã®ãƒ™ã‚¯ãƒˆãƒ«", GetColor( 255,255,255 ) ) ;
+    // •ÏŠ·Œã‚ÌƒxƒNƒgƒ‹’l Vect2 ‚ğ‰æ–Ê‚É•\¦
+    DrawString( 0, 336, "•ÏŠ·Œã‚ÌƒxƒNƒgƒ‹", GetColor( 255,255,255 ) ) ;
     DrawFormatString( 0, 352, GetColor( 255,255,255 ), "x=%f y=%f z=%f", Vect2.x, Vect2.y, Vect2.z ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

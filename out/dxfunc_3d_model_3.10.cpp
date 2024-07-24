@@ -5,83 +5,83 @@ int main()
     int ModelHandle, TriangleListNum, i, TriangleListIndex ;
     int y ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // ï¼“ï¼¤ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
+    // ‚R‚cƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ
     ModelHandle = MV1LoadModel( "DxChara.x" ) ;
 
-    // ï¼‘ç•ªç›®ã®ãƒ¡ãƒƒã‚·ãƒ¥ã«å«ã¾ã‚Œã‚‹ãƒˆãƒ©ã‚¤ã‚¢ãƒ³ã‚°ãƒ«ãƒªã‚¹ãƒˆã®æ•°ã‚’å–å¾—ã™ã‚‹
+    // ‚P”Ô–Ú‚ÌƒƒbƒVƒ…‚ÉŠÜ‚Ü‚ê‚éƒgƒ‰ƒCƒAƒ“ƒOƒ‹ƒŠƒXƒg‚Ì”‚ğæ“¾‚·‚é
     TriangleListNum = MV1GetMeshTListNum( ModelHandle, 1 ) ;
 
-    // ãƒˆãƒ©ã‚¤ã‚¢ãƒ³ã‚°ãƒ«ãƒªã‚¹ãƒˆã®æ•°ã ã‘ãƒ«ãƒ¼ãƒ—
+    // ƒgƒ‰ƒCƒAƒ“ƒOƒ‹ƒŠƒXƒg‚Ì”‚¾‚¯ƒ‹[ƒv
     y = 0 ;
     for( i = 0 ; i < TriangleListNum ; i ++ )
     {
-        // ãƒˆãƒ©ã‚¤ã‚¢ãƒ³ã‚°ãƒ«ãƒªã‚¹ãƒˆç•ªå·ã®å–å¾—
+        // ƒgƒ‰ƒCƒAƒ“ƒOƒ‹ƒŠƒXƒg”Ô†‚Ìæ“¾
         TriangleListIndex = MV1GetMeshTList( ModelHandle, 1, i ) ;
 
-        // ãƒˆãƒ©ã‚¤ã‚¢ãƒ³ã‚°ãƒ«ãƒªã‚¹ãƒˆç•ªå·ã‚’æç”»
+        // ƒgƒ‰ƒCƒAƒ“ƒOƒ‹ƒŠƒXƒg”Ô†‚ğ•`‰æ
         DrawFormatString( 0, y, GetColor( 255,255,255 ), "TriangleListIndex %d", TriangleListIndex ) ;
 
-        // ãƒˆãƒ©ã‚¤ã‚¢ãƒ³ã‚°ãƒ«ãƒªã‚¹ãƒˆã®é ‚ç‚¹ã‚¿ã‚¤ãƒ—ã‚’æç”»
+        // ƒgƒ‰ƒCƒAƒ“ƒOƒ‹ƒŠƒXƒg‚Ì’¸“_ƒ^ƒCƒv‚ğ•`‰æ
         switch( MV1GetTriangleListVertexType( ModelHandle, TriangleListIndex ) )
         {
         case DX_MV1_VERTEX_TYPE_1FRAME :
-            DrawString( 0, y + 16, "é ‚ç‚¹ã‚¿ã‚¤ãƒ—ï¼šï¼‘ãƒ•ãƒ¬ãƒ¼ãƒ ã®å½±éŸ¿ã‚’å—ã‘ã‚‹é ‚ç‚¹", GetColor( 255,255,255 ) ) ;
+            DrawString( 0, y + 16, "’¸“_ƒ^ƒCƒvF‚PƒtƒŒ[ƒ€‚Ì‰e‹¿‚ğó‚¯‚é’¸“_", GetColor( 255,255,255 ) ) ;
             break ;
 
         case DX_MV1_VERTEX_TYPE_4FRAME :
-            DrawString( 0, y + 16, "é ‚ç‚¹ã‚¿ã‚¤ãƒ—ï¼šï¼‘ï½ï¼”ãƒ•ãƒ¬ãƒ¼ãƒ ã®å½±éŸ¿ã‚’å—ã‘ã‚‹é ‚ç‚¹", GetColor( 255,255,255 ) ) ;
+            DrawString( 0, y + 16, "’¸“_ƒ^ƒCƒvF‚P`‚SƒtƒŒ[ƒ€‚Ì‰e‹¿‚ğó‚¯‚é’¸“_", GetColor( 255,255,255 ) ) ;
             break ;
 
         case DX_MV1_VERTEX_TYPE_8FRAME :
-            DrawString( 0, y + 16, "é ‚ç‚¹ã‚¿ã‚¤ãƒ—ï¼šï¼‘ï½ï¼˜ãƒ•ãƒ¬ãƒ¼ãƒ ã®å½±éŸ¿ã‚’å—ã‘ã‚‹é ‚ç‚¹", GetColor( 255,255,255 ) ) ;
+            DrawString( 0, y + 16, "’¸“_ƒ^ƒCƒvF‚P`‚WƒtƒŒ[ƒ€‚Ì‰e‹¿‚ğó‚¯‚é’¸“_", GetColor( 255,255,255 ) ) ;
             break ;
 
         case DX_MV1_VERTEX_TYPE_FREE_FRAME :
-            DrawString( 0, y + 16, "é ‚ç‚¹ã‚¿ã‚¤ãƒ—ï¼šï¼™ãƒ•ãƒ¬ãƒ¼ãƒ ä»¥ä¸Šã®å½±éŸ¿ã‚’å—ã‘ã‚‹é ‚ç‚¹", GetColor( 255,255,255 ) ) ;
+            DrawString( 0, y + 16, "’¸“_ƒ^ƒCƒvF‚XƒtƒŒ[ƒ€ˆÈã‚Ì‰e‹¿‚ğó‚¯‚é’¸“_", GetColor( 255,255,255 ) ) ;
             break ;
 
         case DX_MV1_VERTEX_TYPE_NMAP_1FRAME :
-            DrawString( 0, y + 16, "é ‚ç‚¹ã‚¿ã‚¤ãƒ—ï¼šæ³•ç·šãƒãƒƒãƒ—ç”¨ã®æƒ…å ±ãŒå«ã¾ã‚Œã‚‹ï¼‘ãƒ•ãƒ¬ãƒ¼ãƒ ã®å½±éŸ¿ã‚’å—ã‘ã‚‹é ‚ç‚¹", GetColor( 255,255,255 ) ) ;
+            DrawString( 0, y + 16, "’¸“_ƒ^ƒCƒvF–@üƒ}ƒbƒv—p‚Ìî•ñ‚ªŠÜ‚Ü‚ê‚é‚PƒtƒŒ[ƒ€‚Ì‰e‹¿‚ğó‚¯‚é’¸“_", GetColor( 255,255,255 ) ) ;
             break ;
 
         case DX_MV1_VERTEX_TYPE_NMAP_4FRAME :
-            DrawString( 0, y + 16, "é ‚ç‚¹ã‚¿ã‚¤ãƒ—ï¼šæ³•ç·šãƒãƒƒãƒ—ç”¨ã®æƒ…å ±ãŒå«ã¾ã‚Œã‚‹ï¼‘ï½ï¼”ãƒ•ãƒ¬ãƒ¼ãƒ ã®å½±éŸ¿ã‚’å—ã‘ã‚‹é ‚ç‚¹", GetColor( 255,255,255 ) ) ;
+            DrawString( 0, y + 16, "’¸“_ƒ^ƒCƒvF–@üƒ}ƒbƒv—p‚Ìî•ñ‚ªŠÜ‚Ü‚ê‚é‚P`‚SƒtƒŒ[ƒ€‚Ì‰e‹¿‚ğó‚¯‚é’¸“_", GetColor( 255,255,255 ) ) ;
             break ;
 
         case DX_MV1_VERTEX_TYPE_NMAP_8FRAME :
-            DrawString( 0, y + 16, "é ‚ç‚¹ã‚¿ã‚¤ãƒ—ï¼šæ³•ç·šãƒãƒƒãƒ—ç”¨ã®æƒ…å ±ãŒå«ã¾ã‚Œã‚‹ï¼‘ï½ï¼˜ãƒ•ãƒ¬ãƒ¼ãƒ ã®å½±éŸ¿ã‚’å—ã‘ã‚‹é ‚ç‚¹", GetColor( 255,255,255 ) ) ;
+            DrawString( 0, y + 16, "’¸“_ƒ^ƒCƒvF–@üƒ}ƒbƒv—p‚Ìî•ñ‚ªŠÜ‚Ü‚ê‚é‚P`‚WƒtƒŒ[ƒ€‚Ì‰e‹¿‚ğó‚¯‚é’¸“_", GetColor( 255,255,255 ) ) ;
             break ;
 
         case DX_MV1_VERTEX_TYPE_NMAP_FREE_FRAME :
-            DrawString( 0, y + 16, "é ‚ç‚¹ã‚¿ã‚¤ãƒ—ï¼šæ³•ç·šãƒãƒƒãƒ—ç”¨ã®æƒ…å ±ãŒå«ã¾ã‚Œã‚‹ï¼™ãƒ•ãƒ¬ãƒ¼ãƒ ä»¥ä¸Šã®å½±éŸ¿ã‚’å—ã‘ã‚‹é ‚ç‚¹", GetColor( 255,255,255 ) ) ;
+            DrawString( 0, y + 16, "’¸“_ƒ^ƒCƒvF–@üƒ}ƒbƒv—p‚Ìî•ñ‚ªŠÜ‚Ü‚ê‚é‚XƒtƒŒ[ƒ€ˆÈã‚Ì‰e‹¿‚ğó‚¯‚é’¸“_", GetColor( 255,255,255 ) ) ;
             break ;
         }
 
-        // ãƒˆãƒ©ã‚¤ã‚¢ãƒ³ã‚°ãƒ«ãƒªã‚¹ãƒˆã®ãƒãƒªã‚´ãƒ³æ•°ã¨é ‚ç‚¹æ•°ã‚’æç”»
-        DrawFormatString( 0, y + 32, GetColor( 255,255,255 ), "ãƒãƒªã‚´ãƒ³æ•°ï¼š%-5d   é ‚ç‚¹æ•°ï¼š%-5d",
+        // ƒgƒ‰ƒCƒAƒ“ƒOƒ‹ƒŠƒXƒg‚Ìƒ|ƒŠƒSƒ“”‚Æ’¸“_”‚ğ•`‰æ
+        DrawFormatString( 0, y + 32, GetColor( 255,255,255 ), "ƒ|ƒŠƒSƒ“”F%-5d   ’¸“_”F%-5d",
             MV1GetTriangleListPolygonNum( ModelHandle, TriangleListIndex ),
             MV1GetTriangleListVertexNum( ModelHandle, TriangleListIndex ) ) ;
 
-        // æç”»ï¼¹åº§æ¨™ã‚’é€²ã‚ã‚‹
+        // •`‰æ‚xÀ•W‚ği‚ß‚é
         y += 64 ;
     }
 
-    // ãƒ¢ãƒ‡ãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®å‰Šé™¤
+    // ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹‚Ìíœ
     MV1DeleteModel( ModelHandle ) ;
 
-    // ã‚­ãƒ¼ã®å…¥åŠ›å¾…ã¡
+    // ƒL[‚Ì“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }

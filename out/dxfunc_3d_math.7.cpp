@@ -4,25 +4,25 @@ int main()
 {
     VECTOR Vect ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
     if( DxLib_Init() < 0 )
     {
-        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ç›´ã¡ã«çµ‚äº†
+        // ƒGƒ‰[‚ª”­¶‚µ‚½‚ç’¼‚¿‚ÉI—¹
         return -1 ;
     }
 
-    // Vect ã«å€¤ã‚’ä»£å…¥
+    // Vect ‚É’l‚ð‘ã“ü
     Vect = VGet( 100.0f, 200.0f, 500.0f ) ;
 
-    // Vect ã®ã‚µã‚¤ã‚ºã®äºŒä¹—ã‚’ç”»é¢ã«è¡¨ç¤º
+    // Vect ‚ÌƒTƒCƒY‚Ì“ñæ‚ð‰æ–Ê‚É•\Ž¦
     DrawFormatString( 0, 0, GetColor( 255,255,255 ), "Size  %f", VSquareSize( Vect ) ) ;
 
-    // ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
+    // ƒL[“ü—Í‘Ò‚¿
     WaitKey() ;
 
-    // ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å¾Œå§‹æœ«
+    // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌŒãŽn––
     DxLib_End() ;
 
-    // ã‚½ãƒ•ãƒˆã®çµ‚äº†
+    // ƒ\ƒtƒg‚ÌI—¹
     return 0 ;
 }
