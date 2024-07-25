@@ -2,10 +2,12 @@ cmake_minimum_required(VERSION 3.22)
 
 project(DxLibCodeFromHelp)
 
+# Config
 set(DxLibInstallDir "./DxLib" CACHE STRING "DXライブラリのインストールパス")
 
 file(GLOB SourceFiles ${CMAKE_CURRENT_SOURCE_DIR}/out/*.cpp)
 
+# executable generation
 foreach(Source IN LISTS SourceFiles)
     get_filename_component(FileName ${Source} NAME)
 
@@ -26,4 +28,12 @@ foreach(Source IN LISTS SourceFiles)
         target_compile_options(${FileName} PUBLIC "/MT")
     endif()
 
+endforeach()
+
+enable_testing()
+
+foreach(Source IN LISTS SourceFiles)
+    get_filename_component(FileName ${Source} NAME)
+
+    add_test(NAME "run_test_${FileName}" COMMAND ${FileName} WORKING_DIRECTORY ${DxLibCodeFromHelp_BINARY_DIR})
 endforeach()
