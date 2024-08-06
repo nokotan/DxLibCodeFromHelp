@@ -4,8 +4,15 @@ project(DxLibCodeFromHelp)
 
 # Config
 set(DxLibInstallDir "./DxLib" CACHE STRING "DXライブラリのインストールパス")
+set(DxLibHTML5InstallDir "./DxLibForHTML5" CACHE STRING "DXライブラリ HTML5版のインストールパス")
 
-file(GLOB SourceFiles ${CMAKE_CURRENT_SOURCE_DIR}/out/*.cpp)
+include(./PlatformSpecific.cmake)
+
+if(MSVC)
+    file(GLOB SourceFiles ${CMAKE_CURRENT_SOURCE_DIR}/out/sjis/*.cpp)
+else()
+    file(GLOB SourceFiles ${CMAKE_CURRENT_SOURCE_DIR}/out/utf8/*.cpp)
+endif()
 
 # executable generation
 foreach(Source IN LISTS SourceFiles)
@@ -15,19 +22,9 @@ foreach(Source IN LISTS SourceFiles)
 
     target_sources(${FileName} PRIVATE ${Source} ${CMAKE_CURRENT_SOURCE_DIR}/hook/Hook.cpp)
     target_compile_definitions(${FileName} PRIVATE SAVED_SCREENSHOT_PATH=\"screen/${FileName}.bmp\")
-    target_include_directories(${FileName} PRIVATE ${DxLibInstallDir})
-    target_link_directories(${FileName} PRIVATE ${DxLibInstallDir})
     target_link_libraries(${FileName} PRIVATE DxLib DxDrawFunc DxUseCLib)
 
-    target_compile_options(${FileName} PRIVATE "/FI${CMAKE_CURRENT_SOURCE_DIR}/hook/Hook.hpp")
-    target_link_options(${FileName} PRIVATE "/SUBSYSTEM:Windows")
-
-    if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-        target_compile_options(${FileName} PUBLIC "/MTd")
-    else()
-        target_compile_options(${FileName} PUBLIC "/MT")
-    endif()
-
+    AddPlatformSpecificOptions(${FileName})
 endforeach()
 
 enable_testing()
@@ -35,5 +32,12 @@ enable_testing()
 foreach(Source IN LISTS SourceFiles)
     get_filename_component(FileName ${Source} NAME)
 
-    add_test(NAME "run_test_${FileName}" COMMAND ${FileName} WORKING_DIRECTORY ${DxLibCodeFromHelp_BINARY_DIR})
+    if(MSVC)
+        add_test(NAME "run_test_${FileName}" COMMAND ${FileName} WORKING_DIRECTORY ${DxLibCodeFromHelp_BINARY_DIR})
+    elseif(EMSCRIPTEN)
+        add_test(NAME "run_test_${FileName}" 
+            COMMAND emrun.bat --kill-exit ${FileName}.html
+            WORKING_DIRECTORY ${DxLibCodeFromHelp_BINARY_DIR}
+        )
+    endif()
 endforeach()

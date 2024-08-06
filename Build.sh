@@ -6,5 +6,7 @@ if [ ! -e ./dxlib.zip ]; then
 fi
 
 mkdir out || true
+mkdir out/sjis || true
+mkdir out/utf8 || true
 rm out/* || true
 node main.mjs out DxLib_Android/help/function/*.html

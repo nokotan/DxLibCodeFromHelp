@@ -28,9 +28,12 @@ async function main(args) {
             .map(t => t.replace("int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow )", "int main()"));
 
         await Promise.all(text.map(async (t, i) => {
-            const outFile = path.join(outputDir, path.basename(filePath, ".html") + "." + i.toString() + ".cpp");
+            const outFile = path.join(outputDir, "sjis", path.basename(filePath, ".html") + "." + i.toString() + ".cpp");
             const encoded = iconv.encode(t, "sjis");
             await fs.writeFile(outFile, encoded);
+
+            const utf8OutFile = path.join(outputDir, "utf8", path.basename(filePath, ".html") + "." + i.toString() + ".cpp");
+            await fs.writeFile(utf8OutFile, t);
         }));
     }
 }
