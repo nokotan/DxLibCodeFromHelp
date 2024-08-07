@@ -12,7 +12,7 @@ int main()
     Cr = GetColor(   0 ,   0 , 255 ) ;            // 青色の値を取得
 
     // 楕円を描画
-    DrawOvalAA( 320.0f , 240.0f , 150.0f , 100.0f ,  Cr , TRUE ) ;
+    DrawOvalAA( 320.0f , 240.0f , 150.0f , 100.0f ,  32, Cr , TRUE ) ;
 
     WaitKey() ;                    // キーの入力待ち((7-3)『WaitKey』を使用)
 
